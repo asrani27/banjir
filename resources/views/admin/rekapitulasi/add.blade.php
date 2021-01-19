@@ -52,13 +52,13 @@
           <div class="form-group row">
             <label for="inputPassword3" class="col-sm-2 col-form-label">Jumlah Terdampak</label>
             <div class="col-sm-1">
-              <input type="text" class="form-control" name="terdampak_kk" style="text-transform: uppercase" value="0">
+              <input type="text" class="form-control" name="terdampak_kk" style="text-transform: uppercase" value="0"  maxlength="6" onkeypress="return hanyaAngka(event)">
             </div>
             <div class="col-sm-1 col-form-label">
               <strong>KK</strong>
             </div>
             <div class="col-sm-1">
-              <input type="text" class="form-control" name="terdampak_jiwa" style="text-transform: uppercase" value="0"> 
+              <input type="text" class="form-control" name="terdampak_jiwa" style="text-transform: uppercase" value="0"  maxlength="6" onkeypress="return hanyaAngka(event)"> 
             </div>
             <div class="col-sm-1 col-form-label">
               <strong>JIWA</strong>
@@ -67,13 +67,13 @@
           <div class="form-group row">
             <label for="inputPassword3" class="col-sm-2 col-form-label">Jumlah Mengungsi</label>
             <div class="col-sm-1">
-              <input type="text" class="form-control" name="mengungsi_kk" style="text-transform: uppercase" value="0">
+              <input type="text" class="form-control" name="mengungsi_kk" style="text-transform: uppercase" value="0" maxlength="6" onkeypress="return hanyaAngka(event)">
             </div>
             <div class="col-sm-1 col-form-label">
               <strong>KK</strong>
             </div>
             <div class="col-sm-1">
-              <input type="text" class="form-control" name="mengungsi_jiwa" style="text-transform: uppercase" value="0"> 
+              <input type="text" class="form-control" name="mengungsi_jiwa" style="text-transform: uppercase" value="0" maxlength="6" onkeypress="return hanyaAngka(event)"> 
             </div>
             <div class="col-sm-1 col-form-label">
               <strong>JIWA</strong>
@@ -100,6 +100,12 @@
 @endsection
 
 @push('js')
-
-
+<script>
+  function hanyaAngka(event) {
+      var angka = (event.which) ? event.which : event.keyCode
+      if (angka != 46 && angka > 31 && (angka < 48 || angka > 57))
+          return false;
+      return true;
+  }
+</script>
 @endpush

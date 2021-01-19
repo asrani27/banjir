@@ -5,7 +5,7 @@
 integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
 crossorigin=""/>
 <style>
-    #mapid { height: 300px; }
+    #mapid { height: 350px; }
 </style>
 @endpush
 
@@ -97,14 +97,24 @@ crossorigin=""></script>
 
 
 <script>
-  
     var map = L.map('mapid').setView([-3.320363756863717, 114.6000705394259], 14);
-    
-
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         }).addTo(map);
-       
+
+    banjir = {!!json_encode(petaBanjir())!!}
+   
+   var banjirIcon = L.icon({
+       iconUrl: '/marker/marker-icon-blue.png',
+   });
+   console.log(banjir);
+   for (var i = 0; i < banjir.length; i++) { 
+    var PopUp = '<strong>KECAMATAN : '+banjir[i].nama_kecamatan+'</strong><br/>\
+        <strong>KELURAHAN : '+banjir[i].nama_kelurahan+'</strong><br/>\
+        <strong>LOKASI : '+banjir[i].lokasi+'</strong><br/>\
+        <strong>TINGGI AIR : '+banjir[i].tinggi_air+' cm</strong><br/>';
+   L.marker([banjir[i].lat, banjir[i].long],{icon:banjirIcon}).addTo(map).bindPopup(PopUp);
+   }
 </script>
 {{-- <script>
   var ctx = document.getElementById('myChart').getContext('2d');

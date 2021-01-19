@@ -53,5 +53,14 @@ class RekapitulasiController extends Controller
     }
     public function delete($id)
     {
+        try{
+            Rekapitulasi::find($id)->delete();
+            toastr()->success('Berhasil Di Hapus');
+            return back();
+        }catch(\Exception $e)
+        {
+            toastr()->error('gagal Di Hapus');
+            return back();
+        }
     }
 }

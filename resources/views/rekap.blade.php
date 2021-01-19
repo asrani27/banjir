@@ -34,18 +34,18 @@
                     <td class="text-center">{{$item->mengungsi_kk}}</td>
                     <td class="text-center">{{$item->mengungsi_jiwa}}</td>
                     <td>
-                        <a href="#" class="btn btn-sm btn-primary">Detail</a>
+                        <a href="/rekapitulasi/detail/{{$item->id}}" class="btn btn-sm btn-primary">Detail</a>
                     </td>
                 </tr>
                 @endforeach
                 <tfoot>
                     <tr>
                         <th></th>
-                        <th>TOTAL</th>
-                        <th>{{rekapitulasi()->sum('terdampak_kk')}}</th>
-                        <th>{{rekapitulasi()->sum('terdampak_jiwa')}}</th>
-                        <th>{{rekapitulasi()->sum('mengungsi_kk')}}</th>
-                        <th>{{rekapitulasi()->sum('mengungsi_jiwa')}}</th>
+                        <th class="text-center">TOTAL</th>
+                        <th class="text-center">{{rekapitulasi()->sum('terdampak_kk')}}</th>
+                        <th class="text-center">{{rekapitulasi()->sum('terdampak_jiwa')}}</th>
+                        <th class="text-center">{{rekapitulasi()->sum('mengungsi_kk')}}</th>
+                        <th class="text-center">{{rekapitulasi()->sum('mengungsi_jiwa')}}</th>
                     </tr>
                 </tfoot>
             </tbody>

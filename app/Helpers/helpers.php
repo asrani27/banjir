@@ -2,6 +2,7 @@
 
 use App\RT;
 use App\RW;
+use App\Banjir;
 use App\Lokasi;
 use App\Kecamatan;
 use App\Kelurahan;
@@ -61,4 +62,13 @@ function rekapitulasi()
         return $item;
     });
     return $map;
+}
+
+function petaBanjir()
+{
+    return Banjir::get()->map(function($item){
+        $item->nama_kelurahan = $item->kelurahan->nama;
+        $item->nama_kecamatan = $item->kelurahan->kecamatan->nama;
+        return $item;
+    })->toArray();
 }
