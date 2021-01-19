@@ -8,20 +8,63 @@
         <table class="table table-striped table-sm">
             <thead>
                 <tr class="bg-gradient-purple">
-                    <th>No</th>
-                    <th>Nama Kecamatan</th>
-                    <th>Terdampak</th>
-                    <th>Mengungsi</th>
-                    <th></th>
+                    <th rowspan=2 class="text-center">No</th>
+                    <th rowspan=2 class="text-center">Nama Kecamatan</th>
+                    <th colspan=2 class="text-center">Terdampak</th>
+                    <th colspan=2 class="text-center">Mengungsi</th>
+                    <th rowspan=2 class="text-center"></th>
+                </tr>
+                <tr class="bg-gradient-purple">                    
+                    <th class="text-center">KK</th>
+                    <th class="text-center">Jiwa</th>
+                    <th class="text-center">KK</th>
+                    <th class="text-center">Jiwa</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
-                    <td>w</td>
-                    <td>w</td>
-                    <td>w</td>
-                    <td>w</td>
-                    <td>w</td>
+                    <td class="text-center">1</td>
+                    <td class="text-center">Banjarmasin Timur</td>
+                    <td class="text-center">0</td>
+                    <td class="text-center">0</td>
+                    <td class="text-center">0</td>
+                    <td class="text-center">0</td>
+                    <td>
+                        <a href="#" class="btn btn-sm btn-primary">Detail</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="text-center">2</td>
+                    <td class="text-center">Banjarmasin Tengah</td>
+                    <td class="text-center">0</td>
+                    <td class="text-center">0</td>
+                    <td class="text-center">0</td>
+                    <td class="text-center">0</td>
+                    <td>
+                        <a href="#" class="btn btn-sm btn-primary">Detail</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="text-center">3</td>
+                    <td class="text-center">Banjarmasin Selatan</td>
+                    <td class="text-center">0</td>
+                    <td class="text-center">0</td>
+                    <td class="text-center">0</td>
+                    <td class="text-center">0</td>
+                    <td>
+                        <a href="#" class="btn btn-sm btn-primary">Detail</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="text-center">4</td>
+                    <td class="text-center">Banjarmasin Utara</td>
+                    <td class="text-center">0</td>
+                    <td class="text-center">0</td>
+                    <td class="text-center">0</td>
+                    <td class="text-center">0</td>
+                    <td>
+                        <a href="#" class="btn btn-sm btn-primary">Detail</a>
+                    </td>
                 </tr>
             </tbody>
         </table>
