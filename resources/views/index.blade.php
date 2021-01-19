@@ -77,7 +77,7 @@ crossorigin=""/>
         <h5 class="card-title m-0"> <i class="fas fa-chart-line"></i> Data </h5>
       </div>
       <div class="card-body">
-        <canvas id="myChart" width="400" height="120"></canvas>
+        
       </div>
     </div>
   </div>
