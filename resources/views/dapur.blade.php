@@ -58,9 +58,9 @@ crossorigin=""/>
   
 <div class="row">
   <div class="col-lg-12">
-    <div class="card card-primary">
+    <div class="card card-success">
       <div class="card-header">
-        <h5 class="card-title m-0"> <i class="fas fa-database"></i> Peta Banjir Banjarmasin </h5>
+        <h5 class="card-title m-0"> <i class="fas fa-database"></i> Peta Dapur Umum Banjarmasin </h5>
       </div>
       <div class="card-bod">
         <div id="mapid"></div>
@@ -72,7 +72,7 @@ crossorigin=""/>
 </div>
 <div class="row">
   <div class="col-lg-12">
-    <div class="card card-primary">
+    <div class="card card-success">
       <div class="card-header">
         <h5 class="card-title m-0"> <i class="fas fa-chart-line"></i> Data </h5>
       </div>
@@ -84,7 +84,6 @@ crossorigin=""/>
   <!-- /.col-md-6 -->
 </div>
 
-@include('rekap')
 @endsection
 
 @push('js')

@@ -10,4 +10,14 @@ class HomeController extends Controller
     {
         return view('index');
     }
+
+    public function dapurUmum()
+    {
+        return view('dapur');
+    }
+
+    public function pengungsian()
+    {
+        return view('pengungsian');
+    }
 }
