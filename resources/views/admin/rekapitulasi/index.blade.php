@@ -8,7 +8,7 @@
 @endpush
 
 @section('content')
-<a href="/admin/rekapitulasi/add" class="btn btn-sm btn-danger"><i class="fas fa-plus"></i>&nbsp; Tambah Data</a> <br /><br />
+<a href="/admin/rekapitulasi/add" class="btn btn-sm bg-gradient-purple"><i class="fas fa-plus"></i>&nbsp; Tambah Data</a> <br /><br />
 <div class="row">
   <div class="col-lg-12">
     <div class="card card-primary card-outline">

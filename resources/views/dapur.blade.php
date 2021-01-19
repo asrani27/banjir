@@ -74,10 +74,47 @@ crossorigin=""/>
   <div class="col-lg-12">
     <div class="card card-success">
       <div class="card-header">
-        <h5 class="card-title m-0"> <i class="fas fa-chart-line"></i> Data </h5>
+        <h5 class="card-title m-0"> <i class="fas fa-chart-line"></i> Data Dapur Umum</h5>
       </div>
-      <div class="card-body">
-        
+      <div class="card-body table-responsive">
+          <table id="example1" class="table table-bordered table-striped table-sm">
+          <thead>
+          <tr class="bg-gradient-success">
+              <th class="text-center">No</th>
+              <th class="text-center">Kecamatan</th>
+              <th class="text-center">Kelurahan</th>
+              <th class="text-center">Lokasi</th>
+              <th class="text-center">Keterangan</th>
+              <th class="text-center">Tgl Update</th>
+              <th class="text-center">Jam Update</th>
+              <th class="text-center">Foto</th>
+          </tr>
+          </thead>
+          <tbody>
+              @php
+                  $no =1;
+              @endphp
+              @foreach (dapur() as $item)
+                  <tr>
+                      <td class="text-center">{{$no++}}</td>
+                      <td class="text-center">{{$item->kelurahan->kecamatan->nama}}</td>
+                      <td class="text-center">{{$item->kelurahan->nama}}</td>
+                      <td class="text-center">{{$item->lokasi}}</td>
+                      <td class="text-center">{{$item->keterangan}}</td>
+                      <td class="text-center">{{\Carbon\Carbon::parse($item->updated_at)->format('d/M/Y')}}</td>
+                      <td class="text-center">{{\Carbon\Carbon::parse($item->updated_at)->format('H:i')}}</td>
+                      <td class="text-center">
+                        @if ($item->file == null)
+                            -
+                        @else  
+                          <img src="/storage/{{$item->file}}" width="100">
+                        @endif
+                      </td>
+                  </tr>
+              @endforeach
+          
+          </tbody>
+          </table>
       </div>
     </div>
   </div>
@@ -104,60 +141,19 @@ crossorigin=""></script>
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         }).addTo(map);
-       
+        dapur = {!!json_encode(petaDapur())!!}
+   
+   var dapurIcon = L.icon({
+       iconUrl: '/marker/marker-icon-green.png',
+   });
+   console.log(dapur)
+   for (var i = 0; i < dapur.length; i++) { 
+    var PopUp = '<strong>KECAMATAN : '+dapur[i].nama_kecamatan+'</strong><br/>\
+        <strong>KELURAHAN : '+dapur[i].nama_kelurahan+'</strong><br/>\
+        <strong>LOKASI : '+dapur[i].lokasi+'</strong><br/>\
+        <strong>KETERANGAN : '+dapur[i].keterangan+'</strong><br/>';
+   L.marker([dapur[i].lat, dapur[i].long],{icon:dapurIcon}).addTo(map).bindPopup(PopUp);
+   }
 </script>
-{{-- <script>
-  var ctx = document.getElementById('myChart').getContext('2d');
-        var dates = {!!json_encode($data['tanggal'])!!}
-        var konfirmasi = {!!json_encode($data['konfirmasi'])!!}
-        var suspect = {!!json_encode($data['suspect'])!!}
-        var probable = {!!json_encode($data['probable'])!!}
-        console.log(dates);
-  var myChart = new Chart(ctx, {
-      type: 'line',
-      data: {
-          labels: dates,
-          datasets: [
-            {
-              label: 'KONFIRMASI',
-              fill: false,
-              data: konfirmasi,
-              borderColor: [
-                  'rgba(26, 193, 185, 1)'
-              ],
-              borderWidth: 2
-            },{
-              label: 'SUSPECT',
-              fill: false,
-              data: suspect,
-             
-              borderColor: [
-                  'rgba(0, 143, 24, 1)'
-              ],
-              borderWidth: 2
-            },{
-              label: 'PROBABLE',
-              fill: false,
-              data: probable,
-             
-              borderColor: [
-                  'rgba(143, 0, 0, 1)'
-              ],
-              borderWidth: 2
-            },
-          
-          ]
-      },
-      options: {
-          scales: {
-              yAxes: [{
-                  ticks: {
-                      beginAtZero: true
-                  }
-              }]
-          }
-      }
-  });
-</script> --}}
 
 @endpush

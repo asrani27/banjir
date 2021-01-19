@@ -10,15 +10,15 @@ crossorigin=""/>
 @endpush
 
 @section('content')
-<a href="/admin/banjir" class="btn btn-sm btn-secondary"><i class="fas fa-arrow-left"></i>&nbsp; Kembali</a> <br /><br />
+<a href="/admin/dapur" class="btn btn-sm btn-secondary"><i class="fas fa-arrow-left"></i>&nbsp; Kembali</a> <br /><br />
 
 <div class="row">
   <div class="col-lg-12">
-    <div class="card card-primary">
+    <div class="card card-success">
       <div class="card-header">
-        <h5 class="card-title m-0"> <i class="fas fa-server"></i> Tambah Data </h5>
+        <h5 class="card-title m-0"> <i class="fas fa-server"></i> Tambah Data Dapur Umum </h5>
       </div>
-      <form method="post" action="/admin/banjir/add" enctype="multipart/form-data">
+      <form method="post" action="/admin/dapur/add" enctype="multipart/form-data">
         @csrf
       <div class="card-body">
           <div class="form-group row">
@@ -45,12 +45,9 @@ crossorigin=""/>
             </div>
           </div>
           <div class="form-group row">
-            <label for="inputPassword3" class="col-sm-2 col-form-label">Tinggi Air</label>
-            <div class="col-sm-1">
-              <input type="text" class="form-control" name="tinggi_air" value="0" required  onkeypress="return hanyaAngka(event)">
-            </div>
-            <div class="col-sm-1 col-form-label">
-              CM
+            <label for="inputPassword3" class="col-sm-2 col-form-label">Keterangan</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" name="keterangan" placeholder="Butuh bantuan sembako">
             </div>
           </div>
           <div class="form-group row">

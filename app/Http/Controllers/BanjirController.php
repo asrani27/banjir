@@ -44,16 +44,48 @@ class BanjirController extends Controller
             return redirect('/admin/banjir');
         }
     }
-    public function edit()
+    public function edit($id)
     {
-        
+        $data = Banjir::find($id);
+        return view('admin.banjir.edit',compact('data'));
     }
-    public function update()
+    public function update(Request $req, $id)
     {
+        $attr = $req->all();
         
+        if ($req->hasFile('file')) {
+            $validator = Validator::make($req->all(), [
+                'file' => 'mimes:jpeg,png,jpg,gif,svg|max:4048',
+            ]);
+
+            if ($validator->fails()) {
+                toastr()->error('File Harus Berupa Gambar dan Maksimal 2MB');
+                return back();
+            } else {
+                $filename = $req->file->getClientOriginalName();
+                $filename = date('d-m-Y-') . rand(1, 9999) . $filename;
+                $req->file->storeAs('/public', $filename);
+                $attr['file'] = $filename;
+                Banjir::find($id)->update($attr);
+                toastr()->success('Berhasil Di update');
+                return redirect('/admin/banjir');
+            }
+        }else{
+            Banjir::find($id)->update($attr);
+            toastr()->success('Berhasil Di update');
+            return redirect('/admin/banjir');
+        }
     }
-    public function delete()
+    public function delete($id)
     {
-        
+        try{
+            Banjir::find($id)->delete();
+            toastr()->success('Berhasil Di Hapus');
+            return back();
+        }catch(\Exception $e)
+        {
+            toastr()->error('gagal Di Hapus');
+            return back();
+        }
     }
 }

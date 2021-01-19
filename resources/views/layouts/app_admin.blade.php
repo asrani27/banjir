@@ -53,7 +53,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <a href="/admin/banjir" class="nav-link text-white"><i class="fas fa-water"></i> Banjir</a>
           </li>
           <li class="nav-item">
-            <a href="/admin/dapur-umum" class="nav-link text-white"><i class="fas fa-utensils"></i> Dapur Umum</a>
+            <a href="/admin/dapur" class="nav-link text-white"><i class="fas fa-utensils"></i> Dapur Umum</a>
           </li>
           <li class="nav-item">
             <a href="/admin/pengungsian" class="nav-link text-white"><i class="fas fa-home"></i> Pengungsian</a>

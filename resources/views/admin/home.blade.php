@@ -5,7 +5,7 @@
 integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
 crossorigin=""/>
 <style>
-    #mapid { height: 300px; }
+    #mapid { height: 350px; }
 </style>
 @endpush
 
@@ -76,8 +76,45 @@ crossorigin=""/>
       <div class="card-header">
         <h5 class="card-title m-0"> <i class="fas fa-chart-line"></i> Data </h5>
       </div>
-      <div class="card-body">
-        
+      <div class="card-body table-responsive">
+          <table id="example1" class="table table-bordered table-striped table-sm">
+          <thead>
+          <tr class="bg-gradient-primary">
+              <th class="text-center">No</th>
+              <th class="text-center">Kecamatan</th>
+              <th class="text-center">Kelurahan</th>
+              <th class="text-center">Lokasi</th>
+              <th class="text-center">Tinggi Air (cm)</th>
+              <th class="text-center">Tgl Update</th>
+              <th class="text-center">Jam Update</th>
+              <th class="text-center">Foto</th>
+          </tr>
+          </thead>
+          <tbody>
+              @php
+                  $no =1;
+              @endphp
+              @foreach (banjir() as $item)
+                  <tr>
+                      <td class="text-center">{{$no++}}</td>
+                      <td class="text-center">{{$item->kelurahan->kecamatan->nama}}</td>
+                      <td class="text-center">{{$item->kelurahan->nama}}</td>
+                      <td class="text-center">{{$item->lokasi}}</td>
+                      <td class="text-center">{{$item->tinggi_air}}</td>
+                      <td class="text-center">{{\Carbon\Carbon::parse($item->updated_at)->format('d/M/Y')}}</td>
+                      <td class="text-center">{{\Carbon\Carbon::parse($item->updated_at)->format('H:i')}}</td>
+                      <td class="text-center">
+                        @if ($item->file == null)
+                            -
+                        @else  
+                          <img src="/storage/{{$item->file}}" width="100">
+                        @endif
+                      </td>
+                  </tr>
+              @endforeach
+          
+          </tbody>
+          </table>
       </div>
     </div>
   </div>
@@ -97,14 +134,24 @@ crossorigin=""></script>
 
 
 <script>
-  
     var map = L.map('mapid').setView([-3.320363756863717, 114.6000705394259], 14);
-    
-
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         }).addTo(map);
-       
+
+    banjir = {!!json_encode(petaBanjir())!!}
+   
+   var banjirIcon = L.icon({
+       iconUrl: '/marker/marker-icon-blue.png',
+   });
+   console.log(banjir);
+   for (var i = 0; i < banjir.length; i++) { 
+    var PopUp = '<strong>KECAMATAN : '+banjir[i].nama_kecamatan+'</strong><br/>\
+        <strong>KELURAHAN : '+banjir[i].nama_kelurahan+'</strong><br/>\
+        <strong>LOKASI : '+banjir[i].lokasi+'</strong><br/>\
+        <strong>TINGGI AIR : '+banjir[i].tinggi_air+' cm</strong><br/>';
+   L.marker([banjir[i].lat, banjir[i].long],{icon:banjirIcon}).addTo(map).bindPopup(PopUp);
+   }
 </script>
 {{-- <script>
   var ctx = document.getElementById('myChart').getContext('2d');

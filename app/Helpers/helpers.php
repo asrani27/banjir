@@ -2,6 +2,7 @@
 
 use App\RT;
 use App\RW;
+use App\Dapur;
 use App\Banjir;
 use App\Lokasi;
 use App\Kecamatan;
@@ -71,4 +72,22 @@ function petaBanjir()
         $item->nama_kecamatan = $item->kelurahan->kecamatan->nama;
         return $item;
     })->toArray();
+}
+
+function banjir()
+{
+    return Banjir::get();
+}
+function petaDapur()
+{
+    return Dapur::get()->map(function($item){
+        $item->nama_kelurahan = $item->kelurahan->nama;
+        $item->nama_kecamatan = $item->kelurahan->kecamatan->nama;
+        return $item;
+    })->toArray();
+}
+
+function dapur()
+{
+    return Dapur::get();
 }

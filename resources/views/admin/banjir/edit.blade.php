@@ -10,33 +10,32 @@ crossorigin=""/>
 @endpush
 
 @section('content')
-<a href="/kelurahan" class="btn btn-sm btn-secondary"><i class="fas fa-arrow-left"></i>&nbsp; Kembali</a> <br /><br />
+<a href="/admin/banjir" class="btn btn-sm btn-secondary"><i class="fas fa-arrow-left"></i>&nbsp; Kembali</a> <br /><br />
 
 <div class="row">
   <div class="col-lg-12">
-    <div class="card card-primary card-outline">
+    <div class="card card-primary">
       <div class="card-header">
-        <h5 class="card-title m-0"> <i class="fas fa-server"></i> Edit Data Kelurahan </h5>
+        <h5 class="card-title m-0"> <i class="fas fa-server"></i> Edit Data </h5>
       </div>
-      <form method="post" action="/kelurahan/edit/{{$data->id}}">
+      <form method="post" action="/admin/banjir/edit/{{$data->id}}" enctype="multipart/form-data">
         @csrf
       <div class="card-body">
-        <div class="form-group row">
+          <div class="form-group row">
             <label for="inputEmail3" class="col-sm-2 col-form-label">Nama Kelurahan</label>
             <div class="col-sm-10">
-              <input type="text" class="form-control" name="nama" placeholder="Nama Kelurahan" onkeyup="this.value = this.value.toUpperCase();" value="{{$data->nama}}">
+              <select name="kelurahan_id" class="form-control">
+                  <option value="">-Pilih-</option>
+                @foreach (kelurahan() as $item)
+                    <option value="{{$item->id}}" {{$data->kelurahan_id == $item->id ? 'selected':''}}>{{$item->nama}}</option>
+                @endforeach
+              </select>
             </div>
           </div>
           <div class="form-group row">
-            <label for="inputPassword3" class="col-sm-2 col-form-label">Lat</label>
+            <label for="inputPassword3" class="col-sm-2 col-form-label">Lokasi</label>
             <div class="col-sm-10">
-              <input type="text" class="form-control" name="lat" id="lat" value="{{$data->lat}}">
-            </div>
-          </div>
-          <div class="form-group row">
-            <label for="inputPassword3" class="col-sm-2 col-form-label">Long</label>
-            <div class="col-sm-10">
-              <input type="text" class="form-control" name="long" id="long" value="{{$data->long}}">
+              <input type="text" class="form-control" name="lokasi" value="{{$data->lokasi}}" required>
             </div>
           </div>
           <div class="form-group row">
@@ -46,8 +45,35 @@ crossorigin=""/>
             </div>
           </div>
           <div class="form-group row">
+            <label for="inputPassword3" class="col-sm-2 col-form-label">Tinggi Air</label>
+            <div class="col-sm-1">
+              <input type="text" class="form-control" name="tinggi_air" value="{{$data->tinggi_air}}" required  onkeypress="return hanyaAngka(event)">
+            </div>
+            <div class="col-sm-1 col-form-label">
+              CM
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="inputPassword3" class="col-sm-2 col-form-label">File Gambar</label>
+            <div class="col-sm-10">
+              <input type="file" class="form-control" name="file">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="inputPassword3" class="col-sm-2 col-form-label">Lat</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" name="lat" id="lat" required value="{{$data->lat}}" readonly>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="inputPassword3" class="col-sm-2 col-form-label">Long</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" name="long" id="long" required value="{{$data->long}}" readonly>
+            </div>
+          </div>
+          <div class="form-group row">
             <div class="offset-sm-2 col-sm-10">
-                  <button type="submit" class="btn btn-sm btn-block bg-gradient-primary">Update</button>
+                  <button type="submit" class="btn btn-sm btn-block bg-gradient-primary">Simpan</button>
             </div>
           </div>
       </div>
@@ -63,15 +89,35 @@ crossorigin=""/>
 integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
 crossorigin=""></script>
 <script>
-    var map = L.map('mapid').setView([-6.203106313909043, 106.836372623998], 12);
+    var map = L.map('mapid').setView([-3.320363756863717, 114.6000705394259], 14);
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         }).addTo(map);
     
+    var theMarker = {};
+
     map.on('click', function(e) {
         document.getElementById("lat").value = e.latlng.lat;
         document.getElementById("long").value = e.latlng.lng;
+    
+        if (theMarker != undefined) {
+              map.removeLayer(theMarker);
+        };
+
+        //Add a marker to show where you clicked.
+        theMarker = L.marker([e.latlng.lat,e.latlng.lng]).addTo(map);  
+
+        //L.marker([e.latlng.lat, e.latlng.lng]).addTo(map).on('mouseover', onClick);
     });
+       // L.marker(e.latlng.lat, e.latlng.lng).addTo(map).on('mouseover', onClick);
 </script>
 
+<script>
+  function hanyaAngka(event) {
+      var angka = (event.which) ? event.which : event.keyCode
+      if (angka != 46 && angka > 31 && (angka < 48 || angka > 57))
+          return false;
+      return true;
+  }
+</script>
 @endpush

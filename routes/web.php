@@ -62,4 +62,11 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/admin/banjir/edit/{id}', 'BanjirController@edit');
     Route::post('/admin/banjir/edit/{id}', 'BanjirController@update');
     Route::get('/admin/banjir/delete/{id}', 'BanjirController@delete');
+    
+    Route::get('/admin/dapur', 'DapurController@index');
+    Route::get('/admin/dapur/add', 'DapurController@add');
+    Route::post('/admin/dapur/add', 'DapurController@store');
+    Route::get('/admin/dapur/edit/{id}', 'DapurController@edit');
+    Route::post('/admin/dapur/edit/{id}', 'DapurController@update');
+    Route::get('/admin/dapur/delete/{id}', 'DapurController@delete');
 });

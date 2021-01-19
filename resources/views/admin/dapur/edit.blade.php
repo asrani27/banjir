@@ -14,11 +14,11 @@ crossorigin=""/>
 
 <div class="row">
   <div class="col-lg-12">
-    <div class="card card-primary">
+    <div class="card card-primary card-outline">
       <div class="card-header">
-        <h5 class="card-title m-0"> <i class="fas fa-server"></i> Tambah Data </h5>
+        <h5 class="card-title m-0"> <i class="fas fa-server"></i> Edit Data </h5>
       </div>
-      <form method="post" action="/admin/banjir/add" enctype="multipart/form-data">
+      <form method="post" action="/admin/banjir/edit/{{$data->id}}" enctype="multipart/form-data">
         @csrf
       <div class="card-body">
           <div class="form-group row">
@@ -27,7 +27,7 @@ crossorigin=""/>
               <select name="kelurahan_id" class="form-control">
                   <option value="">-Pilih-</option>
                 @foreach (kelurahan() as $item)
-                    <option value="{{$item->id}}">{{$item->nama}}</option>
+                    <option value="{{$item->id}}" {{$data->kelurahan_id == $item->id ? 'selected':''}}>{{$item->nama}}</option>
                 @endforeach
               </select>
             </div>
@@ -35,7 +35,7 @@ crossorigin=""/>
           <div class="form-group row">
             <label for="inputPassword3" class="col-sm-2 col-form-label">Lokasi</label>
             <div class="col-sm-10">
-              <input type="text" class="form-control" name="lokasi" required>
+              <input type="text" class="form-control" name="lokasi" value="{{$data->lokasi}}" required>
             </div>
           </div>
           <div class="form-group row">
@@ -47,7 +47,7 @@ crossorigin=""/>
           <div class="form-group row">
             <label for="inputPassword3" class="col-sm-2 col-form-label">Tinggi Air</label>
             <div class="col-sm-1">
-              <input type="text" class="form-control" name="tinggi_air" value="0" required  onkeypress="return hanyaAngka(event)">
+              <input type="text" class="form-control" name="tinggi_air" value="{{$data->tinggi_air}}" required  onkeypress="return hanyaAngka(event)">
             </div>
             <div class="col-sm-1 col-form-label">
               CM
@@ -62,13 +62,13 @@ crossorigin=""/>
           <div class="form-group row">
             <label for="inputPassword3" class="col-sm-2 col-form-label">Lat</label>
             <div class="col-sm-10">
-              <input type="text" class="form-control" name="lat" id="lat" required readonly>
+              <input type="text" class="form-control" name="lat" id="lat" required value="{{$data->lat}}" readonly>
             </div>
           </div>
           <div class="form-group row">
             <label for="inputPassword3" class="col-sm-2 col-form-label">Long</label>
             <div class="col-sm-10">
-              <input type="text" class="form-control" name="long" id="long" required readonly>
+              <input type="text" class="form-control" name="long" id="long" required value="{{$data->long}}" readonly>
             </div>
           </div>
           <div class="form-group row">
