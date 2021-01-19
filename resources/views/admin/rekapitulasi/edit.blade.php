@@ -1,53 +1,94 @@
 @extends('layouts.app_admin')
 
 @push('css') 
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
-integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
-crossorigin=""/>
-<style>
-    #mapid { height: 500px; }
-</style>
+
 @endpush
 
 @section('content')
-<a href="/kelurahan" class="btn btn-sm btn-secondary"><i class="fas fa-arrow-left"></i>&nbsp; Kembali</a> <br /><br />
+<a href="/admin/rekapitulasi" class="btn btn-sm btn-secondary"><i class="fas fa-arrow-left"></i>&nbsp; Kembali</a> <br /><br />
 
 <div class="row">
   <div class="col-lg-12">
     <div class="card card-primary card-outline">
       <div class="card-header">
-        <h5 class="card-title m-0"> <i class="fas fa-server"></i> Edit Data Kelurahan </h5>
+        <h5 class="card-title m-0"> <i class="fas fa-server"></i> Edit Data </h5>
       </div>
-      <form method="post" action="/kelurahan/edit/{{$data->id}}">
+      <form method="post" action="/admin/rekapitulasi/edit/{{$data->id}}">
         @csrf
       <div class="card-body">
-        <div class="form-group row">
-            <label for="inputEmail3" class="col-sm-2 col-form-label">Nama Kelurahan</label>
+          <div class="form-group row">
+            <label for="inputEmail3" class="col-sm-2 col-form-label">Pilih Lokasi</label>
             <div class="col-sm-10">
-              <input type="text" class="form-control" name="nama" placeholder="Nama Kelurahan" onkeyup="this.value = this.value.toUpperCase();" value="{{$data->nama}}">
+              <select name="lokasi_id" class="form-control" required>
+                <option value="">-Pilih-</option>
+                @foreach (lokasi() as $item)
+                <option value="{{$item->id}}" {{$data->lokasi_id == $item->id ? 'selected' : ''}}>{{$item->nama}} - KEL. {{$item->kelurahan->nama}}</option>
+                @endforeach
+              </select>
             </div>
           </div>
           <div class="form-group row">
-            <label for="inputPassword3" class="col-sm-2 col-form-label">Lat</label>
+            <label for="inputEmail3" class="col-sm-2 col-form-label">Pilih RT</label>
             <div class="col-sm-10">
-              <input type="text" class="form-control" name="lat" id="lat" value="{{$data->lat}}">
+              <select name="rt" class="form-control" required>
+                <option value="">-Pilih-</option>
+                @foreach (RT() as $item)
+                <option value="{{$item->nama}}" {{$data->rt == $item->nama ? 'selected' : ''}}>{{$item->nama}}</option>
+                @endforeach
+              </select>
             </div>
           </div>
           <div class="form-group row">
-            <label for="inputPassword3" class="col-sm-2 col-form-label">Long</label>
+            <label for="inputEmail3" class="col-sm-2 col-form-label">Pilih RW</label>
             <div class="col-sm-10">
-              <input type="text" class="form-control" name="long" id="long" value="{{$data->long}}">
+              <select name="rw" class="form-control">
+                <option value="">-Pilih-</option>
+                @foreach (RW() as $item)
+                <option value="{{$item->nama}}" {{$data->rw == $item->nama ? 'selected' : ''}}>{{$item->nama}}</option>
+                @endforeach
+              </select>
             </div>
           </div>
           <div class="form-group row">
-            <label for="inputPassword3" class="col-sm-2 col-form-label">Map</label>
+            <label for="inputPassword3" class="col-sm-2 col-form-label">Jumlah Terdampak</label>
+            <div class="col-sm-1">
+              <input type="text" class="form-control" name="terdampak_kk" style="text-transform: uppercase" value="{{$data->terdampak_kk}}" required>
+            </div>
+            <div class="col-sm-1 col-form-label">
+              <strong>KK</strong>
+            </div>
+            <div class="col-sm-1">
+              <input type="text" class="form-control" name="terdampak_jiwa" style="text-transform: uppercase" value="{{$data->terdampak_jiwa}}" required> 
+            </div>
+            <div class="col-sm-1 col-form-label">
+              <strong>JIWA</strong>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="inputPassword3" class="col-sm-2 col-form-label">Jumlah Mengungsi</label>
+            <div class="col-sm-1">
+              <input type="text" class="form-control" name="mengungsi_kk" style="text-transform: uppercase" value="{{$data->mengungsi_kk}}" required>
+            </div>
+            <div class="col-sm-1 col-form-label">
+              <strong>KK</strong>
+            </div>
+            <div class="col-sm-1">
+              <input type="text" class="form-control" name="mengungsi_jiwa" style="text-transform: uppercase" value="{{$data->mengungsi_jiwa}}" required> 
+            </div>
+            <div class="col-sm-1 col-form-label">
+              <strong>JIWA</strong>
+            </div>
+          </div>
+          
+          <div class="form-group row">
+            <label for="inputPassword3" class="col-sm-2 col-form-label">Keterangan/Alamat Pengungsian</label>
             <div class="col-sm-10">
-                <div id="mapid"></div>
+              <input type="text" class="form-control" name="keterangan" value="{{$data->keterangan}}">
             </div>
           </div>
           <div class="form-group row">
             <div class="offset-sm-2 col-sm-10">
-                  <button type="submit" class="btn btn-sm btn-block bg-gradient-primary">Update</button>
+                  <button type="submit" class="btn btn-sm btn-block bg-gradient-primary">Simpan</button>
             </div>
           </div>
       </div>
@@ -59,19 +100,6 @@ crossorigin=""/>
 @endsection
 
 @push('js')
-<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
-integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
-crossorigin=""></script>
-<script>
-    var map = L.map('mapid').setView([-6.203106313909043, 106.836372623998], 12);
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-        }).addTo(map);
-    
-    map.on('click', function(e) {
-        document.getElementById("lat").value = e.latlng.lat;
-        document.getElementById("long").value = e.latlng.lng;
-    });
-</script>
+
 
 @endpush

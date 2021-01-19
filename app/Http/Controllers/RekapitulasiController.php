@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Lokasi;
 use App\Rekapitulasi;
 use Illuminate\Http\Request;
 
@@ -21,7 +22,10 @@ class RekapitulasiController extends Controller
     {
         if(Rekapitulasi::where('lokasi_id', $req->lokasi_id)->where('rt', $req->rt)->first() == null)
         {
+            $lok = Lokasi::find($req->lokasi_id);
             $attr = $req->all();
+            $attr['kecamatan_id'] = $lok->kelurahan->kecamatan->id;
+            $attr['kelurahan_id'] = $lok->kelurahan->id;
             Rekapitulasi::create($attr);
             toastr()->success('Data Berhasil Disimpan');
             return redirect('/admin/rekapitulasi');
@@ -30,13 +34,22 @@ class RekapitulasiController extends Controller
             return back();
         }
     }
-    public function edit()
+    public function edit($id)
     {
-        
+        $data = Rekapitulasi::find($id);
+        return view('admin.rekapitulasi.edit',compact('data'));   
     }
-    public function update()
+    public function update(Request $req, $id)
     {
+        $lok = Lokasi::find($req->lokasi_id);
+        $attr = $req->all();
+        $attr['kecamatan_id'] = $lok->kelurahan->kecamatan->id;
+        $attr['kelurahan_id'] = $lok->kelurahan->id;
+
+        Rekapitulasi::find($id)->update($attr);
         
+        toastr()->success('Data Berhasil Diupdate');
+        return redirect('/admin/rekapitulasi');
     }
     public function delete($id)
     {

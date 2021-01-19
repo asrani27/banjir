@@ -42,7 +42,7 @@
                     $no =1;
                 @endphp
                 @foreach ($data as $item)
-                    <tr>
+                    <tr style="font-size:11px; font-family:Arial, Helvetica, sans-serif">
                         <td>{{$no++}}</td>
                         <td>{{$item->lokasi->kelurahan->kecamatan->nama}}</td>
                         <td>{{$item->lokasi->kelurahan->nama}}</td>
@@ -54,7 +54,10 @@
                         <td>{{$item->mengungsi_kk}}</td>
                         <td>{{$item->mengungsi_jiwa}}</td>
                         <td>{{$item->keterangan}}</td>
-                        <td></td>
+                        <td>
+                          <a href="/admin/rekapitulasi/edit/{{$item->id}}" class="btn btn-xs btn-warning" data-toggle="tooltip" title="Edit Data"><i class="fas fa-edit"></i></a>
+                          <a href="/admin/rekapitulasi/delete/{{$item->id}}" class="btn btn-xs btn-danger" data-toggle="tooltip" title="Hapus Data" onclick="return confirm('Yakin Ingin Menghapus Data Ini?');"><i class="fas fa-trash"></i></a>
+                        </td>
                         {{-- <td>{{$item->kelurahan->nama}}</td>
                         <td>{{$item->kelurahan->kecamatan->nama}}</td>
                         <td>

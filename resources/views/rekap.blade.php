@@ -22,50 +22,32 @@
                 </tr>
             </thead>
             <tbody>
+                @php
+                    $no = 1;
+                @endphp
+                @foreach (rekapitulasi() as $item)
                 <tr>
-                    <td class="text-center">1</td>
-                    <td class="text-center">Banjarmasin Timur</td>
-                    <td class="text-center">0</td>
-                    <td class="text-center">0</td>
-                    <td class="text-center">0</td>
-                    <td class="text-center">0</td>
+                    <td class="text-center">{{$no++}}</td>
+                    <td class="text-center">{{$item->nama}}</td>
+                    <td class="text-center">{{$item->terdampak_kk}}</td>
+                    <td class="text-center">{{$item->terdampak_jiwa}}</td>
+                    <td class="text-center">{{$item->mengungsi_kk}}</td>
+                    <td class="text-center">{{$item->mengungsi_jiwa}}</td>
                     <td>
                         <a href="#" class="btn btn-sm btn-primary">Detail</a>
                     </td>
                 </tr>
-                <tr>
-                    <td class="text-center">2</td>
-                    <td class="text-center">Banjarmasin Tengah</td>
-                    <td class="text-center">0</td>
-                    <td class="text-center">0</td>
-                    <td class="text-center">0</td>
-                    <td class="text-center">0</td>
-                    <td>
-                        <a href="#" class="btn btn-sm btn-primary">Detail</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="text-center">3</td>
-                    <td class="text-center">Banjarmasin Selatan</td>
-                    <td class="text-center">0</td>
-                    <td class="text-center">0</td>
-                    <td class="text-center">0</td>
-                    <td class="text-center">0</td>
-                    <td>
-                        <a href="#" class="btn btn-sm btn-primary">Detail</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="text-center">4</td>
-                    <td class="text-center">Banjarmasin Utara</td>
-                    <td class="text-center">0</td>
-                    <td class="text-center">0</td>
-                    <td class="text-center">0</td>
-                    <td class="text-center">0</td>
-                    <td>
-                        <a href="#" class="btn btn-sm btn-primary">Detail</a>
-                    </td>
-                </tr>
+                @endforeach
+                <tfoot>
+                    <tr>
+                        <th></th>
+                        <th>TOTAL</th>
+                        <th>{{rekapitulasi()->sum('terdampak_kk')}}</th>
+                        <th>{{rekapitulasi()->sum('terdampak_jiwa')}}</th>
+                        <th>{{rekapitulasi()->sum('mengungsi_kk')}}</th>
+                        <th>{{rekapitulasi()->sum('mengungsi_jiwa')}}</th>
+                    </tr>
+                </tfoot>
             </tbody>
         </table>
     </div>
