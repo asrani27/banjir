@@ -42,16 +42,26 @@
                     $no =1;
                 @endphp
                 @foreach ($data as $item)
-                    {{-- <tr>
+                    <tr>
                         <td>{{$no++}}</td>
-                        <td>{{$item->nama}}</td>
-                        <td>{{$item->kelurahan->nama}}</td>
+                        <td>{{$item->lokasi->kelurahan->kecamatan->nama}}</td>
+                        <td>{{$item->lokasi->kelurahan->nama}}</td>
+                        <td>{{$item->lokasi->nama}}</td>
+                        <td>{{$item->rt}}</td>
+                        <td>{{$item->rw}}</td>
+                        <td>{{$item->terdampak_kk}}</td>
+                        <td>{{$item->terdampak_jiwa}}</td>
+                        <td>{{$item->mengungsi_kk}}</td>
+                        <td>{{$item->mengungsi_jiwa}}</td>
+                        <td>{{$item->keterangan}}</td>
+                        <td></td>
+                        {{-- <td>{{$item->kelurahan->nama}}</td>
                         <td>{{$item->kelurahan->kecamatan->nama}}</td>
                         <td>
                             <a href="/admin/lokasi/edit/{{$item->id}}" class="btn btn-xs btn-warning"><i class="fas fa-edit"></i></a>
                             <a href="/admin/lokasi/delete/{{$item->id}}" class="btn btn-xs btn-danger" onclick="return confirm('Yakin Ingin Menghapus Data Ini?');"><i class="fas fa-trash"></i></a>
-                        </td>
-                    </tr> --}}
+                        </td> --}}
+                    </tr>
                 @endforeach
             
             </tbody>

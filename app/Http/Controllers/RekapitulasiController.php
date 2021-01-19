@@ -19,14 +19,14 @@ class RekapitulasiController extends Controller
     }
     public function store(Request $req)
     {
-        if(Rekapitulasi::where('lokasi_id', $req->lokasi_id)->where('rt', $req->rt)->where('rw', $req->rw)->first() == null)
+        if(Rekapitulasi::where('lokasi_id', $req->lokasi_id)->where('rt', $req->rt)->first() == null)
         {
             $attr = $req->all();
             Rekapitulasi::create($attr);
             toastr()->success('Data Berhasil Disimpan');
             return redirect('/admin/rekapitulasi');
         }else{
-            toastr()->error('Data Lokasi,Rt dan RW Sudah Ada, Silahkan Perbaharui Yang Ada');
+            toastr()->error('Data Lokasi Dan RT Sudah Ada, Silahkan Perbaharui Yang Ada');
             return back();
         }
     }

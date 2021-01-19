@@ -49,10 +49,10 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('/admin/lokasi/edit/{id}', 'LokasiController@update');
     Route::get('/admin/lokasi/delete/{id}', 'LokasiController@delete');
     
-    Route::get('/admin/rekap', 'RekapitulasiController@index');
-    Route::get('/admin/rekap/add', 'RekapitulasiController@add');
-    Route::post('/admin/rekap/add', 'RekapitulasiController@store');
-    Route::get('/admin/rekap/edit/{id}', 'RekapitulasiController@edit');
-    Route::post('/admin/rekap/edit/{id}', 'RekapitulasiController@update');
-    Route::get('/admin/rekap/delete/{id}', 'RekapitulasiController@delete');
+    Route::get('/admin/rekapitulasi', 'RekapitulasiController@index');
+    Route::get('/admin/rekapitulasi/add', 'RekapitulasiController@add');
+    Route::post('/admin/rekapitulasi/add', 'RekapitulasiController@store');
+    Route::get('/admin/rekapitulasi/edit/{id}', 'RekapitulasiController@edit');
+    Route::post('/admin/rekapitulasi/edit/{id}', 'RekapitulasiController@update');
+    Route::get('/admin/rekapitulasi/delete/{id}', 'RekapitulasiController@delete');
 });

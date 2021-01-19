@@ -30,8 +30,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <!-- Navbar -->
   <nav class="main-header navbar navbar-expand-md navbar-light navbar-white bg-gradient-primary">
     <div class="container">
-      <a href="/" class="navbar-brand">
-        <img src="/assets/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
+      <a href="/home" class="navbar-brand">
+        <img src="/assets/logo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
              style="opacity: .8">
         <span class="brand-text font-weight-light text-white"><strong>{{Auth::user()->name}}</strong></span>
       </a>
@@ -47,7 +47,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars text-white"></i></a>
           </li> --}}
           <li class="nav-item">
-            <a href="/admin/rekap" class="nav-link text-white"><i class="fas fa-file"></i> Rekapitulasi</a>
+            <a href="/admin/rekapitulasi" class="nav-link text-white"><i class="fas fa-file"></i> Rekapitulasi</a>
           </li>
           <li class="nav-item">
             <a href="/admin/banjir" class="nav-link text-white"><i class="fas fa-water"></i> Banjir</a>

@@ -2,6 +2,7 @@
 
 use App\RT;
 use App\RW;
+use App\Lokasi;
 use App\Kecamatan;
 use App\Kelurahan;
 use Carbon\Carbon;
@@ -26,6 +27,11 @@ function kecamatan()
 function kelurahan()
 {
     return Kelurahan::get();
+}
+
+function lokasi()
+{
+    return Lokasi::get();
 }
 
 function rt()
