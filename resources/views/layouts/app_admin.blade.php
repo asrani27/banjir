@@ -9,7 +9,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-  <title>RS. Wisma Atlet</title>
+  <title>BANJARMASIN</title>
   <link rel="stylesheet" href="/assets/plugins/fontawesome-free/css/all.min.css">
   <link rel="stylesheet" href="/assets/dist/css/adminlte.min.css">
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
@@ -33,7 +33,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
       <a href="/" class="navbar-brand">
         <img src="/assets/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
              style="opacity: .8">
-        <span class="brand-text font-weight-light text-white"><strong>RS. Wisma Atlet</strong></span>
+        <span class="brand-text font-weight-light text-white"><strong>BANJARMASIN</strong></span>
       </a>
       
       <button class="navbar-toggler order-1" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
@@ -47,16 +47,20 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars text-white"></i></a>
           </li>
           <li class="nav-item">
-            <a href="/home" class="nav-link text-white"><i class="fas fa-home text-white"></i> Home</a>
+            <a href="/admin/banjir" class="nav-link text-white"><i class="fas fa-water text-white"></i> Banjir</a>
           </li>
           <li class="nav-item">
-            <a href="/pasien" class="nav-link text-white"><i class="fas fa-users text-white"></i> Pasien</a>
+            <a href="/admin/dapur-umum" class="nav-link text-white"><i class="fas fa-utensils"></i> Dapur Umum</a>
+          </li>
+          <li class="nav-item">
+            <a href="/admin/pengungsian" class="nav-link text-white"><i class="fas fa-home text-white"></i> Pengungsian</a>
           </li>
           <li class="nav-item dropdown">
             <a id="dropdownSubMenu1" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle  text-white"><i class="fas fa-cogs text-white"></i> Setting</a>
             <ul aria-labelledby="dropdownSubMenu1" class="dropdown-menu border-0 shadow">
-              <li><a href="/kelurahan" class="dropdown-item"><i class="fas fa-server"></i> Kelurahan </a></li>
-              <li><a href="/marker" class="dropdown-item"><i class="fas fa-map-marker"></i> Marker </a></li>
+              <li><a href="/admin/kecamatan" class="dropdown-item"><i class="fas fa-server"></i> Kecamatan </a></li>
+              <li><a href="/admin/kelurahan" class="dropdown-item"><i class="fas fa-server"></i> Kelurahan </a></li>
+              <li><a href="/admin/lokasi" class="dropdown-item"><i class="fas fa-server"></i> Lokasi </a></li>
               <!-- End Level two -->
             </ul>
           </li>

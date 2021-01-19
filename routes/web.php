@@ -16,3 +16,32 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', 'HomeController@index');
 Route::get('/dapur-umum', 'HomeController@dapurUmum');
 Route::get('/pengungsian', 'HomeController@pengungsian');
+
+Route::get('/login', 'LoginController@index')->name('login');
+Route::post('/login', 'LoginController@login');
+
+Route::group(['middleware' => ['auth']], function () {
+    Route::get('/home', 'HomeController@home');
+    Route::get('/logout', 'LoginController@logout');
+
+    Route::get('/admin/kecamatan', 'KecamatanController@index');
+    Route::get('/admin/kecamatan/add', 'KecamatanController@add');
+    Route::post('/admin/kecamatan/add', 'KecamatanController@store');
+    Route::get('/admin/kecamatan/edit/{id}', 'KecamatanController@edit');
+    Route::post('/admin/kecamatan/edit/{id}', 'KecamatanController@update');
+    Route::get('/admin/kecamatan/delete/{id}', 'KecamatanController@delete');
+
+    Route::get('/admin/kelurahan', 'KelurahanController@index');
+    Route::get('/admin/kelurahan/add', 'KelurahanController@add');
+    Route::post('/admin/kelurahan/add', 'KelurahanController@store');
+    Route::get('/admin/kelurahan/edit/{id}', 'KelurahanController@edit');
+    Route::post('/admin/kelurahan/edit/{id}', 'KelurahanController@update');
+    Route::get('/admin/kelurahan/delete/{id}', 'KelurahanController@delete');
+    
+    Route::get('/admin/lokasi', 'LokasiController@index');
+    Route::get('/admin/lokasi/add', 'LokasiController@add');
+    Route::post('/admin/lokasi/add', 'LokasiController@store');
+    Route::get('/admin/lokasi/edit/{id}', 'LokasiController@edit');
+    Route::post('/admin/lokasi/edit/{id}', 'LokasiController@update');
+    Route::get('/admin/lokasi/delete/{id}', 'LokasiController@delete');
+});

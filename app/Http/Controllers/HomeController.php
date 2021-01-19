@@ -20,4 +20,9 @@ class HomeController extends Controller
     {
         return view('pengungsian');
     }
+
+    public function home()
+    {
+        return view('admin.home');
+    }
 }
