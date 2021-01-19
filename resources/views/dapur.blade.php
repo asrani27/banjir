@@ -5,7 +5,7 @@
 integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
 crossorigin=""/>
 <style>
-    #mapid { height: 300px; }
+  #mapid { height: 350px; }
 </style>
 @endpush
 
@@ -102,7 +102,7 @@ crossorigin=""/>
                       <td class="text-center">{{$item->lokasi}}</td>
                       <td class="text-center">{{$item->keterangan}}</td>
                       <td class="text-center">{{\Carbon\Carbon::parse($item->updated_at)->format('d/M/Y')}}</td>
-                      <td class="text-center">{{\Carbon\Carbon::parse($item->updated_at)->format('H:i')}}</td>
+                      <td class="text-center">{{\Carbon\Carbon::parse($item->updated_at)->format('H:i')}}  WITA</td>
                       <td class="text-center">
                         @if ($item->file == null)
                             -
@@ -146,12 +146,13 @@ crossorigin=""></script>
    var dapurIcon = L.icon({
        iconUrl: '/marker/marker-icon-green.png',
    });
-   console.log(dapur)
+   
    for (var i = 0; i < dapur.length; i++) { 
     var PopUp = '<strong>KECAMATAN : '+dapur[i].nama_kecamatan+'</strong><br/>\
         <strong>KELURAHAN : '+dapur[i].nama_kelurahan+'</strong><br/>\
         <strong>LOKASI : '+dapur[i].lokasi+'</strong><br/>\
-        <strong>KETERANGAN : '+dapur[i].keterangan+'</strong><br/>';
+        <strong>KETERANGAN : '+dapur[i].keterangan+'</strong><br/>\
+        <img src="/storage/'+dapur[i].file+'" width=100>';
    L.marker([dapur[i].lat, dapur[i].long],{icon:dapurIcon}).addTo(map).bindPopup(PopUp);
    }
 </script>

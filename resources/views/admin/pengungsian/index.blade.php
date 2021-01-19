@@ -8,12 +8,12 @@
 @endpush
 
 @section('content')
-<a href="/admin/dapur/add" class="btn btn-sm bg-gradient-purple"><i class="fas fa-plus"></i>&nbsp; Tambah Data</a> <br /><br />
+<a href="/admin/pengungsian/add" class="btn btn-sm bg-gradient-purple"><i class="fas fa-plus"></i>&nbsp; Tambah Data</a> <br /><br />
 <div class="row">
   <div class="col-lg-12">
-    <div class="card card-success">
+    <div class="card card-danger">
       <div class="card-header">
-        <h5 class="card-title m-0"> <i class="fas fa-server"></i> Data Dapur Umum </h5>
+        <h5 class="card-title m-0"> <i class="fas fa-server"></i> Data Pengungsian</h5>
       </div>
         <div class="card-body">
             <table id="example1" class="table table-bordered table-striped table-sm">
@@ -52,8 +52,8 @@
                         </td>
                       
                         <td class="text-center">
-                            <a href="/admin/dapur/edit/{{$item->id}}" class="btn btn-xs btn-warning"><i class="fas fa-edit"></i></a>
-                            <a href="/admin/dapur/delete/{{$item->id}}" class="btn btn-xs btn-danger" onclick="return confirm('Yakin Ingin Menghapus Data Ini?');"><i class="fas fa-trash"></i></a>
+                            <a href="/admin/pengungsian/edit/{{$item->id}}" class="btn btn-xs btn-warning"><i class="fas fa-edit"></i></a>
+                            <a href="/admin/pengungsian/delete/{{$item->id}}" class="btn btn-xs btn-danger" onclick="return confirm('Yakin Ingin Menghapus Data Ini?');"><i class="fas fa-trash"></i></a>
                         </td>
                     </tr>
                 @endforeach

@@ -5,7 +5,7 @@
 integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
 crossorigin=""/>
 <style>
-    #mapid { height: 300px; }
+  #mapid { height: 350px; }
 </style>
 @endpush
 
@@ -74,10 +74,47 @@ crossorigin=""/>
   <div class="col-lg-12">
     <div class="card card-danger">
       <div class="card-header">
-        <h5 class="card-title m-0"> <i class="fas fa-chart-line"></i> Data </h5>
+        <h5 class="card-title m-0"> <i class="fas fa-chart-line"></i> Data Tempat Pengungsian</h5>
       </div>
-      <div class="card-body">
-        
+      <div class="card-body table-responsive">
+          <table id="example1" class="table table-bordered table-striped table-sm">
+          <thead>
+          <tr class="bg-gradient-danger">
+              <th class="text-center">No</th>
+              <th class="text-center">Kecamatan</th>
+              <th class="text-center">Kelurahan</th>
+              <th class="text-center">Lokasi</th>
+              <th class="text-center">Keterangan</th>
+              <th class="text-center">Tgl Update</th>
+              <th class="text-center">Jam Update</th>
+              <th class="text-center">Foto</th>
+          </tr>
+          </thead>
+          <tbody>
+              @php
+                  $no =1;
+              @endphp
+              @foreach (pengungsian() as $item)
+                  <tr>
+                      <td class="text-center">{{$no++}}</td>
+                      <td class="text-center">{{$item->kelurahan->kecamatan->nama}}</td>
+                      <td class="text-center">{{$item->kelurahan->nama}}</td>
+                      <td class="text-center">{{$item->lokasi}}</td>
+                      <td class="text-center">{{$item->keterangan}}</td>
+                      <td class="text-center">{{\Carbon\Carbon::parse($item->updated_at)->format('d/M/Y')}}</td>
+                      <td class="text-center">{{\Carbon\Carbon::parse($item->updated_at)->format('H:i')}} WITA</td>
+                      <td class="text-center">
+                        @if ($item->file == null)
+                            -
+                        @else  
+                          <img src="/storage/{{$item->file}}" width="100">
+                        @endif
+                      </td>
+                  </tr>
+              @endforeach
+          
+          </tbody>
+          </table>
       </div>
     </div>
   </div>
@@ -105,6 +142,20 @@ crossorigin=""></script>
         attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         }).addTo(map);
        
+        pengungsian = {!!json_encode(petaPengungsian())!!}
+   
+   var pengungsianIcon = L.icon({
+       iconUrl: '/marker/marker-icon-red.png',
+   });
+   
+   for (var i = 0; i < pengungsian.length; i++) { 
+    var PopUp = '<strong>KECAMATAN : '+pengungsian[i].nama_kecamatan+'</strong><br/>\
+        <strong>KELURAHAN : '+pengungsian[i].nama_kelurahan+'</strong><br/>\
+        <strong>LOKASI : '+pengungsian[i].lokasi+'</strong><br/>\
+        <strong>KETERANGAN : '+pengungsian[i].keterangan+'</strong><br/>\
+        <img src="/storage/'+pengungsian[i].file+'" width=100>';
+   L.marker([pengungsian[i].lat, pengungsian[i].long],{icon:pengungsianIcon}).addTo(map).bindPopup(PopUp);
+   }
 </script>
 {{-- <script>
   var ctx = document.getElementById('myChart').getContext('2d');

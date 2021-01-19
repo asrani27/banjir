@@ -10,15 +10,15 @@ crossorigin=""/>
 @endpush
 
 @section('content')
-<a href="/admin/banjir" class="btn btn-sm btn-secondary"><i class="fas fa-arrow-left"></i>&nbsp; Kembali</a> <br /><br />
+<a href="/admin/pengungsian" class="btn btn-sm btn-secondary"><i class="fas fa-arrow-left"></i>&nbsp; Kembali</a> <br /><br />
 
 <div class="row">
   <div class="col-lg-12">
-    <div class="card card-primary card-outline">
+    <div class="card card-danger">
       <div class="card-header">
-        <h5 class="card-title m-0"> <i class="fas fa-server"></i> Edit Data </h5>
+        <h5 class="card-title m-0"> <i class="fas fa-server"></i> Tambah Data Tempat Pengungsian </h5>
       </div>
-      <form method="post" action="/admin/dapur/edit/{{$data->id}}" enctype="multipart/form-data">
+      <form method="post" action="/admin/pengungsian/add" enctype="multipart/form-data">
         @csrf
       <div class="card-body">
           <div class="form-group row">
@@ -27,7 +27,7 @@ crossorigin=""/>
               <select name="kelurahan_id" class="form-control">
                   <option value="">-Pilih-</option>
                 @foreach (kelurahan() as $item)
-                    <option value="{{$item->id}}" {{$data->kelurahan_id == $item->id ? 'selected':''}}>{{$item->nama}}</option>
+                    <option value="{{$item->id}}">{{$item->nama}}</option>
                 @endforeach
               </select>
             </div>
@@ -35,7 +35,7 @@ crossorigin=""/>
           <div class="form-group row">
             <label for="inputPassword3" class="col-sm-2 col-form-label">Lokasi</label>
             <div class="col-sm-10">
-              <input type="text" class="form-control" name="lokasi" value="{{$data->lokasi}}" required>
+              <input type="text" class="form-control" name="lokasi" required>
             </div>
           </div>
           <div class="form-group row">
@@ -47,7 +47,7 @@ crossorigin=""/>
           <div class="form-group row">
             <label for="inputPassword3" class="col-sm-2 col-form-label">Keterangan</label>
             <div class="col-sm-10">
-              <input type="text" class="form-control" name="keterangan" value="{{$data->keterangan}}">
+              <input type="text" class="form-control" name="keterangan" placeholder="Butuh bantuan sembako">
             </div>
           </div>
           <div class="form-group row">
@@ -59,13 +59,13 @@ crossorigin=""/>
           <div class="form-group row">
             <label for="inputPassword3" class="col-sm-2 col-form-label">Lat</label>
             <div class="col-sm-10">
-              <input type="text" class="form-control" name="lat" id="lat" required value="{{$data->lat}}" readonly>
+              <input type="text" class="form-control" name="lat" id="lat" required readonly>
             </div>
           </div>
           <div class="form-group row">
             <label for="inputPassword3" class="col-sm-2 col-form-label">Long</label>
             <div class="col-sm-10">
-              <input type="text" class="form-control" name="long" id="long" required value="{{$data->long}}" readonly>
+              <input type="text" class="form-control" name="long" id="long" required readonly>
             </div>
           </div>
           <div class="form-group row">

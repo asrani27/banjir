@@ -102,7 +102,7 @@ crossorigin=""/>
                       <td class="text-center">{{$item->lokasi}}</td>
                       <td class="text-center">{{$item->tinggi_air}}</td>
                       <td class="text-center">{{\Carbon\Carbon::parse($item->updated_at)->format('d/M/Y')}}</td>
-                      <td class="text-center">{{\Carbon\Carbon::parse($item->updated_at)->format('H:i')}}</td>
+                      <td class="text-center">{{\Carbon\Carbon::parse($item->updated_at)->format('H:i')}} WITA</td>
                       <td class="text-center">
                         @if ($item->file == null)
                             -
@@ -144,12 +144,13 @@ crossorigin=""></script>
    var banjirIcon = L.icon({
        iconUrl: '/marker/marker-icon-blue.png',
    });
-   console.log(banjir);
+   
    for (var i = 0; i < banjir.length; i++) { 
     var PopUp = '<strong>KECAMATAN : '+banjir[i].nama_kecamatan+'</strong><br/>\
         <strong>KELURAHAN : '+banjir[i].nama_kelurahan+'</strong><br/>\
         <strong>LOKASI : '+banjir[i].lokasi+'</strong><br/>\
-        <strong>TINGGI AIR : '+banjir[i].tinggi_air+' cm</strong><br/>';
+        <strong>TINGGI AIR : '+banjir[i].tinggi_air+' cm</strong><br/>\
+        <img src="/storage/'+banjir[i].file+'" width=100>';
    L.marker([banjir[i].lat, banjir[i].long],{icon:banjirIcon}).addTo(map).bindPopup(PopUp);
    }
 </script>

@@ -69,4 +69,11 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/admin/dapur/edit/{id}', 'DapurController@edit');
     Route::post('/admin/dapur/edit/{id}', 'DapurController@update');
     Route::get('/admin/dapur/delete/{id}', 'DapurController@delete');
+    
+    Route::get('/admin/pengungsian', 'PengungsianController@index');
+    Route::get('/admin/pengungsian/add', 'PengungsianController@add');
+    Route::post('/admin/pengungsian/add', 'PengungsianController@store');
+    Route::get('/admin/pengungsian/edit/{id}', 'PengungsianController@edit');
+    Route::post('/admin/pengungsian/edit/{id}', 'PengungsianController@update');
+    Route::get('/admin/pengungsian/delete/{id}', 'PengungsianController@delete');
 });

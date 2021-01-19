@@ -10,15 +10,15 @@ crossorigin=""/>
 @endpush
 
 @section('content')
-<a href="/admin/banjir" class="btn btn-sm btn-secondary"><i class="fas fa-arrow-left"></i>&nbsp; Kembali</a> <br /><br />
+<a href="/admin/pengungsian" class="btn btn-sm btn-secondary"><i class="fas fa-arrow-left"></i>&nbsp; Kembali</a> <br /><br />
 
 <div class="row">
   <div class="col-lg-12">
-    <div class="card card-primary card-outline">
+    <div class="card card-danger">
       <div class="card-header">
         <h5 class="card-title m-0"> <i class="fas fa-server"></i> Edit Data </h5>
       </div>
-      <form method="post" action="/admin/dapur/edit/{{$data->id}}" enctype="multipart/form-data">
+      <form method="post" action="/admin/pengungsian/edit/{{$data->id}}" enctype="multipart/form-data">
         @csrf
       <div class="card-body">
           <div class="form-group row">

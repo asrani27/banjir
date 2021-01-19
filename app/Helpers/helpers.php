@@ -8,6 +8,7 @@ use App\Lokasi;
 use App\Kecamatan;
 use App\Kelurahan;
 use Carbon\Carbon;
+use App\Pengungsian;
 use App\Rekapitulasi;
 
 function namaKecamatan($param)
@@ -90,4 +91,18 @@ function petaDapur()
 function dapur()
 {
     return Dapur::get();
+}
+
+function petaPengungsian()
+{
+    return Pengungsian::get()->map(function($item){
+        $item->nama_kelurahan = $item->kelurahan->nama;
+        $item->nama_kecamatan = $item->kelurahan->kecamatan->nama;
+        return $item;
+    })->toArray();
+}
+
+function pengungsian()
+{
+    return Pengungsian::get();
 }
