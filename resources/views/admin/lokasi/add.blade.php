@@ -22,7 +22,7 @@
               <select name="kelurahan_id" class="form-control" required>
                 <option value="">-Pilih-</option>
                 @foreach (kelurahan() as $item)
-                <option value="{{$item->id}}">{{$item->nama}}</option>
+                <option value="{{$item->id}}">{{$item->nama}} - {{$item->kecamatan->nama}}</option>
                 @endforeach
               </select>
             </div>

@@ -40,6 +40,11 @@ class User extends Authenticatable
         return $this->belongsToMany(Role::class, 'role_users');
     }
 
+    public function kecamatan()
+    {
+        return $this->hasOne(Kecamatan::class);
+    }
+
     public function hasRole($role)
     {
         return $this->roles()->where('name', $role)->count() == 1;

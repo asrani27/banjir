@@ -5,13 +5,18 @@ namespace App\Http\Controllers;
 use App\Lokasi;
 use App\Rekapitulasi;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class RekapitulasiController extends Controller
 {
     
     public function index()
     {
-        $data = Rekapitulasi::get();
+        if(Auth::user()->hasRole('kecamatan')){
+            $data = Rekapitulasi::where('kecamatan_id', Auth::user()->kecamatan->id)->get();
+        }else{
+            $data = Rekapitulasi::get();
+        }
         return view('admin.rekapitulasi.index',compact('data'));
     }
     public function add()

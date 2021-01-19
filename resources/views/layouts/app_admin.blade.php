@@ -61,7 +61,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
           <li class="nav-item dropdown">
             <a id="dropdownSubMenu1" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle  text-white"><i class="fas fa-cogs text-white"></i> Setting</a>
             <ul aria-labelledby="dropdownSubMenu1" class="dropdown-menu border-0 shadow">
+              @if (Auth::user()->hasRole('superadmin'))
               <li><a href="/admin/kecamatan" class="dropdown-item"><i class="fas fa-server"></i> Kecamatan </a></li>
+              @endif
               <li><a href="/admin/kelurahan" class="dropdown-item"><i class="fas fa-server"></i> Kelurahan </a></li>
               <li><a href="/admin/lokasi" class="dropdown-item"><i class="fas fa-server"></i> Lokasi </a></li>
               <!-- End Level two -->

@@ -10,6 +10,7 @@ use App\Kelurahan;
 use Carbon\Carbon;
 use App\Pengungsian;
 use App\Rekapitulasi;
+use Illuminate\Support\Facades\Auth;
 
 function namaKecamatan($param)
 {
@@ -30,12 +31,23 @@ function kecamatan()
 
 function kelurahan()
 {
-    return Kelurahan::get();
+    if(Auth::user()->hasRole('kecamatan')){
+        $data = Kelurahan::where('kecamatan_id', Auth::user()->kecamatan->id)->get();
+    }else{
+        $data = Kelurahan::get();
+    }
+    return $data;
 }
 
 function lokasi()
 {
-    return Lokasi::get();
+    if(Auth::user()->hasRole('kecamatan')){
+        $kelurahan_id = Kelurahan::where('kecamatan_id', Auth::user()->kecamatan->id)->pluck('id');
+        $data = Lokasi::whereIn('kelurahan_id', $kelurahan_id)->get();
+    }else{
+        $data = Lokasi::get();
+    }
+    return $data;
 }
 
 function rt()

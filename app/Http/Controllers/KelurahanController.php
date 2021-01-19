@@ -7,12 +7,19 @@ use App\User;
 use App\Kelurahan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
 class KelurahanController extends Controller
 {
     public function index()
     {
-        $data = Kelurahan::get();
+        if(Auth::user()->kecamatan != null){
+            
+            $data = Kelurahan::where('kecamatan_id', Auth::user()->kecamatan->id)->get();
+            
+        }else{
+            $data = Kelurahan::get();
+        }
         return view('admin.kelurahan.index',compact('data'));
     }
     public function add()
@@ -26,6 +33,9 @@ class KelurahanController extends Controller
         {
             $attr = $req->all();
             $attr['nama'] = strtoupper($req->nama);
+            if(Auth::user()->hasRole('kecamatan')){
+                $attr['kecamatan_id'] = Auth::user()->kecamatan->id;
+            }
             Kelurahan::create($attr);
             toastr()->success('Data Kelurahan Berhasil Disimpan');
             return redirect('/admin/kelurahan');

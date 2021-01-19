@@ -68,6 +68,22 @@
                 @endforeach
             
             </tbody>
+            <tfoot>
+              <tr style="font-size:11px; font-family:Arial, Helvetica, sans-serif">
+                <th></th>
+                <th>TOTAL</th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th>{{$data->sum('terdampak_kk')}}</th>
+                <th>{{$data->sum('terdampak_jiwa')}}</th>
+                <th>{{$data->sum('mengungsi_kk')}}</th>
+                <th>{{$data->sum('mengungsi_jiwa')}}</th>
+                <th></th>
+                <th></th>
+              </tr>
+            </tfoot>
             </table>
         </div>
     </div>

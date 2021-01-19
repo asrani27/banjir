@@ -9,8 +9,13 @@ use Illuminate\Support\Facades\Validator;
 class BanjirController extends Controller
 {
     public function index()
-    {
-        $data = Banjir::get();
+    { 
+        if(Auth::user()->hasRole('kecamatan')){
+            $kelurahan_id = Kelurahan::where('kecamatan_id', Auth::user()->kecamatan->id)->pluck('id');
+            $data = Banjir::whereIn('kelurahan_id', $kelurahan_id)->get();
+        }else{
+            $data = Banjir::get();
+        }
         return view('admin.banjir.index',compact('data'));
     }
     public function add()
