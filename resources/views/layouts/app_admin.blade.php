@@ -63,9 +63,14 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <ul aria-labelledby="dropdownSubMenu1" class="dropdown-menu border-0 shadow">
               @if (Auth::user()->hasRole('superadmin'))
               <li><a href="/admin/kecamatan" class="dropdown-item"><i class="fas fa-server"></i> Kecamatan </a></li>
-              @endif
               <li><a href="/admin/kelurahan" class="dropdown-item"><i class="fas fa-server"></i> Kelurahan </a></li>
               <li><a href="/admin/lokasi" class="dropdown-item"><i class="fas fa-server"></i> Lokasi </a></li>
+              @elseif(Auth::user()->hasRole('kecamatan'))
+              <li><a href="/admin/kelurahan" class="dropdown-item"><i class="fas fa-server"></i> Kelurahan </a></li>
+              <li><a href="/admin/lokasi" class="dropdown-item"><i class="fas fa-server"></i> Lokasi </a></li>
+              @elseif(Auth::user()->hasRole('kelurahan'))
+              <li><a href="/admin/lokasi" class="dropdown-item"><i class="fas fa-server"></i> Lokasi </a></li>
+              @endif
               <!-- End Level two -->
             </ul>
           </li>

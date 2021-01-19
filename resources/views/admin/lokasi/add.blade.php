@@ -19,12 +19,18 @@
           <div class="form-group row">
             <label for="inputEmail3" class="col-sm-2 col-form-label">Pilih Kelurahan</label>
             <div class="col-sm-10">
-              <select name="kelurahan_id" class="form-control" required>
-                <option value="">-Pilih-</option>
-                @foreach (kelurahan() as $item)
-                <option value="{{$item->id}}">{{$item->nama}} - {{$item->kecamatan->nama}}</option>
-                @endforeach
-              </select>
+              @if (Auth::user()->hasRole('kelurahan'))
+              <input type="text" class="form-control" value="{{Auth::user()->kelurahan->nama}}">
+              <input type="hidden" class="form-control" name="kelurahan_id" value="{{Auth::user()->kelurahan->id}}">
+                  
+              @else
+                <select name="kelurahan_id" class="form-control" required>
+                  <option value="">-Pilih-</option>
+                  @foreach (kelurahan() as $item)
+                  <option value="{{$item->id}}">{{$item->nama}} - {{$item->kecamatan->nama}}</option>
+                  @endforeach
+                </select>
+              @endif
             </div>
           </div>
           <div class="form-group row">

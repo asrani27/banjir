@@ -45,6 +45,11 @@ class User extends Authenticatable
         return $this->hasOne(Kecamatan::class);
     }
 
+    public function kelurahan()
+    {
+        return $this->hasOne(Kelurahan::class);
+    }
+
     public function hasRole($role)
     {
         return $this->roles()->where('name', $role)->count() == 1;

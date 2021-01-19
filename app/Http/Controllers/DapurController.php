@@ -3,14 +3,24 @@
 namespace App\Http\Controllers;
 
 use App\Dapur;
+use App\Kelurahan;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 
 class DapurController extends Controller
 {
     public function index()
     {
-        $data = Dapur::get();
+        if(Auth::user()->hasRole('kecamatan')){
+            $kelurahan_id = Kelurahan::where('kecamatan_id', Auth::user()->kecamatan->id)->pluck('id');
+            $data = Dapur::whereIn('kelurahan_id', $kelurahan_id)->get();
+        }
+        elseif(Auth::user()->hasRole('kelurahan')){
+            $data = Dapur::where('kelurahan_id', Auth::user()->kelurahan->id)->get();
+        }else{
+            $data = Dapur::get();
+        }
         return view('admin.dapur.index',compact('data'));
     }
     public function add()

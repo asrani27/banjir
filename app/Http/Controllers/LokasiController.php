@@ -3,13 +3,24 @@
 namespace App\Http\Controllers;
 
 use App\Lokasi;
+use App\Kelurahan;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class LokasiController extends Controller
 {
     public function index()
     {
-        $data = Lokasi::get();
+        if(Auth::user()->hasRole('kecamatan')){
+            $kelurahan_id = Kelurahan::where('kecamatan_id', Auth::user()->kecamatan->id)->pluck('id');
+            $data = Lokasi::whereIn('kelurahan_id', $kelurahan_id)->get();
+        }
+        elseif(Auth::user()->hasRole('kelurahan')){
+            $data = Lokasi::where('kelurahan_id', Auth::user()->kelurahan->id)->get();
+        }
+        else{
+            $data = Lokasi::get();
+        }
         return view('admin.lokasi.index',compact('data'));
     }
     public function add()
@@ -30,13 +41,18 @@ class LokasiController extends Controller
             return back();
         }
     }
-    public function edit()
+    public function edit($id)
     {
-        
+        $data = Lokasi::find($id);
+        return view('admin.lokasi.edit',compact('data'));
     }
-    public function update()
+    public function update(Request $req, $id)
     {
-        
+        $attr = $req->all();
+        $attr['nama'] = strtoupper($req->nama);
+        Lokasi::find($id)->update($attr);
+        toastr()->success('Data Lokasi Berhasil DiUpdate');
+        return redirect('/admin/lokasi');
     }
     public function delete($id)
     {

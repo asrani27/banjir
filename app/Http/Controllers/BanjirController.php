@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Banjir;
+use App\Kelurahan;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 
 class BanjirController extends Controller
@@ -13,6 +15,9 @@ class BanjirController extends Controller
         if(Auth::user()->hasRole('kecamatan')){
             $kelurahan_id = Kelurahan::where('kecamatan_id', Auth::user()->kecamatan->id)->pluck('id');
             $data = Banjir::whereIn('kelurahan_id', $kelurahan_id)->get();
+        }
+        elseif(Auth::user()->hasRole('kelurahan')){
+            $data = Banjir::where('kelurahan_id', Auth::user()->kelurahan->id)->get();
         }else{
             $data = Banjir::get();
         }

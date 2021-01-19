@@ -2,15 +2,26 @@
 
 namespace App\Http\Controllers;
 
+use App\Kelurahan;
 use App\Pengungsian;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 
 class PengungsianController extends Controller
 {
     public function index()
     {
-        $data = Pengungsian::get();
+        if(Auth::user()->hasRole('kecamatan')){
+            $kelurahan_id = Kelurahan::where('kecamatan_id', Auth::user()->kecamatan->id)->pluck('id');
+            $data = Pengungsian::whereIn('kelurahan_id', $kelurahan_id)->get();
+        }
+        elseif(Auth::user()->hasRole('kelurahan')){
+            $data = Pengungsian::where('kelurahan_id', Auth::user()->kelurahan->id)->get();
+        }
+        else{
+            $data = Pengungsian::get();
+        }
         return view('admin.pengungsian.index',compact('data'));
     }
     public function add()

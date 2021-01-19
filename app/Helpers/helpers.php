@@ -44,6 +44,8 @@ function lokasi()
     if(Auth::user()->hasRole('kecamatan')){
         $kelurahan_id = Kelurahan::where('kecamatan_id', Auth::user()->kecamatan->id)->pluck('id');
         $data = Lokasi::whereIn('kelurahan_id', $kelurahan_id)->get();
+    }elseif(Auth::user()->hasRole('kelurahan')){
+        $data = Lokasi::where('kelurahan_id', Auth::user()->kelurahan->id)->get();
     }else{
         $data = Lokasi::get();
     }

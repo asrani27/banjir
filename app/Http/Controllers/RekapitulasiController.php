@@ -14,6 +14,9 @@ class RekapitulasiController extends Controller
     {
         if(Auth::user()->hasRole('kecamatan')){
             $data = Rekapitulasi::where('kecamatan_id', Auth::user()->kecamatan->id)->get();
+        }
+        elseif(Auth::user()->hasRole('kelurahan')){
+            $data = Rekapitulasi::where('kelurahan_id', Auth::user()->kelurahan->id)->get();
         }else{
             $data = Rekapitulasi::get();
         }
