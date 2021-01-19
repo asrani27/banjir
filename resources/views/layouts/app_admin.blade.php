@@ -33,7 +33,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
       <a href="/" class="navbar-brand">
         <img src="/assets/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
              style="opacity: .8">
-        <span class="brand-text font-weight-light text-white"><strong>BANJARMASIN</strong></span>
+        <span class="brand-text font-weight-light text-white"><strong>{{Auth::user()->name}}</strong></span>
       </a>
       
       <button class="navbar-toggler order-1" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
@@ -43,17 +43,20 @@ scratch. This page gets rid of all links and provides the needed markup only.
       <div class="collapse navbar-collapse order-3" id="navbarCollapse">
         <!-- Left navbar links -->
         <ul class="navbar-nav">
-          <li class="nav-item">
+          {{-- <li class="nav-item">
             <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars text-white"></i></a>
+          </li> --}}
+          <li class="nav-item">
+            <a href="/admin/rekap" class="nav-link text-white"><i class="fas fa-file"></i> Rekapitulasi</a>
           </li>
           <li class="nav-item">
-            <a href="/admin/banjir" class="nav-link text-white"><i class="fas fa-water text-white"></i> Banjir</a>
+            <a href="/admin/banjir" class="nav-link text-white"><i class="fas fa-water"></i> Banjir</a>
           </li>
           <li class="nav-item">
             <a href="/admin/dapur-umum" class="nav-link text-white"><i class="fas fa-utensils"></i> Dapur Umum</a>
           </li>
           <li class="nav-item">
-            <a href="/admin/pengungsian" class="nav-link text-white"><i class="fas fa-home text-white"></i> Pengungsian</a>
+            <a href="/admin/pengungsian" class="nav-link text-white"><i class="fas fa-home"></i> Pengungsian</a>
           </li>
           <li class="nav-item dropdown">
             <a id="dropdownSubMenu1" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle  text-white"><i class="fas fa-cogs text-white"></i> Setting</a>
@@ -236,7 +239,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
   <!-- Main Footer -->
   <footer class="main-footer text-center bg-gradient-secondary">
-    <strong>Copyright &copy; 2020 Institut Teknologi PLN.</strong>
+    <strong>Copyright &copy; 2021 PEMERINTAH KOTA BANJARMASIN.</strong>
   </footer>
 </div>
 <!-- ./wrapper -->

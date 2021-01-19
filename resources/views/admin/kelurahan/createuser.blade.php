@@ -11,26 +11,27 @@
   <div class="col-lg-12">
     <div class="card card-primary card-outline">
       <div class="card-header">
-        <h5 class="card-title m-0"> <i class="fas fa-server"></i> Tambah Data Kelurahan </h5>
+        <h5 class="card-title m-0"> <i class="fas fa-server"></i> Buat User Untuk Login </h5>
       </div>
-      <form method="post" action="/admin/kelurahan/add">
+      <form method="post" action="/admin/kelurahan/{{$id}}/createuser">
         @csrf
       <div class="card-body">
+        <div class="form-group row">
+          <label for="inputEmail3" class="col-sm-2 col-form-label">Nama Kelurahan</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" value="{{namaKelurahan($id)}}" readonly>
+          </div>
+        </div>
           <div class="form-group row">
-            <label for="inputEmail3" class="col-sm-2 col-form-label">Pilih Kecamatan</label>
+            <label for="inputEmail3" class="col-sm-2 col-form-label">username</label>
             <div class="col-sm-10">
-              <select name="kecamatan_id" class="form-control" required>
-                <option value="">-Pilih-</option>
-                @foreach (kecamatan() as $item)
-                <option value="{{$item->id}}">{{$item->nama}}</option>
-                @endforeach
-              </select>
+              <input type="text" class="form-control" name="username" placeholder="username" required>
             </div>
           </div>
           <div class="form-group row">
-            <label for="inputPassword3" class="col-sm-2 col-form-label">Nama Kelurahan</label>
+            <label for="inputPassword3" class="col-sm-2 col-form-label">Password</label>
             <div class="col-sm-10">
-              <input type="text" class="form-control" name="nama" style="text-transform: uppercase" required>
+              <input type="text" class="form-control" name="password" placeholder="password" required>
             </div>
           </div>
           <div class="form-group row">
@@ -47,6 +48,5 @@
 @endsection
 
 @push('js')
-
 
 @endpush

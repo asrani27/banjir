@@ -21,4 +21,9 @@ class Kelurahan extends Model
     {
         return $this->hasMany(Lokasi::class);
     }
+    
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

@@ -8,20 +8,19 @@
 @endpush
 
 @section('content')
-<a href="/admin/kelurahan/add" class="btn btn-sm btn-danger"><i class="fas fa-plus"></i>&nbsp; Tambah Kelurahan</a> <br /><br />
+<a href="/admin/kecamatan/add" class="btn btn-sm btn-danger"><i class="fas fa-plus"></i>&nbsp; Tambah Kecamatan</a> <br /><br />
 <div class="row">
   <div class="col-lg-12">
     <div class="card card-primary card-outline">
       <div class="card-header">
-        <h5 class="card-title m-0"> <i class="fas fa-server"></i> Data Kelurahan </h5>
+        <h5 class="card-title m-0"> <i class="fas fa-server"></i> Data Kecamatan </h5>
       </div>
         <div class="card-body">
             <table id="example1" class="table table-bordered table-striped table-sm">
             <thead>
             <tr class="bg-gradient-primary">
                 <th class="text-center">No</th>
-                <th class="text-center">Nama Kelurahan</th>
-                <th class="text-center">Kecamatan</th>
+                <th class="text-center">Nama Kecamatan</th>
                 <th class="text-center">Username For Login</th>
                 <th class="text-center">#</th>
             </tr>
@@ -32,19 +31,19 @@
                 @endphp
                 @foreach ($data as $item)
                     <tr>
-                        <td>{{$no++}}</td>
-                        <td>{{$item->nama}}</td>
-                        <td>{{$item->kecamatan->nama}}</td>
+                        <td class="text-center">{{$no++}}</td>
+                        <td class="text-center">{{$item->nama}}</td>
                         <td class="text-center">
                           @if ($item->user_id == null)
-                              <a href="/admin/kelurahan/{{$item->id}}/createuser" class="btn btn-sm bg-gradient-purple">Buat User</a>
+                              <a href="/admin/kecamatan/{{$item->id}}/createuser" class="btn btn-sm bg-gradient-purple">Buat User</a>
                           @else
                               {{$item->user->username}}
                           @endif
                         </td>
-                        <td>
-                            <a href="/admin/kelurahan/edit/{{$item->id}}" class="btn btn-xs btn-warning"><i class="fas fa-edit"></i></a>
-                            <a href="/admin/kelurahan/delete/{{$item->id}}" class="btn btn-xs btn-danger" onclick="return confirm('Yakin Ingin Menghapus Data Ini?');"><i class="fas fa-trash"></i></a>
+                        <td class="text-center">
+                            <a href="/admin/kecamatan/edit/{{$item->id}}" class="btn btn-xs btn-warning"><i class="fas fa-edit"></i></a>
+                            <a href="/admin/kecamatan/delete/{{$item->id}}" class="btn btn-xs btn-danger" onclick="return confirm('Yakin Ingin Menghapus Data Ini?');"><i class="fas fa-trash"></i></a>
+                        </td>
                     </tr>
                 @endforeach
             
