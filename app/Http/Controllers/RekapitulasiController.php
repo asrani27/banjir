@@ -7,9 +7,8 @@ use App\Rekapitulasi;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class RekapitulasiController extends Controller
-{
-    
+class RekapitulasiController extends Controller 
+{    
     public function index()
     {
         if(Auth::user()->hasRole('kecamatan')){
@@ -22,10 +21,18 @@ class RekapitulasiController extends Controller
         }
         return view('admin.rekapitulasi.index',compact('data'));
     }
+
     public function add()
     {
         return view('admin.rekapitulasi.add');   
     }
+    
+    public function detail($id)
+    {
+        $data = Rekapitulasi::where('kecamatan_id', $id)->get();
+        return view('admin.rekapitulasi.detail',compact('data'));   
+    }
+
     public function store(Request $req)
     {
         if(Rekapitulasi::where('lokasi_id', $req->lokasi_id)->where('rt', $req->rt)->first() == null)

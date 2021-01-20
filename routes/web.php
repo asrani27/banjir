@@ -19,6 +19,7 @@ Route::get('/pengungsian', 'HomeController@pengungsian');
 
 Route::get('/login', 'LoginController@index')->name('login');
 Route::post('/login', 'LoginController@login');
+Route::get('/rekapitulasi/detail/{id}', 'RekapitulasiController@detail');
 
 Route::group(['middleware' => ['auth']], function () {
     Route::get('/home', 'HomeController@home');

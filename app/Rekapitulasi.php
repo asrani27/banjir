@@ -15,4 +15,13 @@ class Rekapitulasi extends Model
         return $this->belongsTo(Lokasi::class);
     }
 
+    public function kecamatan()
+    {
+        return $this->belongsTo(Kecamatan::class);
+    }
+    
+    public function kelurahan()
+    {
+        return $this->belongsTo(Kelurahan::class);
+    }
 }

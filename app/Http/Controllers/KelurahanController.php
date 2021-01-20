@@ -44,13 +44,21 @@ class KelurahanController extends Controller
             return back();
         }
     }
-    public function edit()
+    public function edit($id)
     {
-        
+        $data = Kelurahan::find($id);
+        return view('admin.kelurahan.edit',compact('data'));   
     }
-    public function update()
+    public function update(Request $req, $id)
     {
-        
+        $attr = $req->all();
+        $attr['nama'] = strtoupper($req->nama);
+        if(Auth::user()->hasRole('kecamatan')){
+            $attr['kecamatan_id'] = Auth::user()->kecamatan->id;
+        }
+        Kelurahan::find($id)->update($attr);
+        toastr()->success('Data Kelurahan Berhasil Diupdate');
+        return redirect('/admin/kelurahan');
     }
     public function delete($id)
     {
