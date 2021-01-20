@@ -6,11 +6,9 @@
         </div>
         <div class="card-body table-responsive">
             <div class="timeline-body">
-                <img src="http://placehold.it/150x100" alt="...">
-                <img src="http://placehold.it/150x100" alt="...">
-                <img src="http://placehold.it/150x100" alt="...">
-                <img src="http://placehold.it/150x100" alt="...">
-                <img src="http://placehold.it/150x100" alt="...">
+                <img src="http://placehold.it/150x100" alt="..." width="350" height="200">
+                <img src="http://placehold.it/150x100" alt="..." width="350" height="200">
+                <img src="http://placehold.it/150x100" alt="..." width="350" height="200">
               </div>
         </div>
         </div>
