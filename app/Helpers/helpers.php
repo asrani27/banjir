@@ -4,6 +4,7 @@ use App\RT;
 use App\RW;
 use App\Dapur;
 use App\Banjir;
+use App\Galery;
 use App\Lokasi;
 use App\Kecamatan;
 use App\Kelurahan;
@@ -119,4 +120,9 @@ function petaPengungsian()
 function pengungsian()
 {
     return Pengungsian::get();
+}
+
+function galery()
+{
+    return Galery::get();
 }

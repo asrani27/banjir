@@ -6,9 +6,9 @@
         </div>
         <div class="card-body table-responsive">
             <div class="timeline-body">
-                <img src="http://placehold.it/150x100" alt="..." width="350" height="200">
-                <img src="http://placehold.it/150x100" alt="..." width="350" height="200">
-                <img src="http://placehold.it/150x100" alt="..." width="350" height="200">
+                @foreach (galery() as $item)
+                    <img src="/storage/{{$item->file}}" alt="..." width="350" height="200">
+                @endforeach
               </div>
         </div>
         </div>
