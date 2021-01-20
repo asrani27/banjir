@@ -124,7 +124,7 @@
                                     <td class="text-center">{{$item->lokasi}}</td>
                                     <td class="text-center">{{$item->tinggi_air}}</td>
                                     <td class="text-center">{{\Carbon\Carbon::parse($item->updated_at)->format('d/M/Y H:i')}} WITA</td>
-                                    <td class="text-center"><img src="/storage/{{$item->file}}" width="100"></td>
+                                    {{-- <td class="text-center"><img src="/storage/{{$item->file}}" width="100"></td> --}}
                                 </tr>
                                 @endforeach
                                 {{-- <tfoot>
@@ -180,7 +180,7 @@
                                     <td class="text-center">{{$item->lokasi}}</td>
                                     <td class="text-center">{{$item->keterangan}}</td>
                                     <td class="text-center">{{\Carbon\Carbon::parse($item->updated_at)->format('d/M/Y H:i')}} WITA</td>
-                                    <td class="text-center"><img src="/storage/{{$item->file}}" width="100"></td>
+                                    {{-- <td class="text-center"><img src="/storage/{{$item->file}}" width="100"></td> --}}
                                 </tr>
                                 @endforeach
                                 {{-- <tfoot>
@@ -236,7 +236,7 @@
                                     <td class="text-center">{{$item->lokasi}}</td>
                                     <td class="text-center">{{$item->keterangan}}</td>
                                     <td class="text-center">{{\Carbon\Carbon::parse($item->updated_at)->format('d/M/Y H:i')}} WITA</td>
-                                    <td class="text-center"><img src="/storage/{{$item->file}}" width="100"></td>
+                                    {{-- <td class="text-center"><img src="/storage/{{$item->file}}" width="100"></td> --}}
                                 </tr>
                                 @endforeach
                                 {{-- <tfoot>
