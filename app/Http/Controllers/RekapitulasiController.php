@@ -30,7 +30,7 @@ class RekapitulasiController extends Controller
     public function detail($id)
     {
         $data = Rekapitulasi::where('kecamatan_id', $id)->get();
-        return view('admin.rekapitulasi.detail',compact('data'));   
+        return view('detail',compact('data'));   
     }
 
     public function store(Request $req)
