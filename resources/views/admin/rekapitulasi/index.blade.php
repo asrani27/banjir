@@ -27,6 +27,9 @@
                 <th class="text-center" rowspan=2>RW</th>
                 <th class="text-center" colspan=2>Terdampak</th>
                 <th class="text-center" colspan=2>Mengungsi</th>
+                <th class="text-center" rowspan=2>Balita</th>
+                <th class="text-center" rowspan=2>Lansia</th>
+                <th class="text-center" rowspan=2>Ibu-Ibu</th>
                 <th class="text-center" rowspan=2>Keterangan/Lokasi Pengungsian</th>
                 <th class="text-center" rowspan=2>#</th>
             </tr>
@@ -53,6 +56,9 @@
                         <td>{{$item->terdampak_jiwa}}</td>
                         <td>{{$item->mengungsi_kk}}</td>
                         <td>{{$item->mengungsi_jiwa}}</td>
+                        <td>{{$item->balita}}</td>
+                        <td>{{$item->lansia}}</td>
+                        <td>{{$item->ibu}}</td>
                         <td>{{$item->keterangan}}</td>
                         <td>
                           <a href="/admin/rekapitulasi/edit/{{$item->id}}" class="btn btn-xs btn-warning" data-toggle="tooltip" title="Edit Data"><i class="fas fa-edit"></i></a>
@@ -80,6 +86,9 @@
                 <th>{{$data->sum('terdampak_jiwa')}}</th>
                 <th>{{$data->sum('mengungsi_kk')}}</th>
                 <th>{{$data->sum('mengungsi_jiwa')}}</th>
+                <th>{{$data->sum('balita')}}</th>
+                <th>{{$data->sum('lansia')}}</th>
+                <th>{{$data->sum('ibu')}}</th>
                 <th></th>
                 <th></th>
               </tr>

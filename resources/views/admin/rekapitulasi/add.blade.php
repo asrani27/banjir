@@ -81,6 +81,24 @@
           </div>
           
           <div class="form-group row">
+            <label for="inputPassword3" class="col-sm-2 col-form-label">Jumlah Balita</label>
+            <div class="col-sm-1">
+              <input type="text" class="form-control" name="balita" style="text-transform: uppercase" value="0" required maxlength="6" onkeypress="return hanyaAngka(event)">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="inputPassword3" class="col-sm-2 col-form-label">Jumlah Lansia</label>
+            <div class="col-sm-1">
+              <input type="text" class="form-control" name="lansia" style="text-transform: uppercase" value="0" required maxlength="6" onkeypress="return hanyaAngka(event)">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="inputPassword3" class="col-sm-2 col-form-label">Jumlah Ibu-Ibu</label>
+            <div class="col-sm-1">
+              <input type="text" class="form-control" name="ibu" style="text-transform: uppercase" value="0" required maxlength="6" onkeypress="return hanyaAngka(event)">
+            </div>
+          </div>
+          <div class="form-group row">
             <label for="inputPassword3" class="col-sm-2 col-form-label">Keterangan/Alamat Pengungsian</label>
             <div class="col-sm-10">
               <input type="text" class="form-control" name="keterangan">

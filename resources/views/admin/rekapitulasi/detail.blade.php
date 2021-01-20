@@ -26,6 +26,9 @@
                         <th rowspan=2 class="text-center" style="vertical-align:middle;">Lokasi</th>
                         <th colspan=2 class="text-center">Terdampak</th>
                         <th colspan=2 class="text-center">Mengungsi</th>
+                        <th rowspan=2 class="text-center" style="vertical-align:middle;">Balita</th>
+                        <th rowspan=2 class="text-center" style="vertical-align:middle;">Lansia</th>
+                        <th rowspan=2 class="text-center" style="vertical-align:middle;">Ibu</th>
                     </tr>
                     <tr class="bg-gradient-purple">                    
                         <th class="text-center">KK</th>
@@ -48,6 +51,9 @@
                         <td class="text-center">{{$item->terdampak_jiwa}}</td>
                         <td class="text-center">{{$item->mengungsi_kk}}</td>
                         <td class="text-center">{{$item->mengungsi_jiwa}}</td>
+                        <td class="text-center">{{$item->balita}}</td>
+                        <td class="text-center">{{$item->lansia}}</td>
+                        <td class="text-center">{{$item->ibu}}</td>
                     </tr>
                     @endforeach
                     <tfoot>
@@ -56,10 +62,13 @@
                             <th></th>
                             <th></th>
                             <th class="text-center">TOTAL</th>
-                            <th class="text-center">{{rekapitulasi()->sum('terdampak_kk')}}</th>
-                            <th class="text-center">{{rekapitulasi()->sum('terdampak_jiwa')}}</th>
-                            <th class="text-center">{{rekapitulasi()->sum('mengungsi_kk')}}</th>
-                            <th class="text-center">{{rekapitulasi()->sum('mengungsi_jiwa')}}</th>
+                            <th class="text-center">{{$data->sum('terdampak_kk')}}</th>
+                            <th class="text-center">{{$data->sum('terdampak_jiwa')}}</th>
+                            <th class="text-center">{{$data->sum('mengungsi_kk')}}</th>
+                            <th class="text-center">{{$data->sum('mengungsi_jiwa')}}</th>
+                            <th class="text-center">{{$data->sum('balita')}}</th>
+                            <th class="text-center">{{$data->sum('lansia')}}</th>
+                            <th class="text-center">{{$data->sum('ibu')}}</th>
                         </tr>
                     </tfoot>
                 </tbody>

@@ -8,10 +8,13 @@
         <table class="table table-striped table-sm">
             <thead>
                 <tr class="bg-gradient-purple">
-                    <th rowspan=2 class="text-center">No</th>
-                    <th rowspan=2 class="text-center">Nama Kecamatan</th>
+                    <th rowspan=2 class="text-center" style="vertical-align:middle;">No</th>
+                    <th rowspan=2 class="text-center" style="vertical-align:middle;">Nama Kecamatan</th>
                     <th colspan=2 class="text-center">Terdampak</th>
                     <th colspan=2 class="text-center">Mengungsi</th>
+                    <th rowspan=2 class="text-center" style="vertical-align:middle;">Balita</th>
+                    <th rowspan=2 class="text-center" style="vertical-align:middle;">Lansia</th>
+                    <th rowspan=2 class="text-center" style="vertical-align:middle;">Ibu</th>
                     <th rowspan=2 class="text-center"></th>
                 </tr>
                 <tr class="bg-gradient-purple">                    
@@ -33,6 +36,9 @@
                     <td class="text-center">{{$item->terdampak_jiwa}}</td>
                     <td class="text-center">{{$item->mengungsi_kk}}</td>
                     <td class="text-center">{{$item->mengungsi_jiwa}}</td>
+                    <td class="text-center">{{$item->balita}}</td>
+                    <td class="text-center">{{$item->lansia}}</td>
+                    <td class="text-center">{{$item->ibu}}</td>
                     <td>
                         <a href="/rekapitulasi/detail/{{$item->id}}" class="btn btn-sm btn-primary">Detail</a>
                     </td>
@@ -46,6 +52,9 @@
                         <th class="text-center">{{rekapitulasi()->sum('terdampak_jiwa')}}</th>
                         <th class="text-center">{{rekapitulasi()->sum('mengungsi_kk')}}</th>
                         <th class="text-center">{{rekapitulasi()->sum('mengungsi_jiwa')}}</th>
+                        <th class="text-center">{{rekapitulasi()->sum('balita')}}</th>
+                        <th class="text-center">{{rekapitulasi()->sum('lansia')}}</th>
+                        <th class="text-center">{{rekapitulasi()->sum('ibu')}}</th>
                     </tr>
                 </tfoot>
             </tbody>

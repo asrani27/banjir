@@ -76,6 +76,9 @@ function rekapitulasi()
         $item->terdampak_jiwa = $item->rekapitulasi->sum('terdampak_jiwa');
         $item->mengungsi_kk = $item->rekapitulasi->sum('mengungsi_kk');
         $item->mengungsi_jiwa = $item->rekapitulasi->sum('mengungsi_jiwa');
+        $item->balita = $item->rekapitulasi->sum('balita');
+        $item->lansia = $item->rekapitulasi->sum('lansia');
+        $item->ibu = $item->rekapitulasi->sum('ibu');
         return $item;
     });
     return $map;
