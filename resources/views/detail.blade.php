@@ -145,13 +145,13 @@
                                         <th></th>
                                         <th></th>
                                         <th class="text-center">TOTAL</th>
-                                        <th class="text-center">{{$data->sum('terdampak_kk')}}</th>
-                                        <th class="text-center">{{$data->sum('terdampak_jiwa')}}</th>
-                                        <th class="text-center">{{$data->sum('mengungsi_kk')}}</th>
-                                        <th class="text-center">{{$data->sum('mengungsi_jiwa')}}</th>
-                                        <th class="text-center">{{$data->sum('balita')}}</th>
-                                        <th class="text-center">{{$data->sum('lansia')}}</th>
-                                        <th class="text-center">{{$data->sum('ibu')}}</th>
+                                        <th class="text-center">{{number_format($data->sum('terdampak_kk'))}}</th>
+                                        <th class="text-center">{{number_format($data->sum('terdampak_jiwa'))}}</th>
+                                        <th class="text-center">{{number_format($data->sum('mengungsi_kk'))}}</th>
+                                        <th class="text-center">{{number_format($data->sum('mengungsi_jiwa'))}}</th>
+                                        <th class="text-center">{{number_format($data->sum('balita'))}}</th>
+                                        <th class="text-center">{{number_format($data->sum('lansia'))}}</th>
+                                        <th class="text-center">{{number_format($data->sum('ibu'))}}</th>
                                     </tr>
                                 </tfoot>
                             </tbody>

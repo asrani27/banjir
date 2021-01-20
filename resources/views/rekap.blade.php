@@ -48,13 +48,13 @@
                     <tr>
                         <th></th>
                         <th class="text-center">TOTAL</th>
-                        <th class="text-center">{{rekapitulasi()->sum('terdampak_kk')}}</th>
-                        <th class="text-center">{{rekapitulasi()->sum('terdampak_jiwa')}}</th>
-                        <th class="text-center">{{rekapitulasi()->sum('mengungsi_kk')}}</th>
-                        <th class="text-center">{{rekapitulasi()->sum('mengungsi_jiwa')}}</th>
-                        <th class="text-center">{{rekapitulasi()->sum('balita')}}</th>
-                        <th class="text-center">{{rekapitulasi()->sum('lansia')}}</th>
-                        <th class="text-center">{{rekapitulasi()->sum('ibu')}}</th>
+                        <th class="text-center">{{number_format(rekapitulasi()->sum('terdampak_kk'))}}</th>
+                        <th class="text-center">{{number_format(rekapitulasi()->sum('terdampak_jiwa'))}}</th>
+                        <th class="text-center">{{number_format(rekapitulasi()->sum('mengungsi_kk'))}}</th>
+                        <th class="text-center">{{number_format(rekapitulasi()->sum('mengungsi_jiwa'))}}</th>
+                        <th class="text-center">{{number_format(rekapitulasi()->sum('balita'))}}</th>
+                        <th class="text-center">{{number_format(rekapitulasi()->sum('lansia'))}}</th>
+                        <th class="text-center">{{number_format(rekapitulasi()->sum('ibu'))}}</th>
                     </tr>
                 </tfoot>
             </tbody>
