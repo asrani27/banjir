@@ -17,6 +17,9 @@ Route::get('/', 'HomeController@index');
 Route::get('/dapur-umum', 'HomeController@dapurUmum');
 Route::get('/pengungsian', 'HomeController@pengungsian');
 
+Route::get('/admin/dapur-umum', 'HomeController@dapurAdmin');
+Route::get('/admin/pengungsian', 'HomeController@pengungsianAdmin');
+
 Route::get('/login', 'LoginController@index')->name('login');
 Route::post('/login', 'LoginController@login');
 Route::get('/rekapitulasi/detail/{id}', 'RekapitulasiController@detail');

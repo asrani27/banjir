@@ -5,7 +5,7 @@
 
         <div class="info-box-content">
           <span class="info-box-text">CALL CENTER</span>
-          <span class="info-box-number">0878 1441 4887</span>
+          <span class="info-box-number">-</span>
         </div>
         <!-- /.info-box-content -->
       </div>
@@ -18,7 +18,7 @@
 
         <div class="info-box-content">
           <span class="info-box-text">DONASI</span>
-          <span class="info-box-number">BCA 809727671 an WAWAN</span>
+          <span class="info-box-number">Pemerintah Kota Banjarmasin</span>
         </div>
         <!-- /.info-box-content -->
       </div>

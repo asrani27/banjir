@@ -25,6 +25,15 @@ class HomeController extends Controller
         return view('pengungsian');
     }
 
+    public function dapurAdmin()
+    {
+
+    }
+    public function pengungsianAdmin()
+    {
+
+    }
+    
     public function home()
     {
         return view('admin.home');
