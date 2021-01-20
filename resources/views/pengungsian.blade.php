@@ -178,92 +178,9 @@
             <div class="row">
                 <div class="col-lg-12">
                     
-<div class="card-body table-responsive">
-        <table class="table table-striped table-sm">
-            <thead>
-                <tr class="bg-gradient-purple">
-                    <th rowspan=2 class="text-center">No</th>
-                    <th rowspan=2 class="text-center">Nama Kecamatan</th>
-                    <th colspan=2 class="text-center">Terdampak</th>
-                    <th colspan=2 class="text-center">Mengungsi</th>
-                    <th rowspan=2 class="text-center"></th>
-                </tr>
-                <tr class="bg-gradient-purple">                    
-                    <th class="text-center">KK</th>
-                    <th class="text-center">Jiwa</th>
-                    <th class="text-center">KK</th>
-                    <th class="text-center">Jiwa</th>
-                </tr>
-            </thead>
-            <tbody>
-                                                <tr>
-                    <td class="text-center">1</td>
-                    <td class="text-center">BANJARMASIN TIMUR</td>
-                    <td class="text-center">50</td>
-                    <td class="text-center">200</td>
-                    <td class="text-center">10</td>
-                    <td class="text-center">40</td>
-                    <td>
-                        <a href="/rekapitulasi/detail/1" class="btn btn-sm btn-primary">Detail</a>
-                    </td>
-                </tr>
-                                <tr>
-                    <td class="text-center">2</td>
-                    <td class="text-center">BANJARMASIN TENGAH</td>
-                    <td class="text-center">0</td>
-                    <td class="text-center">0</td>
-                    <td class="text-center">0</td>
-                    <td class="text-center">0</td>
-                    <td>
-                        <a href="/rekapitulasi/detail/2" class="btn btn-sm btn-primary">Detail</a>
-                    </td>
-                </tr>
-                                <tr>
-                    <td class="text-center">3</td>
-                    <td class="text-center">BANJARMASIN SELATAN</td>
-                    <td class="text-center">0</td>
-                    <td class="text-center">0</td>
-                    <td class="text-center">0</td>
-                    <td class="text-center">0</td>
-                    <td>
-                        <a href="/rekapitulasi/detail/3" class="btn btn-sm btn-primary">Detail</a>
-                    </td>
-                </tr>
-                                <tr>
-                    <td class="text-center">4</td>
-                    <td class="text-center">BANJARMASIN UTARA</td>
-                    <td class="text-center">0</td>
-                    <td class="text-center">0</td>
-                    <td class="text-center">0</td>
-                    <td class="text-center">0</td>
-                    <td>
-                        <a href="/rekapitulasi/detail/4" class="btn btn-sm btn-primary">Detail</a>
-                    </td>
-                </tr>
-                                <tr>
-                    <td class="text-center">5</td>
-                    <td class="text-center">BANJARMASIN BARAT</td>
-                    <td class="text-center">0</td>
-                    <td class="text-center">0</td>
-                    <td class="text-center">0</td>
-                    <td class="text-center">0</td>
-                    <td>
-                        <a href="/rekapitulasi/detail/5" class="btn btn-sm btn-primary">Detail</a>
-                    </td>
-                </tr>
-                                <tfoot>
-                    <tr>
-                        <th></th>
-                        <th class="text-center">TOTAL</th>
-                        <th class="text-center">50</th>
-                        <th class="text-center">200</th>
-                        <th class="text-center">10</th>
-                        <th class="text-center">40</th>
-                    </tr>
-                </tfoot>
-            </tbody>
-        </table>
-    </div>
+                <div class="card-body table-responsive">
+                    @include('rekap')
+                </div>
  
                 </div> <!-- end of col -->
             </div> <!-- end of row -->
