@@ -7,6 +7,8 @@ crossorigin=""/>
 <style>
     #mapid { height: 350px; }
 </style>
+<link rel="stylesheet" href="/owl/dist/assets/owl.carousel.min.css">
+<link rel="stylesheet" href="/owl/dist/assets/owl.theme.default.min.css">
 @endpush
 
 
@@ -90,6 +92,21 @@ crossorigin=""/>
 
 @push('js')
 
+<script src="/owl/dist/owl.carousel.min.js"></script>
+<script>
+  $(document).ready(function(){
+    //$(".owl-carousel").owlCarousel();
+    var owl = $('.owl-carousel');
+    owl.owlCarousel({
+        items:4,
+        loop:true,
+        margin:10,
+        autoplay:true,
+        autoplayTimeout:1000,
+        autoplayHoverPause:true
+    });
+  });
+</script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"></script>
 
 <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
