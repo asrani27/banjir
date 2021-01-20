@@ -32,13 +32,13 @@
                 <tr>
                     <td class="text-center">{{$no++}}</td>
                     <td class="text-center">{{$item->nama}}</td>
-                    <td class="text-center">{{$item->terdampak_kk}}</td>
-                    <td class="text-center">{{$item->terdampak_jiwa}}</td>
-                    <td class="text-center">{{$item->mengungsi_kk}}</td>
-                    <td class="text-center">{{$item->mengungsi_jiwa}}</td>
-                    <td class="text-center">{{$item->balita}}</td>
-                    <td class="text-center">{{$item->lansia}}</td>
-                    <td class="text-center">{{$item->ibu}}</td>
+                    <td class="text-center">{{number_format($item->terdampak_kk)}}</td>
+                    <td class="text-center">{{number_format($item->terdampak_jiwa)}}</td>
+                    <td class="text-center">{{number_format($item->mengungsi_kk)}}</td>
+                    <td class="text-center">{{number_format($item->mengungsi_jiwa)}}</td>
+                    <td class="text-center">{{number_format($item->balita)}}</td>
+                    <td class="text-center">{{number_format($item->lansia)}}</td>
+                    <td class="text-center">{{number_format($item->ibu)}}</td>
                     <td>
                         <a href="/rekapitulasi/detail/{{$item->id}}" class="btn btn-sm btn-primary">Detail</a>
                     </td>
