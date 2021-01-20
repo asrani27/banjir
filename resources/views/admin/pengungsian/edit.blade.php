@@ -65,13 +65,13 @@ crossorigin=""/>
           <div class="form-group row">
             <label for="inputPassword3" class="col-sm-2 col-form-label">Lat</label>
             <div class="col-sm-10">
-              <input type="text" class="form-control" name="lat" id="lat" required value="{{$data->lat}}" readonly>
+              <input type="text" class="form-control" name="lat" id="lat" required value="{{$data->lat}}">
             </div>
           </div>
           <div class="form-group row">
             <label for="inputPassword3" class="col-sm-2 col-form-label">Long</label>
             <div class="col-sm-10">
-              <input type="text" class="form-control" name="long" id="long" required value="{{$data->long}}" readonly>
+              <input type="text" class="form-control" name="long" id="long" required value="{{$data->long}}">
             </div>
           </div>
           <div class="form-group row">
