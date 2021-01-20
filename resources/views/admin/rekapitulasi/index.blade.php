@@ -29,7 +29,7 @@
                 <th class="text-center" colspan=2>Mengungsi</th>
                 <th class="text-center" rowspan=2>Balita</th>
                 <th class="text-center" rowspan=2>Lansia</th>
-                <th class="text-center" rowspan=2>Ibu-Ibu</th>
+                <th class="text-center" rowspan=2>Perempuan</th>
                 <th class="text-center" rowspan=2>Keterangan/Lokasi Pengungsian</th>
                 <th class="text-center" rowspan=2>#</th>
             </tr>

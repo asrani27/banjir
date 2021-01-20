@@ -28,7 +28,7 @@
                         <th colspan=2 class="text-center">Mengungsi</th>
                         <th rowspan=2 class="text-center" style="vertical-align:middle;">Balita</th>
                         <th rowspan=2 class="text-center" style="vertical-align:middle;">Lansia</th>
-                        <th rowspan=2 class="text-center" style="vertical-align:middle;">Ibu</th>
+                        <th rowspan=2 class="text-center" style="vertical-align:middle;">Perempuan</th>
                     </tr>
                     <tr class="bg-gradient-purple">                    
                         <th class="text-center">KK</th>
