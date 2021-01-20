@@ -33,7 +33,7 @@
                     <tr>
                         <td>{{$no++}}</td>
                         <td>{{$item->nama}}</td>
-                        <td>
+                        <td><img src="/storage/{{$item->file}}" width="100" height="100">
                         </td>
                         <td>
                             <a href="/admin/galery/delete/{{$item->id}}" class="btn btn-xs btn-danger" onclick="return confirm('Yakin Ingin Menghapus Data Ini?');"><i class="fas fa-trash"></i></a>
