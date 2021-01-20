@@ -2,6 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Dapur;
+use App\Banjir;
+use App\Kecamatan;
+use App\Pengungsian;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller

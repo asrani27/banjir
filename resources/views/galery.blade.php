@@ -1,4 +1,13 @@
-<div class="row">
+
+@foreach (galery() as $item)
+
+<div class="swiper-slide">
+<div class="image-container">
+<img class="img-responsive" src="/storage/{{$item->file}}" width="180px" height="160px" alt="alternative">
+</div>
+</div>
+@endforeach
+{{-- <div class="row">
     <div class="col-lg-12">
         <div class="card card-secondary">
         <div class="card-header">
@@ -14,14 +23,4 @@
         </div>
     </div>
     <!-- /.col-md-6 -->
-</div>
-
-{{-- <div class="owl-carousel">
-    <div> Your Content </div>
-    <div> Your Content </div>
-    <div> Your Content </div>
-    <div> Your Content </div>
-    <div> Your Content </div>
-    <div> Your Content </div>
-    <div> Your Content </div>
-  </div> --}}
+</div> --}}

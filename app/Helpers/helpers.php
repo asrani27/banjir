@@ -129,3 +129,15 @@ function galery()
 {
     return Galery::get();
 }
+
+function titik()
+{
+    $data = Kecamatan::get()->map(function($item){
+        $item->data_kelurahan = $item->kelurahan->pluck('id')->toArray();
+        $item->titik_banjir = count(Banjir::whereIn('kelurahan_id', $item->data_kelurahan)->get());
+        $item->titik_posko = count(Pengungsian::whereIn('kelurahan_id', $item->data_kelurahan)->get());
+        $item->titik_dapur = count(Dapur::whereIn('kelurahan_id', $item->data_kelurahan)->get());
+        return $item;
+    });
+    return $data;
+}

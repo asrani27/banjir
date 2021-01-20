@@ -1,4 +1,4 @@
-@extends('layouts.app_admin')
+@extends('layouts.app')
 
 @push('css') 
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
@@ -7,25 +7,17 @@ crossorigin=""/>
 <style>
     #mapid { height: 350px; }
 </style>
+<link rel="stylesheet" href="/owl/dist/assets/owl.carousel.min.css">
+<link rel="stylesheet" href="/owl/dist/assets/owl.theme.default.min.css">
 @endpush
 
 
 @section('content')
 <h5 class="mb-2"><i class="fas fa-database"></i> Data Bencana Banjarmasin</h5>
   
-@include('box')
-<div class="row">
-  <div class="col-md-4 col-sm-6 col-12">
-    <a href="/" class="btn btn-primary btn-block"><strong>LOKASI BANJIR</strong></a>
-  </div>
-  <div class="col-md-4 col-sm-6 col-12">
-    <a href="/dapur-umum" class="btn btn-success btn-block"><strong>DAPUR UMUM</strong></a>
-  </div>
-  <div class="col-md-4 col-sm-6 col-12">
-    <a href="/pengungsian" class="btn btn-danger btn-block"><strong>TEMPAT PENGUNGSIAN</strong></a>
-  </div>
-</div> 
-<br/>
+  @include('box')
+  
+  @include('button')
   
 <div class="row">
   <div class="col-lg-12">
@@ -92,11 +84,29 @@ crossorigin=""/>
   <!-- /.col-md-6 -->
 </div>
 
-@include('rekapadmin')
+@include('rekap')
+
+@include('galery')
+
 @endsection
 
 @push('js')
 
+<script src="/owl/dist/owl.carousel.min.js"></script>
+<script>
+  $(document).ready(function(){
+    //$(".owl-carousel").owlCarousel();
+    var owl = $('.owl-carousel');
+    owl.owlCarousel({
+        items:4,
+        loop:true,
+        margin:10,
+        autoplay:true,
+        autoplayTimeout:5000,
+        autoplayHoverPause:true
+    });
+  });
+</script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"></script>
 
 <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"

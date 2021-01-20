@@ -1,11 +1,11 @@
-@extends('layouts.app_admin')
+@extends('layouts.app')
 
 @push('css') 
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
 integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
 crossorigin=""/>
 <style>
-    #mapid { height: 350px; }
+  #mapid { height: 350px; }
 </style>
 @endpush
 
@@ -13,25 +13,15 @@ crossorigin=""/>
 @section('content')
 <h5 class="mb-2"><i class="fas fa-database"></i> Data Bencana Banjarmasin</h5>
   
-@include('box')
-<div class="row">
-  <div class="col-md-4 col-sm-6 col-12">
-    <a href="/" class="btn btn-primary btn-block"><strong>LOKASI BANJIR</strong></a>
-  </div>
-  <div class="col-md-4 col-sm-6 col-12">
-    <a href="/dapur-umum" class="btn btn-success btn-block"><strong>DAPUR UMUM</strong></a>
-  </div>
-  <div class="col-md-4 col-sm-6 col-12">
-    <a href="/pengungsian" class="btn btn-danger btn-block"><strong>TEMPAT PENGUNGSIAN</strong></a>
-  </div>
-</div> 
-<br/>
+  @include('box')
+  
+  @include('button')
   
 <div class="row">
   <div class="col-lg-12">
-    <div class="card card-primary">
+    <div class="card card-danger">
       <div class="card-header">
-        <h5 class="card-title m-0"> <i class="fas fa-database"></i> Peta Banjir Banjarmasin </h5>
+        <h5 class="card-title m-0"> <i class="fas fa-database"></i> Peta Pengungsian Banjarmasin </h5>
       </div>
       <div class="card-bod">
         <div id="mapid"></div>
@@ -43,19 +33,19 @@ crossorigin=""/>
 </div>
 <div class="row">
   <div class="col-lg-12">
-    <div class="card card-primary">
+    <div class="card card-danger">
       <div class="card-header">
-        <h5 class="card-title m-0"> <i class="fas fa-chart-line"></i> Data </h5>
+        <h5 class="card-title m-0"> <i class="fas fa-chart-line"></i> Data Tempat Pengungsian</h5>
       </div>
       <div class="card-body table-responsive">
           <table id="example1" class="table table-bordered table-striped table-sm">
           <thead>
-          <tr class="bg-gradient-primary">
+          <tr class="bg-gradient-danger">
               <th class="text-center">No</th>
               <th class="text-center">Kecamatan</th>
               <th class="text-center">Kelurahan</th>
               <th class="text-center">Lokasi</th>
-              <th class="text-center">Tinggi Air (cm)</th>
+              <th class="text-center">Keterangan</th>
               <th class="text-center">Tgl Update</th>
               <th class="text-center">Jam Update</th>
               <th class="text-center">Foto</th>
@@ -65,13 +55,13 @@ crossorigin=""/>
               @php
                   $no =1;
               @endphp
-              @foreach (banjir() as $item)
+              @foreach (pengungsian() as $item)
                   <tr>
                       <td class="text-center">{{$no++}}</td>
                       <td class="text-center">{{$item->kelurahan->kecamatan->nama}}</td>
                       <td class="text-center">{{$item->kelurahan->nama}}</td>
                       <td class="text-center">{{$item->lokasi}}</td>
-                      <td class="text-center">{{$item->tinggi_air}}</td>
+                      <td class="text-center">{{$item->keterangan}}</td>
                       <td class="text-center">{{\Carbon\Carbon::parse($item->updated_at)->format('d/M/Y')}}</td>
                       <td class="text-center">{{\Carbon\Carbon::parse($item->updated_at)->format('H:i')}} WITA</td>
                       <td class="text-center">
@@ -91,8 +81,8 @@ crossorigin=""/>
   </div>
   <!-- /.col-md-6 -->
 </div>
+@include('rekap')
 
-@include('rekapadmin')
 @endsection
 
 @push('js')
@@ -105,24 +95,27 @@ crossorigin=""></script>
 
 
 <script>
+  
     var map = L.map('mapid').setView([-3.320363756863717, 114.6000705394259], 14);
+    
+
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         }).addTo(map);
-
-    banjir = {!!json_encode(petaBanjir())!!}
+       
+        pengungsian = {!!json_encode(petaPengungsian())!!}
    
-   var banjirIcon = L.icon({
-       iconUrl: '/marker/marker-icon-blue.png',
+   var pengungsianIcon = L.icon({
+       iconUrl: '/marker/marker-icon-red.png',
    });
    
-   for (var i = 0; i < banjir.length; i++) { 
-    var PopUp = '<strong>KECAMATAN : '+banjir[i].nama_kecamatan+'</strong><br/>\
-        <strong>KELURAHAN : '+banjir[i].nama_kelurahan+'</strong><br/>\
-        <strong>LOKASI : '+banjir[i].lokasi+'</strong><br/>\
-        <strong>TINGGI AIR : '+banjir[i].tinggi_air+' cm</strong><br/>\
-        <img src="/storage/'+banjir[i].file+'" width=100>';
-   L.marker([banjir[i].lat, banjir[i].long],{icon:banjirIcon}).addTo(map).bindPopup(PopUp);
+   for (var i = 0; i < pengungsian.length; i++) { 
+    var PopUp = '<strong>KECAMATAN : '+pengungsian[i].nama_kecamatan+'</strong><br/>\
+        <strong>KELURAHAN : '+pengungsian[i].nama_kelurahan+'</strong><br/>\
+        <strong>LOKASI : '+pengungsian[i].lokasi+'</strong><br/>\
+        <strong>KETERANGAN : '+pengungsian[i].keterangan+'</strong><br/>\
+        <img src="/storage/'+pengungsian[i].file+'" width=100>';
+   L.marker([pengungsian[i].lat, pengungsian[i].long],{icon:pengungsianIcon}).addTo(map).bindPopup(PopUp);
    }
 </script>
 {{-- <script>

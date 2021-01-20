@@ -22,7 +22,7 @@
                 <th class="text-center">No</th>
                 <th class="text-center">Nama Kelurahan</th>
                 <th class="text-center">Kecamatan</th>
-                <th class="text-center">Username For Login</th>
+                {{-- <th class="text-center">Username For Login</th> --}}
                 <th class="text-center">#</th>
             </tr>
             </thead>
@@ -35,13 +35,13 @@
                         <td>{{$no++}}</td>
                         <td>{{$item->nama}}</td>
                         <td>{{$item->kecamatan->nama}}</td>
-                        <td class="text-center">
+                        {{-- <td class="text-center">
                           @if ($item->user_id == null)
                               <a href="/admin/kelurahan/{{$item->id}}/createuser" class="btn btn-sm bg-gradient-purple">Buat User</a>
                           @else
                               {{$item->user->username}}
                           @endif
-                        </td>
+                        </td> --}}
                         <td>
                             <a href="/admin/kelurahan/edit/{{$item->id}}" class="btn btn-xs btn-warning"><i class="fas fa-edit"></i></a>
                             <a href="/admin/kelurahan/delete/{{$item->id}}" class="btn btn-xs btn-danger" onclick="return confirm('Yakin Ingin Menghapus Data Ini?');"><i class="fas fa-trash"></i></a>

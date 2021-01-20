@@ -1,10 +1,10 @@
-{{-- <div class="row">
+<div class="row">
 <div class="col-lg-12">
     <div class="card card-purple">
     <div class="card-header">
         <h5 class="card-title m-0"> <i class="fas fa-file"></i> Rekapitulasi Data </h5>
     </div>
-    <div class="card-body table-responsive"> --}}
+    <div class="card-body table-responsive">
         <table class="table table-striped table-sm">
             <thead>
                 <tr class="bg-gradient-purple">
@@ -59,8 +59,8 @@
                 </tfoot>
             </tbody>
         </table>
-    {{-- </div>
+    </div>
     </div>
 </div>
 <!-- /.col-md-6 -->
-</div> --}}
+</div>
