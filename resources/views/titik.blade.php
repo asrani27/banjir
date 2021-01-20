@@ -5,7 +5,7 @@
             <th class="text-center">No</th>
             <th class="text-center">Nama Kecamatan</th>
             <th class="text-center">Jumlah Titik Banjir</th>
-            <th class="text-center">Jumlah Titik Posko</th>
+            <th class="text-center">Jumlah Titik Pengungsian</th>
             <th class="text-center">Jumlah Titik Dapur Umum</th>
             <th class="text-center">Detail</th>
         </tr>
