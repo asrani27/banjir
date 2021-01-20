@@ -22,7 +22,7 @@
                 <td class="text-center">{{$item->titik_posko}}</td>
                 <td class="text-center">{{$item->titik_dapur}}</td>
                 <td class="text-center">
-                    <a href="/rekapitulasi/detail/1" class="btn btn-sm btn-primary">Detail</a>
+                    <a href="/rekapitulasi/titik/detail/{{$item->id}}" class="btn btn-sm btn-primary">Detail</a>
                 </td>
             </tr>
         @endforeach

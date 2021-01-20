@@ -2,7 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Dapur;
+use App\Banjir;
 use App\Lokasi;
+use App\Kecamatan;
+use App\Pengungsian;
 use App\Rekapitulasi;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -32,6 +36,17 @@ class RekapitulasiController extends Controller
         $data = Rekapitulasi::where('kecamatan_id', $id)->get();
         return view('detail',compact('data'));   
     }
+
+    public function titikDetail($id)
+    {
+        $data = Kecamatan::find($id)->kelurahan->pluck('id')->toArray();
+        $banjir = Banjir::whereIn('kelurahan_id', $data)->get();
+        $posko = Pengungsian::whereIn('kelurahan_id', $data)->get();
+        $dapur = Dapur::whereIn('kelurahan_id', $data)->get();
+        
+        return view('detailtitik',compact('banjir','posko','dapur'));   
+    }
+    
 
     public function store(Request $req)
     {
