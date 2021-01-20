@@ -53,8 +53,10 @@ class GaleryController extends Controller
         
     }
     
-    public function delete()
+    public function delete($id)
     {
-        
+        Galery::find($id)->delete();
+        toastr()->success('Berhasil Di Hapus');
+        return back();
     }
 }
