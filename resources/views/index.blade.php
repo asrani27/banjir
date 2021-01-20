@@ -83,6 +83,9 @@ crossorigin=""/>
 </div>
 
 @include('rekap')
+
+@include('galery')
+
 @endsection
 
 @push('js')
