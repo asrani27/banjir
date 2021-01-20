@@ -7,7 +7,7 @@
             <th class="text-center">Jumlah Titik Banjir</th>
             <th class="text-center">Jumlah Titik Posko</th>
             <th class="text-center">Jumlah Titik Dapur Umum</th>
-            <th class="text-center">Detail</th>
+            {{-- <th class="text-center">Detail</th> --}}
         </tr>
     </thead>
     <tbody>
