@@ -201,36 +201,7 @@
                     <div class="slider-container">
                         <div class="swiper-container image-slider">
                             <div class="swiper-wrapper">
-                                <div class="swiper-slide">
-                                    <div class="image-container">
-                                        <img class="img-responsive" src="/front/images/gambar1.jpg" width="100%" alt="alternative">
-                                    </div>
-                                </div>
-                                <div class="swiper-slide">
-                                    <div class="image-container">
-                                        <img class="img-responsive" src="/front/images/gambar2.jpg" width="100%" alt="alternative">
-                                    </div>
-                                </div>
-                                <div class="swiper-slide">
-                                    <div class="image-container">
-                                        <img class="img-responsive" src="/front/images/gambar3.jpg" width="100%" alt="alternative">
-                                    </div>
-                                </div>
-                                <div class="swiper-slide">
-                                    <div class="image-container">
-                                        <img class="img-responsive" src="/front/images/gambar4.jpg" width="100%" alt="alternative">
-                                    </div>
-                                </div>
-                                <div class="swiper-slide">
-                                    <div class="image-container">
-                                        <img class="img-responsive" src="/front/images/gambar5.jpg" width="100%" alt="alternative">
-                                    </div>
-                                </div>
-                                <div class="swiper-slide">
-                                    <div class="image-container">
-                                        <img class="img-responsive" src="/front/images/gambar3.jpg" width="100%" alt="alternative">
-                                    </div>
-                                </div>
+                                @include('galery')
                             </div> <!-- end of swiper-wrapper -->
                         </div> <!-- end of swiper container -->
                     </div> <!-- end of slider-container -->
@@ -272,7 +243,7 @@
                         <img class="img-fluid" src="/front/images/details-lightbox-1.svg" alt="alternative">
                     </div> <!-- end of image-container -->
                 </div> <!-- end of col -->
-                <div class="col-lg-4">
+                <div class="col-lg-4"> 
                     <h3>Design And Plan</h3>
                     <hr>
                     <h5>Core feature</h5>
@@ -360,37 +331,8 @@
             <div class="row">
                 <div class="col-lg-12">
                     
-<div class="card-body table-responsive">
-        <table class="table table-striped table-sm">
-            <thead>
-                <tr class="bg-gradient-purple">
-                    <th class="text-center">No</th>
-                    <th class="text-center">Keterangan</th>
-                    <th class="text-center">No Telepon</th>
-            </thead>
-            <tbody>
-                <tr>
-                    <td class="text-center">1</td>
-                    <td class="text-center">BPBD</td>
-                    <td class="text-center">081231231321</td>
-                </tr>
-                <tr>
-                    <td class="text-center">2</td>
-                    <td class="text-center">DLH</td>
-                    <td class="text-center">081231231321</td>
-                </tr>
-                <tr>
-                    <td class="text-center">3</td>
-                    <td class="text-center">Pemko</td>
-                    <td class="text-center">081231231321</td>
-                </tr>
-                <tr>
-                    <td class="text-center">4</td>
-                    <td class="text-center">BPBD</td>
-                    <td class="text-center">081231231321</td>
-                </tr>
-            </tbody>
-        </table>
+    <div class="card-body table-responsive">
+        @include('call')
     </div>
  
                 </div> <!-- end of col -->

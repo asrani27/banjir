@@ -329,38 +329,9 @@
             <div class="row">
                 <div class="col-lg-12">
                     
-<div class="card-body table-responsive">
-        <table class="table table-striped table-sm">
-            <thead>
-                <tr class="bg-gradient-purple">
-                    <th class="text-center">No</th>
-                    <th class="text-center">Keterangan</th>
-                    <th class="text-center">No Telepon</th>
-            </thead>
-            <tbody>
-                <tr>
-                    <td class="text-center">1</td>
-                    <td class="text-center">BPBD</td>
-                    <td class="text-center">081231231321</td>
-                </tr>
-                <tr>
-                    <td class="text-center">2</td>
-                    <td class="text-center">DLH</td>
-                    <td class="text-center">081231231321</td>
-                </tr>
-                <tr>
-                    <td class="text-center">3</td>
-                    <td class="text-center">Pemko</td>
-                    <td class="text-center">081231231321</td>
-                </tr>
-                <tr>
-                    <td class="text-center">4</td>
-                    <td class="text-center">BPBD</td>
-                    <td class="text-center">081231231321</td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+                <div class="card-body table-responsive">
+                    @include('call')
+                </div>
  
                 </div> <!-- end of col -->
             </div> <!-- end of row -->
