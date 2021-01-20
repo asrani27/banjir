@@ -30,21 +30,21 @@ crossorigin=""/>
 <div class="row">
   
   <div class="col-lg-12">
-    <div class="card card-primary">
+    <div class="card card-danger">
       <div class="card-header">
-        <h5 class="card-title m-0"> <i class="fas fa-database"></i> Peta Banjir Banjarmasin </h5>
+        <h5 class="card-title m-0"> <i class="fas fa-database"></i> Peta Dapur Umum Banjarmasin </h5>
       </div>
       <div class="card-bod">
         <div id="mapid"></div>
         
         <table id="example1" class="table table-bordered table-striped table-sm">
           <thead>
-          <tr class="bg-gradient-primary">
+          <tr class="bg-gradient-danger">
               <th class="text-center">No</th>
               <th class="text-center">Kecamatan</th>
               <th class="text-center">Kelurahan</th>
               <th class="text-center">Lokasi</th>
-              <th class="text-center">Tinggi Air (cm)</th>
+              <th class="text-center">Keterangan</th>
               <th class="text-center">Tgl Update</th>
               <th class="text-center">Jam Update</th>
               {{-- <th class="text-center">Foto</th> --}}
@@ -54,13 +54,13 @@ crossorigin=""/>
               @php
                   $no =1;
               @endphp
-              @foreach (banjir() as $item)
+              @foreach (pengungsian() as $item)
                   <tr>
                       <td class="text-center">{{$no++}}</td>
                       <td class="text-center">{{$item->kelurahan->kecamatan->nama}}</td>
                       <td class="text-center">{{$item->kelurahan->nama}}</td>
                       <td class="text-center">{{$item->lokasi}}</td>
-                      <td class="text-center">{{$item->tinggi_air}}</td>
+                      <td class="text-center">{{$item->keterangan}}</td>
                       <td class="text-center">{{\Carbon\Carbon::parse($item->updated_at)->format('d/M/Y')}}</td>
                       <td class="text-center">{{\Carbon\Carbon::parse($item->updated_at)->format('H:i')}} WITA</td>
                       {{-- <td class="text-center">
@@ -100,10 +100,10 @@ crossorigin=""></script>
         attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         }).addTo(map);
 
-    banjir = {!!json_encode(petaBanjir())!!}
+    banjir = {!!json_encode(petaPengungsian())!!}
    
    var banjirIcon = L.icon({
-       iconUrl: '/marker/marker-icon-blue.png',
+       iconUrl: '/marker/marker-icon-green.png',
    });
    
    for (var i = 0; i < banjir.length; i++) { 

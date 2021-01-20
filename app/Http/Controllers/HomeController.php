@@ -27,10 +27,11 @@ class HomeController extends Controller
 
     public function dapurAdmin()
     {
-
+        return view('admin.dapur');
     }
     public function pengungsianAdmin()
     {
+        return view('admin.pengungsian');
 
     }
     
