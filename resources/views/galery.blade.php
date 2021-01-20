@@ -7,7 +7,7 @@
         <div class="card-body table-responsive">
             <div class="owl-carousel">
                 @foreach (galery() as $item)
-                    <div><img src="/storage/{{$item->file}}" alt="..." width="350" height="200"></div>
+                    <div><img src="/storage/{{$item->file}}" alt="..." width="350" height="200"><strong>{{$item->nama}}</strong></div>
                 @endforeach
               </div>
         </div>
