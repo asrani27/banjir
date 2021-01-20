@@ -26,7 +26,9 @@
                 <th class="text-center">Tinggi Air (cm)</th>
                 <th class="text-center">Tgl Update</th>
                 <th class="text-center">Jam Update</th>
-                <th class="text-center">Foto</th>
+                <th class="text-center">Foto</th> 
+                <th class="text-center">Lat</th>
+                <th class="text-center">Long</th>
                 <th class="text-center">#</th>
             </tr>
             </thead>
@@ -51,6 +53,8 @@
                           @endif
                         </td>
                       
+                        <td class="text-center">{{$item->lat}}</td>
+                        <td class="text-center">{{$item->long}}</td>
                         <td class="text-center">
                             <a href="/admin/banjir/edit/{{$item->id}}" class="btn btn-xs btn-warning"><i class="fas fa-edit"></i></a>
                             <a href="/admin/banjir/delete/{{$item->id}}" class="btn btn-xs btn-danger" onclick="return confirm('Yakin Ingin Menghapus Data Ini?');"><i class="fas fa-trash"></i></a>

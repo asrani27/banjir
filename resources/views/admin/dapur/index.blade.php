@@ -27,6 +27,8 @@
                 <th class="text-center">Jam Update</th>
                 <th class="text-center">Keterangan</th>
                 <th class="text-center">Foto</th>
+                <th class="text-center">Lat</th>
+                <th class="text-center">Long</th>
                 <th class="text-center">#</th>
             </tr>
             </thead>
@@ -50,7 +52,8 @@
                             <img src="/storage/{{$item->file}}" width="100">
                           @endif
                         </td>
-                      
+                        <td class="text-center">{{$item->lat}}</td>
+                        <td class="text-center">{{$item->long}}</td>
                         <td class="text-center">
                             <a href="/admin/dapur/edit/{{$item->id}}" class="btn btn-xs btn-warning"><i class="fas fa-edit"></i></a>
                             <a href="/admin/dapur/delete/{{$item->id}}" class="btn btn-xs btn-danger" onclick="return confirm('Yakin Ingin Menghapus Data Ini?');"><i class="fas fa-trash"></i></a>
