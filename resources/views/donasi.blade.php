@@ -18,13 +18,8 @@
                 <tbody>
                     <tr>
                         <td class="text-center">1</td>
-                        <td class="text-center">H. Rusminah</td>
-                        <td class="text-center">Indomie</td>
-                    </tr>
-                    <tr>
-                        <td class="text-center">2</td>
-                        <td class="text-center">H. Muhammad Noor</td>
-                        <td class="text-center">Beras</td>
+                        <td class="text-center">Pemerintah Kota Banjarmasin</td>
+                        <td class="text-center">Sembako</td>
                     </tr>
                 </tbody>
             </table>
