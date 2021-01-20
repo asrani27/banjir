@@ -21,9 +21,9 @@
                 <td class="text-center">{{$item->titik_banjir}}</td>
                 <td class="text-center">{{$item->titik_posko}}</td>
                 <td class="text-center">{{$item->titik_dapur}}</td>
-                <td class="text-center">
+                {{-- <td class="text-center">
                     <a href="/rekapitulasi/titik/detail/{{$item->id}}" class="btn btn-sm btn-primary">Detail</a>
-                </td>
+                </td> --}}
             </tr>
         @endforeach
     </tbody>
@@ -34,7 +34,7 @@
                 <th class="text-center">{{titik()->sum('titik_banjir')}}</th>
                 <th class="text-center">{{titik()->sum('titik_posko')}}</th>
                 <th class="text-center">{{titik()->sum('titik_dapur')}}</th>
-                <th class="text-center"></th>
+                {{-- <th class="text-center"></th> --}}
             </tr>
         </tfoot>
     </tbody>

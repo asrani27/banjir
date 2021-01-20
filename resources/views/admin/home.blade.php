@@ -146,7 +146,7 @@ crossorigin=""/>
               
               </tbody>
               </table>
-         </div>\
+         </div>
         </div>
       </div>
       <!-- /.card -->

@@ -15,7 +15,7 @@
                     <th rowspan=2 class="text-center" style="vertical-align:middle;">Balita</th>
                     <th rowspan=2 class="text-center" style="vertical-align:middle;">Lansia</th>
                     <th rowspan=2 class="text-center" style="vertical-align:middle;">Perempuan</th>
-                    <th rowspan=2 class="text-center"></th>
+                    {{-- <th rowspan=2 class="text-center"></th> --}}
                 </tr>
                 <tr class="bg-gradient-purple">                    
                     <th class="text-center">KK</th>
@@ -39,9 +39,9 @@
                     <td class="text-center">{{number_format($item->balita)}}</td>
                     <td class="text-center">{{number_format($item->lansia)}}</td>
                     <td class="text-center">{{number_format($item->ibu)}}</td>
-                    <td>
+                    {{-- <td>
                         <a href="/rekapitulasi/detail/{{$item->id}}" class="btn btn-sm btn-primary">Detail</a>
-                    </td>
+                    </td> --}}
                 </tr>
                 @endforeach
                 <tfoot>
