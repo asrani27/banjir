@@ -58,6 +58,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
           <li class="nav-item">
             <a href="/admin/pengungsian" class="nav-link text-white"><i class="fas fa-home"></i> Pengungsian</a>
           </li>
+          <li class="nav-item">
+            <a href="/admin/galery" class="nav-link text-white"><i class="fas fa-image"></i> Galery</a>
+          </li>
           <li class="nav-item dropdown">
             <a id="dropdownSubMenu1" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle  text-white"><i class="fas fa-cogs text-white"></i> Setting</a>
             <ul aria-labelledby="dropdownSubMenu1" class="dropdown-menu border-0 shadow">
@@ -246,7 +249,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
   <!-- Main Footer -->
   <footer class="main-footer text-center bg-gradient-secondary">
-    <strong>Copyright &copy; 2021 PEMERINTAH KOTA BANJARMASIN.</strong>
+    <strong>Copyright &copy; 2021 DISKOMINFOTIK KOTA BANJARMASIN.</strong>
   </footer>
 </div>
 <!-- ./wrapper -->

@@ -50,6 +50,13 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('/admin/lokasi/edit/{id}', 'LokasiController@update');
     Route::get('/admin/lokasi/delete/{id}', 'LokasiController@delete');
     
+    Route::get('/admin/galery', 'GaleryController@index');
+    Route::get('/admin/galery/add', 'GaleryController@add');
+    Route::post('/admin/galery/add', 'GaleryController@store');
+    Route::get('/admin/galery/edit/{id}', 'GaleryController@edit');
+    Route::post('/admin/galery/edit/{id}', 'GaleryController@update');
+    Route::get('/admin/galery/delete/{id}', 'GaleryController@delete');
+
     Route::get('/admin/rekapitulasi', 'RekapitulasiController@index');
     Route::get('/admin/rekapitulasi/add', 'RekapitulasiController@add');
     Route::post('/admin/rekapitulasi/add', 'RekapitulasiController@store');

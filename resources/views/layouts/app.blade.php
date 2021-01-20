@@ -242,7 +242,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
   <!-- Main Footer -->
   <footer class="main-footer text-center bg-gradient-secondary">
-    <strong>Copyright &copy; 2020 Pemerintah Kota Banjarmasin</strong>
+    <strong>Copyright &copy; 2020 DISKOMINFOTIK KOTA BANJARMASIN</strong>
   </footer>
 </div>
 <!-- ./wrapper -->
