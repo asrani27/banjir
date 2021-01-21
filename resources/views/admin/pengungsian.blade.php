@@ -103,7 +103,7 @@ crossorigin=""></script>
     banjir = {!!json_encode(petaPengungsian())!!}
    
    var banjirIcon = L.icon({
-       iconUrl: '/marker/marker-icon-green.png',
+       iconUrl: '/marker/marker-icon-red.png',
    });
    
    for (var i = 0; i < banjir.length; i++) { 
