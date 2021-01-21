@@ -110,7 +110,7 @@ crossorigin=""></script>
     var PopUp = '<strong>KECAMATAN : '+banjir[i].nama_kecamatan+'</strong><br/>\
         <strong>KELURAHAN : '+banjir[i].nama_kelurahan+'</strong><br/>\
         <strong>LOKASI : '+banjir[i].lokasi+'</strong><br/>\
-        <strong>TINGGI AIR : '+banjir[i].tinggi_air+' cm</strong><br/>\
+        <strong>KETERANGAN : '+banjir[i].keterangan+'</strong><br/>\
         <img src="/storage/'+banjir[i].file+'" width=100>';
    L.marker([banjir[i].lat, banjir[i].long],{icon:banjirIcon}).addTo(map).bindPopup(PopUp);
    }
