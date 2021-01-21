@@ -25,12 +25,7 @@
 	<link href="/front/css/magnific-popup.css" rel="stylesheet">
 	<link href="/front/css/styles.css" rel="stylesheet">
 	
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
-    integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
-    crossorigin=""/>
-    <style>
-        #mapid { height: 450px; width:100% }
-    </style>
+    @stack('css')
 	<!-- Favicon  -->
     <link rel="icon" href="/front/images/favicon.png">
 </head>
@@ -94,8 +89,8 @@
                 <div class="row">
                     <div class="col-lg-6">
                         <div class="text-container">
-                            <h1><span class="turquoise">PUSAT INFORMASI</span></h1>
-                            <h3>BENCANA BANJIR KOTA BANJARMASIN</h3>
+                            <h1><span class="turquoise">SISTEM INFORMASI</span></h1>
+                            <h3>PENDATAAN POSKO DAN KENDALI BENCANA</h3>
                             <br>
 <!--                             <p class="p-large">Use Evolo free landing page template to promote your business startup and generate leads for the offered services</p> -->
                             {{-- <a class="btn-solid-lg page-scroll" href="#services">Lapor Kondisi</a> --}}
@@ -133,15 +128,7 @@
             </div>                    
         </div> <!-- end of container -->
         <br>
-       <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <!-- Video Preview -->   
-                        <div id="mapid"></div>
-                    <!-- end of video preview -->
-                </div> <!-- end of col -->
-            </div> <!-- end of row -->
-        </div> <!-- end of container -->
+        @yield('content')
     </div> <!-- end of basic-3 -->
     <!-- end of video -->
 
@@ -365,32 +352,6 @@
     <script src="/front/js/validator.min.js"></script> <!-- Validator.js - Bootstrap plugin that validates forms -->
     <script src="/front/js/scripts.js"></script> <!-- Custom scripts -->
     
-<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
-integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
-crossorigin=""></script>
-
-
-<script>
-    var map = L.map('mapid').setView([-3.320363756863717, 114.6000705394259], 14);
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-        }).addTo(map);
-
-    banjir = {!!json_encode(petaBanjir())!!}
-   
-   var banjirIcon = L.icon({
-       iconUrl: '/front/images/banjir3.png',
-       iconSize:[40, 45],
-   });
-   
-   for (var i = 0; i < banjir.length; i++) { 
-    var PopUp = '<strong>KECAMATAN : '+banjir[i].nama_kecamatan+'</strong><br/>\
-        <strong>KELURAHAN : '+banjir[i].nama_kelurahan+'</strong><br/>\
-        <strong>LOKASI : '+banjir[i].lokasi+'</strong><br/>\
-        <strong>TINGGI AIR : '+banjir[i].tinggi_air+' cm</strong><br/>\
-        <img src="/storage/'+banjir[i].file+'" width=100>';
-   L.marker([banjir[i].lat, banjir[i].long],{icon:banjirIcon}).addTo(map).bindPopup(PopUp);
-   }
-</script>
+    @stack('js')
 </body>
 </html>
