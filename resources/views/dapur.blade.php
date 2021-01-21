@@ -98,7 +98,7 @@
                             <h3>PENDATAAN POSKO DAN KENDALI BENCANA</h3>
                             <br>
 <!--                             <p class="p-large">Use Evolo free landing page template to promote your business startup and generate leads for the offered services</p> -->
-                            <a class="btn-solid-lg page-scroll" href="#services">Lapor Kondisi</a>
+                            {{-- <a class="btn-solid-lg page-scroll" href="#services">Lapor Kondisi</a> --}}
                         </div> <!-- end of text-container -->
                     </div> <!-- end of col -->
                     <div class="col-lg-6">
