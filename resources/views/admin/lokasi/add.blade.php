@@ -2,6 +2,9 @@
 
 @push('css') 
 
+  <!-- Select2 -->
+  <link rel="stylesheet" href="/assets/plugins/select2/css/select2.min.css">
+  <link rel="stylesheet" href="/assets/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css">
 @endpush
 
 @section('content')
@@ -24,7 +27,7 @@
               <input type="hidden" class="form-control" name="kelurahan_id" value="{{Auth::user()->kelurahan->id}}">
                   
               @else
-                <select name="kelurahan_id" class="form-control" required>
+                <select name="kelurahan_id" class="form-control select2" required>
                   <option value="">-Pilih-</option>
                   @foreach (kelurahan() as $item)
                   <option value="{{$item->id}}">{{$item->nama}} - {{$item->kecamatan->nama}}</option>
@@ -55,4 +58,18 @@
 @push('js')
 
 
+<!-- Select2 -->
+<script src="/assets/plugins/select2/js/select2.full.min.js"></script>
+<script>
+  
+  $(function () {
+    //Initialize Select2 Elements
+    $('.select2').select2()
+
+    //Initialize Select2 Elements
+    $('.select2bs4').select2({
+      theme: 'bootstrap4'
+    })
+  })
+</script>
 @endpush

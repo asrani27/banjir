@@ -2,6 +2,9 @@
 
 @push('css') 
 
+  <!-- Select2 -->
+  <link rel="stylesheet" href="/assets/plugins/select2/css/select2.min.css">
+  <link rel="stylesheet" href="/assets/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css">
 @endpush
 
 @section('content')
@@ -19,7 +22,7 @@
           <div class="form-group row">
             <label for="inputEmail3" class="col-sm-2 col-form-label">Pilih Lokasi</label>
             <div class="col-sm-10">
-              <select name="lokasi_id" class="form-control" required>
+              <select name="lokasi_id" class="form-control select2" required>
                 <option value="">-Pilih-</option>
                 @foreach (lokasi() as $item)
                 <option value="{{$item->id}}">{{$item->nama}} - KEL. {{$item->kelurahan->nama}}</option>
@@ -118,7 +121,19 @@
 @endsection
 
 @push('js')
+<!-- Select2 -->
+<script src="/assets/plugins/select2/js/select2.full.min.js"></script>
 <script>
+  
+  $(function () {
+    //Initialize Select2 Elements
+    $('.select2').select2()
+
+    //Initialize Select2 Elements
+    $('.select2bs4').select2({
+      theme: 'bootstrap4'
+    })
+  })
   function hanyaAngka(event) {
       var angka = (event.which) ? event.which : event.keyCode
       if (angka != 46 && angka > 31 && (angka < 48 || angka > 57))
