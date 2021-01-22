@@ -118,7 +118,6 @@
     </div> <!-- end of cards-1 -->
     <!-- end of services -->
 
-    <div class="basic-3">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
@@ -126,7 +125,6 @@
                 </div> <!-- end of col -->
             </div> <!-- end of row -->
         </div>
-    </div> <!-- end of cards-1 -->
     <!-- Video -->
     <div class="basic-3">
         <div class="container">
