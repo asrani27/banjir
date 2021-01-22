@@ -23,6 +23,10 @@ class HomeController extends Controller
     {
         return view('vtron_rekap');
     }
+    public function vtronrekapluar()
+    {
+        return view('vtron_rekapluar');
+    }
     
 
     public function dapurUmum()
