@@ -19,73 +19,62 @@
                 <tbody>
                     <tr>
                         <td class="text-center">1</td>
-                        <td class="text-center">Pemerintah Kota Banjarmasin Dan Warga Palangkaraya</td>
+                        <td class="text-center" rowspan="12">Pemerintah Kota Banjarmasin Dan Warga Palangkaraya</td>
                         <td class="text-center">Beras</td>
                         <td class="text-center">155 Karung</td>
                     </tr>
                     <tr>
                         <td class="text-center">2</td>
-                        <td class="text-center">Pemerintah Kota Banjarmasin Dan Warga Palangkaraya</td>
                         <td class="text-center">Minyak Goreng</td>
                         <td class="text-center">10 dos</td>
                     </tr>
                     <tr>
                         <td class="text-center">3</td>
-                        <td class="text-center">Pemerintah Kota Banjarmasin Dan Warga Palangkaraya</td>
                         <td class="text-center">Gula</td>
                         <td class="text-center">65 Kg</td>
                     </tr>
                     <tr>
                         <td class="text-center">4</td>
-                        <td class="text-center">Pemerintah Kota Banjarmasin Dan Warga Palangkaraya</td>
                         <td class="text-center">Mie Instan</td>
                         <td class="text-center">175 Dos</td>
                     </tr>
                     <tr>
                         <td class="text-center">5</td>
-                        <td class="text-center">Pemerintah Kota Banjarmasin Dan Warga Palangkaraya</td>
                         <td class="text-center">Makanan Ringan</td>
                         <td class="text-center">60 Dos</td>
                     </tr>
                     <tr>
                         <td class="text-center">6</td>
-                        <td class="text-center">Pemerintah Kota Banjarmasin Dan Warga Palangkaraya</td>
                         <td class="text-center">Pakaian Layak Pakai</td>
                         <td class="text-center">190 Dos</td>
                     </tr>
                     <tr>
                         <td class="text-center">7</td>
-                        <td class="text-center">Pemerintah Kota Banjarmasin Dan Warga Palangkaraya</td>
                         <td class="text-center">Sarden</td>
                         <td class="text-center">20 Dos</td>
                     </tr>
                     <tr>
                         <td class="text-center">8</td>
-                        <td class="text-center">Pemerintah Kota Banjarmasin Dan Warga Palangkaraya</td>
                         <td class="text-center">Air Mineral</td>
                         <td class="text-center">190 Dos</td>
                     </tr>
                     <tr>
                         <td class="text-center">9</td>
-                        <td class="text-center">Pemerintah Kota Banjarmasin Dan Warga Palangkaraya</td>
                         <td class="text-center">Popok Bayi</td>
                         <td class="text-center">40 Dos</td>
                     </tr>
                     <tr>
                         <td class="text-center">10</td>
-                        <td class="text-center">Pemerintah Kota Banjarmasin Dan Warga Palangkaraya</td>
                         <td class="text-center">Bubur Ayam</td>
                         <td class="text-center">30 Dos</td>
                     </tr>
                     <tr>
                         <td class="text-center">11</td>
-                        <td class="text-center">Pemerintah Kota Banjarmasin Dan Warga Palangkaraya</td>
                         <td class="text-center">Susu Bayi</td>
                         <td class="text-center">25 Kotak</td>
                     </tr>
                     <tr>
                         <td class="text-center">12</td>
-                        <td class="text-center">Pemerintah Kota Banjarmasin Dan Warga Palangkaraya</td>
                         <td class="text-center">Rupa-rupa</td>
                         <td class="text-center">30 Dos</td>
                     </tr>
