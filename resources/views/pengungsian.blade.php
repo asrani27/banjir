@@ -192,6 +192,22 @@
                 </div> <!-- end of col -->
             </div> <!-- end of row -->
         </div> <!-- end of container -->
+
+        
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h2>Data Pengungsi Dari Luar Kota</h2>
+                </div> <!-- end of col -->
+            </div> <!-- end of row -->
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="card-body table-responsive">
+                        @include('rekapluar')
+                    </div>
+                </div> <!-- end of col -->
+            </div> <!-- end of row -->
+        </div> <!-- end of container -->
     </div> <!-- end of basic-3 -->
     <!-- end of video -->
 

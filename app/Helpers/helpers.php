@@ -84,6 +84,20 @@ function rekapitulasi()
     return $map;
 }
 
+function rekapitulasiluar()
+{
+    $kec = Kecamatan::get();
+    $map = $kec->map(function($item){
+        $item->jumlah = $item->rekapitulasiluar->sum('jumlah');
+        $item->perempuan = $item->rekapitulasi->sum('perempuan');
+        $item->laki = $item->rekapitulasi->sum('laki');
+        $item->balita = $item->rekapitulasi->sum('balita');
+        $item->lansia = $item->rekapitulasi->sum('lansia');
+        return $item;
+    });
+    return $map;
+}
+
 function petaBanjir()
 {
     return Banjir::get()->map(function($item){
