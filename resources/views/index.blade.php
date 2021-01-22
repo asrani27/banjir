@@ -118,6 +118,18 @@
     </div> <!-- end of cards-1 -->
     <!-- end of services -->
 
+    <!-- Services -->
+    <div class="basic-3">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    @include('sigap')
+                </div> <!-- end of col -->
+            </div> <!-- end of row -->
+        </div>
+    </div> <!-- end of cards-1 -->
+    <!-- end of services -->
+
     <!-- Video -->
     <div class="basic-3">
         <div class="container">
@@ -346,7 +358,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <p class="p-small">Copyright © 2020 <a href="https://inovatik.com">Diskominfotik Banjarmasin</a> - All rights reserved</p>
+                    <p class="p-small">Copyright © 2021 <a href="https://inovatik.com">Diskominfotik Banjarmasin</a> - All rights reserved</p>
                 </div> <!-- end of col -->
             </div> <!-- enf of row -->
         </div> <!-- end of container -->
