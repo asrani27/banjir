@@ -68,6 +68,15 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('/admin/rekapitulasi/edit/{id}', 'RekapitulasiController@update');
     Route::get('/admin/rekapitulasi/delete/{id}', 'RekapitulasiController@delete');
     
+    
+    Route::get('/admin/rekapitulasi_luar', 'RekapitulasiLuarController@index');
+    Route::get('/admin/rekapitulasi_luar/add', 'RekapitulasiLuarController@add');
+    Route::post('/admin/rekapitulasi_luar/add', 'RekapitulasiLuarController@store');
+    Route::get('/admin/rekapitulasi_luar/edit/{id}', 'RekapitulasiLuarController@edit');
+    Route::post('/admin/rekapitulasi_luar/edit/{id}', 'RekapitulasiLuarController@update');
+    Route::get('/admin/rekapitulasi_luar/delete/{id}', 'RekapitulasiLuarController@delete');
+    
+
     Route::get('/admin/banjir', 'BanjirController@index');
     Route::get('/admin/banjir/add', 'BanjirController@add');
     Route::post('/admin/banjir/add', 'BanjirController@store');

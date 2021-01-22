@@ -46,8 +46,16 @@ scratch. This page gets rid of all links and provides the needed markup only.
           {{-- <li class="nav-item">
             <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars text-white"></i></a>
           </li> --}}
-          <li class="nav-item">
+          {{-- <li class="nav-item">
             <a href="/admin/rekapitulasi" class="nav-link text-white"><i class="fas fa-file"></i> Rekapitulasi</a>
+          </li> --}}
+          <li class="nav-item dropdown">
+            <a id="dropdownSubMenu1" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle  text-white"><i class="fas fa-file text-white"></i> Rekapitulasi</a>
+            <ul aria-labelledby="dropdownSubMenu1" class="dropdown-menu border-0 shadow">
+              <li><a href="/admin/rekapitulasi" class="dropdown-item"><i class="fas fa-server"></i> Dalam Kota </a></li>
+              <li><a href="/admin/rekapitulasi_luar" class="dropdown-item"><i class="fas fa-server"></i> Luar Kota </a></li>
+              <!-- End Level two -->
+            </ul>
           </li>
           <li class="nav-item">
             <a href="/admin/banjir" class="nav-link text-white"><i class="fas fa-water"></i> Banjir</a>
