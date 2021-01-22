@@ -160,7 +160,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <h2>Tabel Rekapitulasi Posisi Banjir</h2>
+                    <h2>Data Rekapitulasi Posisi Banjir</h2>
                 </div> <!-- end of col -->
             </div> <!-- end of row -->
             <div class="row">
@@ -176,13 +176,12 @@
     </div> <!-- end of basic-3 -->
     <!-- end of video -->
 
-
     <!-- Video -->
     <div class="basic-3">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <h2>Tabel Rekapitulasi Dampak Bencana</h2>
+                    <h2>Data Rekapitulasi Dampak Bencana</h2>
                 </div> <!-- end of col -->
             </div> <!-- end of row -->
             <div class="row">
