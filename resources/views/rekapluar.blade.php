@@ -11,7 +11,7 @@
                     <th class="text-center" style="vertical-align:middle;">No</th>
                     <th class="text-center" style="vertical-align:middle;">Nama Kecamatan</th>
                     <th class="text-center">Kelurahan</th>
-                    <th class="text-center">Lokasi</th>
+                    <th class="text-center">Alamat Pengungsian</th>
                     <th class="text-center">Laki-laki</th>
                     <th class="text-center" style="vertical-align:middle;">Perempuan</th>
                     <th class="text-center" style="vertical-align:middle;">Balita</th>
