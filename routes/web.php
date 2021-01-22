@@ -14,6 +14,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', 'HomeController@index');
+Route::get('/vtron/posisibanjir', 'HomeController@vtronbanjir');
+Route::get('/vtron/rekap', 'HomeController@vtronrekap');
 Route::get('/dapur-umum', 'HomeController@dapurUmum');
 Route::get('/pengungsian', 'HomeController@pengungsian');
 

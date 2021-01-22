@@ -15,6 +15,16 @@ class HomeController extends Controller
         return view('index');
     }
 
+    public function vtronbanjir()
+    {
+        return view('vtron_posisibanjir');
+    }
+    public function vtronrekap()
+    {
+        return view('vtron_rekap');
+    }
+    
+
     public function dapurUmum()
     {
         return view('dapur');
