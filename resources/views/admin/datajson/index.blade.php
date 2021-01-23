@@ -8,7 +8,7 @@
 @endpush
 
 @section('content')
-<a href="/admin/rekapitulasi/add" class="btn btn-sm bg-gradient-purple"><i class="fas fa-plus"></i>&nbsp; Tambah Data</a> 
+
 <a href="/admin/json/store" class="btn btn-sm bg-gradient-info"><i class="fas fa-sync-alt"></i>&nbsp; Store Data Json</a> <br /><br />
 <div class="row">
   <div class="col-lg-12">
