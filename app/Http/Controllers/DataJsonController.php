@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\DataJson;
-use Illuminate\Http\Request;
 use Carbon\Carbon;
+use PDF;
+use Illuminate\Http\Request;
 
 class DataJsonController extends Controller
 {
@@ -18,7 +19,7 @@ class DataJsonController extends Controller
     {
         $today = Carbon::today();
         $rekap = json_encode(Rekapitulasi()->toArray());
-        $rekapluar = json_encode(RekapitulasiLuar()->toArray());
+        $rekapluar = json_encode(\App\RekapitulasiLuar::get()->toArray());
         $pengungsian = json_encode(pengungsian()->toArray());
         $dapur = json_encode(dapur()->toArray());
         
@@ -49,6 +50,26 @@ class DataJsonController extends Controller
         return response()->json(json_decode(DataJson::find($id)->json_rekapluar));
     }
     
+
+    public function json_rekap_print($id)
+    {
+        $now = Carbon::now()->format('dmYHi');
+        $data = collect(json_decode(DataJson::find($id)->json_rekap));
+        $tanggal = DataJson::find($id)->tanggal;
+        $pdf = PDF::loadView('admin.pdf.rekap', compact('data','tanggal'));
+        return $pdf->download('rekapitulasi'.$now.'.pdf');
+    }
+    
+    public function json_rekapluar_print($id)
+    {
+        $now = Carbon::now()->format('dmYHi');
+        $data = collect(json_decode(DataJson::find($id)->json_rekapluar));
+        return $data;
+        // $tanggal = DataJson::find($id)->tanggal;
+        // $pdf = PDF::loadView('admin.pdf.rekapluar', compact('data','tanggal'));
+        // return $pdf->download('rekapitulasiluar'.$now.'.pdf');
+    }
+
     public function json_dapur($id)
     {
         return response()->json(json_decode(DataJson::find($id)->json_dapur));
