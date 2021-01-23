@@ -417,7 +417,6 @@ crossorigin=""></script>
                 <strong>LOKASI : '+pengungsian[i].lokasi+'</strong><br/>\
                 <strong>KETERANGAN : '+pengungsian[i].keterangan+'</strong><br/>';
                 L.marker([pengungsian[i].lat, pengungsian[i].long],{icon:pengungsianIcon}).addTo(map).bindPopup(PopUp);
-
             }else{
                 var PopUp = '<strong>KECAMATAN : '+pengungsian[i].nama_kecamatan+'</strong><br/>\
                 <strong>KELURAHAN : '+pengungsian[i].nama_kelurahan+'</strong><br/>\
