@@ -11,7 +11,7 @@
             <div class="card">
                 <img class="card-image" src="/front/images/posko.png" alt="alternative">
                 <div class="card-body">
-                    <h3 class="card-title">Posko Pengungsian</h3>
+                    <h3 class="card-title">Pos Pengungsian</h3>
                     <h5>{{titik()->sum('titik_posko')}} Titik</h5>
                 </div>
             </div>

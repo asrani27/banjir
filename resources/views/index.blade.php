@@ -133,7 +133,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <h2>Pemetaan Data Bencana dan Posko</h2>
+                    <h2>Pemetaan Data Bencana</h2>
                 </div> <!-- end of col -->
             </div> <!-- end of row -->
         </div>
