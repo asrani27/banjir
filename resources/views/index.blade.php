@@ -387,8 +387,37 @@
 integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
 crossorigin=""></script>
 
-
 <script>
+    var map = L.map('mapid').setView([-3.320363756863717, 114.6000705394259], 14);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+    pengungsian = {!!json_encode(petaPengungsian())!!}
+   
+   var pengungsianIcon = L.icon({
+       iconUrl: '/front/images/posko.png',
+       iconSize:[40, 45],
+   });
+   
+   for (var i = 0; i < pengungsian.length; i++) { 
+            if(pengungsian[i].file == null){
+                var PopUp = '<strong>KECAMATAN : '+pengungsian[i].nama_kecamatan+'</strong><br/>\
+                <strong>KELURAHAN : '+pengungsian[i].nama_kelurahan+'</strong><br/>\
+                <strong>LOKASI : '+pengungsian[i].lokasi+'</strong><br/>\
+                <strong>KETERANGAN : '+pengungsian[i].keterangan+'</strong><br/>';
+                L.marker([pengungsian[i].lat, pengungsian[i].long],{icon:pengungsianIcon}).addTo(map).bindPopup(PopUp);
+            }else{
+                var PopUp = '<strong>KECAMATAN : '+pengungsian[i].nama_kecamatan+'</strong><br/>\
+                <strong>KELURAHAN : '+pengungsian[i].nama_kelurahan+'</strong><br/>\
+                <strong>LOKASI : '+pengungsian[i].lokasi+'</strong><br/>\
+                <strong>KETERANGAN : '+pengungsian[i].keterangan+'</strong><br/>\
+                <img src="/storage/'+pengungsian[i].file+'" width=100>';
+                L.marker([pengungsian[i].lat, pengungsian[i].long],{icon:pengungsianIcon}).addTo(map).bindPopup(PopUp);
+            }
+   }
+</script>
+{{-- <script>
     var map = L.map('mapid').setView([-3.320363756863717, 114.6000705394259], 14);
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
@@ -417,6 +446,6 @@ crossorigin=""></script>
         L.marker([banjir[i].lat, banjir[i].long],{icon:banjirIcon}).addTo(map).bindPopup(PopUp);
        }
    }
-</script>
+</script> --}}
 </body>
 </html>

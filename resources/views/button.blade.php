@@ -1,11 +1,11 @@
 
-<div class="col-lg-4">
+{{-- <div class="col-lg-4">
     <a href="/" class="btn btn-primary btn-block"><strong>Lokasi Banjir</strong></a>                        
-</div>
-<div class="col-lg-4">
+</div> --}}
+<div class="col-lg-6">
     <a href="/pengungsian" class="btn btn-primary btn-block"><strong>Posko Pengungsian</strong></a>                        
 </div>
-<div class="col-lg-4">
+<div class="col-lg-6">
     <a href="/dapur-umum" class="btn btn-primary btn-block"><strong>Dapur Umum</strong></a>                        
 </div>
 {{--   
