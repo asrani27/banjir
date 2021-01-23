@@ -7,7 +7,7 @@
     <div class="row">
         <div class="col-lg-12 text-center">
             <!-- Card -->
-            <iframe src="http://sigapbanjarmasin.info/banjir" height="640" width="100%" title="Iframe Example"></iframe>
+            <iframe src="https://sigapbanjarmasin.info/banjir" height="640" width="100%" title="Iframe Example"></iframe>
             {{-- <a href="http://sigapbanjarmasin.info" target="_blank"><img src="/front/sigapbanjarmasin.png" width="70%"></a> --}}
             
         </div> <!-- end of col -->
