@@ -8,7 +8,7 @@
 @section('content')
 <h5 class="mb-2"><i class="fas fa-database"></i> Rekapitulasi Data Akibat Banjir</h5>
   
-<a href="/" class="btn btn-sm btn-secondary"><i class="fas fa-arrow-left"></i>&nbsp; Kembali</a> <br /><br />
+<a href="/home" class="btn btn-sm btn-secondary"><i class="fas fa-arrow-left"></i>&nbsp; Kembali</a> <br /><br />
 
 <div class="row">
     <div class="col-lg-12">

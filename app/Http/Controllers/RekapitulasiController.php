@@ -26,6 +26,10 @@ class RekapitulasiController extends Controller
         return view('admin.rekapitulasi.index',compact('data'));
     }
 
+    public function json()
+    {
+        return response()->json(Rekapitulasi());
+    }
     public function add()
     {
         return view('admin.rekapitulasi.add');   
@@ -34,7 +38,7 @@ class RekapitulasiController extends Controller
     public function detail($id)
     {
         $data = Rekapitulasi::where('kecamatan_id', $id)->get();
-        return view('detail',compact('data'));   
+        return view('admin.rekapitulasi.detail',compact('data'));   
     }
 
     public function titikDetail($id)

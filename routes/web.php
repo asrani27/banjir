@@ -29,6 +29,14 @@ Route::get('/rekapitulasi/detail/{id}', 'RekapitulasiController@detail');
 Route::get('/rekapitulasi/titik/detail/{id}', 'RekapitulasiController@titikDetail');
 
 Route::group(['middleware' => ['auth']], function () {
+    
+    Route::get('/admin/json', 'DataJsonController@index');
+    Route::get('/admin/json/store', 'DataJsonController@store');
+    Route::get('/admin/json/json_rekap/{id}', 'DataJsonController@json_rekap');
+    Route::get('/admin/json/json_rekapluar/{id}', 'DataJsonController@json_rekapluar');
+    Route::get('/admin/json/json_dapur/{id}', 'DataJsonController@json_dapur');
+    Route::get('/admin/json/json_pengungsian/{id}', 'DataJsonController@json_pengungsian');
+
     Route::get('/home', 'HomeController@home');
     Route::get('/logout', 'LoginController@logout');
 
@@ -71,6 +79,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('/admin/rekapitulasi/edit/{id}', 'RekapitulasiController@update');
     Route::get('/admin/rekapitulasi/delete/{id}', 'RekapitulasiController@delete');
     
+    Route::get('/admin/rekapitulasi/json', 'RekapitulasiController@json');    
     
     Route::get('/admin/rekapitulasi_luar', 'RekapitulasiLuarController@index');
     Route::get('/admin/rekapitulasi_luar/add', 'RekapitulasiLuarController@add');
@@ -79,7 +88,6 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('/admin/rekapitulasi_luar/edit/{id}', 'RekapitulasiLuarController@update');
     Route::get('/admin/rekapitulasi_luar/delete/{id}', 'RekapitulasiLuarController@delete');
     
-
     Route::get('/admin/banjir', 'BanjirController@index');
     Route::get('/admin/banjir/add', 'BanjirController@add');
     Route::post('/admin/banjir/add', 'BanjirController@store');

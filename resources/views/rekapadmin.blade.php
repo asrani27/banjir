@@ -41,6 +41,7 @@
                     <td class="text-center">{{$item->ibu}}</td>
                     <td>
                         <a href="/rekapitulasi/detail/{{$item->id}}" class="btn btn-sm btn-primary">Detail</a>
+                        <a href="/rekapitulasi/print/{{$item->id}}" class="btn btn-sm btn-primary">Print</a>
                     </td>
                 </tr>
                 @endforeach
