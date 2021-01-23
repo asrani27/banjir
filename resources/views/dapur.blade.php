@@ -409,12 +409,21 @@ crossorigin=""></script>
         }); 
         
         for (var i = 0; i < dapur.length; i++) { 
-            var PopUp = '<strong>KECAMATAN : '+dapur[i].nama_kecamatan+'</strong><br/>\
+            
+            if(dapur[i].file == null){
+                var PopUp = '<strong>KECAMATAN : '+dapur[i].nama_kecamatan+'</strong><br/>\
+                <strong>KELURAHAN : '+dapur[i].nama_kelurahan+'</strong><br/>\
+                <strong>LOKASI : '+dapur[i].lokasi+'</strong><br/>\
+                <strong>KETERANGAN : '+dapur[i].keterangan+'</strong><br/>';
+                L.marker([dapur[i].lat, dapur[i].long],{icon:dapurIcon}).addTo(map).bindPopup(PopUp);
+            }else{
+                var PopUp = '<strong>KECAMATAN : '+dapur[i].nama_kecamatan+'</strong><br/>\
                 <strong>KELURAHAN : '+dapur[i].nama_kelurahan+'</strong><br/>\
                 <strong>LOKASI : '+dapur[i].lokasi+'</strong><br/>\
                 <strong>KETERANGAN : '+dapur[i].keterangan+'</strong><br/>\
                 <img src="/storage/'+dapur[i].file+'" width=100>';
-        L.marker([dapur[i].lat, dapur[i].long],{icon:dapurIcon}).addTo(map).bindPopup(PopUp);
+                L.marker([dapur[i].lat, dapur[i].long],{icon:dapurIcon}).addTo(map).bindPopup(PopUp);
+            }
         }
 </script>
 </body>

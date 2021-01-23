@@ -411,12 +411,21 @@ crossorigin=""></script>
    });
    
    for (var i = 0; i < pengungsian.length; i++) { 
-    var PopUp = '<strong>KECAMATAN : '+pengungsian[i].nama_kecamatan+'</strong><br/>\
-        <strong>KELURAHAN : '+pengungsian[i].nama_kelurahan+'</strong><br/>\
-        <strong>LOKASI : '+pengungsian[i].lokasi+'</strong><br/>\
-        <strong>KETERANGAN : '+pengungsian[i].keterangan+'</strong><br/>\
-        <img src="/storage/'+pengungsian[i].file+'" width=100>';
-   L.marker([pengungsian[i].lat, pengungsian[i].long],{icon:pengungsianIcon}).addTo(map).bindPopup(PopUp);
+            if(pengungsian[i].file == null){
+                var PopUp = '<strong>KECAMATAN : '+pengungsian[i].nama_kecamatan+'</strong><br/>\
+                <strong>KELURAHAN : '+pengungsian[i].nama_kelurahan+'</strong><br/>\
+                <strong>LOKASI : '+pengungsian[i].lokasi+'</strong><br/>\
+                <strong>KETERANGAN : '+pengungsian[i].keterangan+'</strong><br/>';
+                L.marker([pengungsian[i].lat, pengungsian[i].long],{icon:pengungsianIcon}).addTo(map).bindPopup(PopUp);
+
+            }else{
+                var PopUp = '<strong>KECAMATAN : '+pengungsian[i].nama_kecamatan+'</strong><br/>\
+                <strong>KELURAHAN : '+pengungsian[i].nama_kelurahan+'</strong><br/>\
+                <strong>LOKASI : '+pengungsian[i].lokasi+'</strong><br/>\
+                <strong>KETERANGAN : '+pengungsian[i].keterangan+'</strong><br/>\
+                <img src="/storage/'+pengungsian[i].file+'" width=100>';
+                L.marker([pengungsian[i].lat, pengungsian[i].long],{icon:pengungsianIcon}).addTo(map).bindPopup(PopUp);
+            }
    }
 </script>
 </body>
