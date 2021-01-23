@@ -35,7 +35,7 @@
 	<strong><span class="auto-style5">Data Rekapitulasi Pengungsi Dari Luar Kota</span><br class="auto-style5" />
 	<span class="auto-style5">Tanggal : {{\Carbon\Carbon::parse($tanggal)->isoFormat('d MMMM Y')}}</span></strong> </div><br>
 <table cellpadding="2" cellspacing="0" class="auto-style2" style="width: 100%">
-	<tr>
+	<tr style="font-size:11px">
 		<td class="auto-style1"><strong>No</strong></td>
 		<td class="auto-style1"><strong>Nama Kecamatan</strong></td>
 		<td class="auto-style1"><strong>Kelurahan</strong></td>
@@ -51,28 +51,28 @@
     @endphp
     @foreach ($data as $item)
         
-	<tr>
+	<tr style="font-size:11px">
 		<td class="auto-style3">{{$no++}}</td>
-		<td class="auto-style3">{{$item->nama}}</td>
-		<td class="auto-style3">{{$item->terdampak_kk}}</td>
-		<td class="auto-style3">{{$item->terdampak_jiwa}}</td>
-		<td class="auto-style3">{{$item->mengungsi_kk}}</td>
-		<td class="auto-style3">{{$item->mengungsi_jiwa}}</td>
+		<td class="auto-style3">{{$item->kecamatan}}</td>
+		<td class="auto-style3">{{$item->kelurahan}}</td>
+		<td class="auto-style3">{{$item->lokasi}}</td>
+		<td class="auto-style3">{{$item->laki}}</td>
+		<td class="auto-style3">{{$item->perempuan}}</td>
 		<td class="auto-style3">{{$item->balita}}</td>
 		<td class="auto-style3">{{$item->lansia}}</td>
-        <td class="auto-style3">{{$item->ibu}}</td>
+        <td class="auto-style3">{{$item->jumlah}}</td>
     </tr>
     @endforeach
-    <tr>
+    <tr style="font-size:11px">
+        <th></th>
+        <th></th>
         <th></th>
         <th>TOTAL</th>
-        <th>{{$data->sum('terdampak_kk')}}</th>
-        <th>{{$data->sum('terdampak_jiwa')}}</th>
-        <th>{{$data->sum('mengungsi_kk')}}</th>
-        <th>{{$data->sum('mengungsi_jiwa')}}</th>
+        <th>{{$data->sum('laki')}}</th>
+        <th>{{$data->sum('perempuan')}}</th>
         <th>{{$data->sum('balita')}}</th>
         <th>{{$data->sum('lansia')}}</th>
-        <th>{{$data->sum('ibu')}}</th>
+        <th>{{$data->sum('jumlah')}}</th>
     </tr>
 </table>
 

@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\DataJson;
-use Carbon\Carbon;
 use PDF;
+use App\DataJson;
+use App\Kecamatan;
+use App\Kelurahan;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class DataJsonController extends Controller
@@ -19,7 +21,7 @@ class DataJsonController extends Controller
     {
         $today = Carbon::today();
         $rekap = json_encode(Rekapitulasi()->toArray());
-        $rekapluar = json_encode(\App\RekapitulasiLuar::get()->toArray());
+        $rekapluar = json_encode(RekapitulasiLuar()->toArray());
         $pengungsian = json_encode(pengungsian()->toArray());
         $dapur = json_encode(dapur()->toArray());
         
@@ -63,11 +65,16 @@ class DataJsonController extends Controller
     public function json_rekapluar_print($id)
     {
         $now = Carbon::now()->format('dmYHi');
-        $data = collect(json_decode(DataJson::find($id)->json_rekapluar));
-        return $data;
-        // $tanggal = DataJson::find($id)->tanggal;
-        // $pdf = PDF::loadView('admin.pdf.rekapluar', compact('data','tanggal'));
-        // return $pdf->download('rekapitulasiluar'.$now.'.pdf');
+        $data = collect(json_decode(DataJson::find($id)->json_rekapluar))->map(function($item){
+            return $item->rekapitulasiluar;
+        })->collapse()->map(function($item){
+            $item->kecamatan = Kecamatan::find($item->kecamatan_id)->nama;
+            $item->kelurahan = Kelurahan::find($item->kelurahan_id)->nama;
+            return $item;
+        });
+        $tanggal = DataJson::find($id)->tanggal;
+        $pdf = PDF::loadView('admin.pdf.rekapluar', compact('data','tanggal'));
+        return $pdf->download('rekapitulasiluar'.$now.'.pdf');
     }
 
     public function json_dapur($id)
