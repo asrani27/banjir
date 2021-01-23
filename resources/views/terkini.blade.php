@@ -27,8 +27,8 @@
             <div class="card">
                 <img class="card-image" src="/front/images/banjir3.png" alt="alternative">
                 <div class="card-body">
-                    <h3 class="card-title">Lokasi Banjir</h3>
-                    {{-- <h5>{{titik()->sum('titik_banjir')}} Titik</h5> --}}
+                    <h3 class="card-title">Area Terdampak</h3>
+                    <h5>50,6 %</h5>
                 </div>
             </div>
             <!-- end of card -->
