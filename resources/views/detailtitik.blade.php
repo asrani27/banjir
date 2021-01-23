@@ -91,65 +91,11 @@
     <!-- Video -->
     <div class="basic-3">
         <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <a href="/"><h5>< BERANDA</h5></a>
-                    <h2>Jumlah Titik Banjir</h2>
-                </div> <!-- end of col -->
-            </div> <!-- end of row -->
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="card-body table-responsive">
-                        <table class="table table-striped table-sm">
-                            <thead>
-                                <tr class="bg-gradient-purple">
-                                    <th class="text-center" style="vertical-align:middle;">No</th>
-                                    <th class="text-center" style="vertical-align:middle;">Kecamatan</th>
-                                    <th class="text-center" style="vertical-align:middle;">Kelurahan</th>
-                                    <th class="text-center" style="vertical-align:middle;">Lokasi</th>
-                                    <th class="text-center">Tinggi Air</th>
-                                    <th class="text-center">Tanggal Dan Jam Update</th>
-                                    <th></th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @php
-                                    $no = 1;
-                                @endphp
-                                @foreach ($banjir as $item)
-                                <tr>
-                                    <td class="text-center">{{$no++}}</td>
-                                    <td class="text-center">{{$item->kelurahan->kecamatan->nama}}</td>
-                                    <td class="text-center">{{$item->kelurahan->nama}}</td>
-                                    <td class="text-center">{{$item->lokasi}}</td>
-                                    <td class="text-center">{{$item->tinggi_air}}</td>
-                                    <td class="text-center">{{\Carbon\Carbon::parse($item->updated_at)->format('d/M/Y H:i')}} WITA</td>
-                                    {{-- <td class="text-center"><img src="/storage/{{$item->file}}" width="100"></td> --}}
-                                </tr>
-                                @endforeach
-                                {{-- <tfoot>
-                                    <tr>
-                                        <th></th>
-                                        <th></th>
-                                        <th></th>
-                                        <th class="text-center">TOTAL</th>
-                                        <th class="text-center">{{$data->sum('terdampak_kk')}}</th>
-                                        <th class="text-center">{{$data->sum('terdampak_jiwa')}}</th>
-                                        <th class="text-center">{{$data->sum('mengungsi_kk')}}</th>
-                                        <th class="text-center">{{$data->sum('mengungsi_jiwa')}}</th>
-                                        <th class="text-center">{{$data->sum('balita')}}</th>
-                                        <th class="text-center">{{$data->sum('lansia')}}</th>
-                                        <th class="text-center">{{$data->sum('ibu')}}</th>
-                                    </tr>
-                                </tfoot> --}}
-                            </tbody>
-                        </table>
-                    </div>
-                </div> <!-- end of col -->
-            </div> <!-- end of row -->
+         
             
             <div class="row">
                 <div class="col-lg-12">
+                    <a href="/"><h5>< BERANDA</h5></a>
                     <h2>Jumlah Titik Pengungsian</h2>
                 </div> <!-- end of col -->
             </div> <!-- end of row -->
