@@ -100,23 +100,29 @@ crossorigin=""></script>
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         }).addTo(map);
-    
-    var theMarker = {};
 
-    map.on('click', function(e) {
-        document.getElementById("lat").value = e.latlng.lat;
-        document.getElementById("long").value = e.latlng.lng;
-    
-        if (theMarker != undefined) {
-              map.removeLayer(theMarker);
-        };
-
-        //Add a marker to show where you clicked.
-        theMarker = L.marker([e.latlng.lat,e.latlng.lng]).addTo(map);  
-
-        //L.marker([e.latlng.lat, e.latlng.lng]).addTo(map).on('mouseover', onClick);
+    var banjirIcon = L.icon({
+       iconUrl: '/marker/marker-icon-blue.png',
     });
-       // L.marker(e.latlng.lat, e.latlng.lng).addTo(map).on('mouseover', onClick);
+    lat = {!!$data->lat!!}
+    long = {!!$data->long!!}
+    console.log(lat, long);
+    L.marker([lat, long],{icon:banjirIcon}).addTo(map);
+
+    // var theMarker = {};
+
+    // map.on('click', function(e) {
+    //     document.getElementById("lat").value = e.latlng.lat;
+    //     document.getElementById("long").value = e.latlng.lng;
+    
+    //     if (theMarker != undefined) {
+    //           map.removeLayer(theMarker);
+    //     };
+
+    //     //Add a marker to show where you clicked.
+    //     theMarker = L.marker([e.latlng.lat,e.latlng.lng]).addTo(map);  
+
+    // });
 </script>
 
 <script>

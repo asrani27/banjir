@@ -47,7 +47,6 @@ crossorigin=""/>
               <th class="text-center">Tinggi Air (cm)</th>
               <th class="text-center">Tgl Update</th>
               <th class="text-center">Jam Update</th>
-              {{-- <th class="text-center">Foto</th> --}}
           </tr>
           </thead>
           <tbody>
@@ -67,7 +66,7 @@ crossorigin=""/>
               @endforeach
           
           </tbody>
-          </table>
+        </table>
       </div>
     </div>
   </div>
@@ -88,7 +87,7 @@ crossorigin=""></script>
 
 
 <script>
-    var map = L.map('mapid').setView([-3.320363756863717, 114.6000705394259], 14);
+    var map = L.map('mapid').setView([-3.320363756863717, 114.6000705394259], 12);
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         }).addTo(map);
