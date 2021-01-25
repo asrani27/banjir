@@ -2,7 +2,7 @@
     <div class="row">
         <div class="col-lg-12">
             <h2>UPDATE DATA TERKINI</h2>
-            <p class="p-heading p-large">Update per {{\Carbon\Carbon::today()->format('d/M/Y')}}</p>
+            <p class="p-heading p-large">Update Terakhir Tgl : {{\Carbon\carbon::parse(\App\DataJson::orderBy('id','DESC')->first()->tanggal)->format('d M Y')}}</p>
         </div> <!-- end of col -->
     </div> <!-- end of row -->
     <div class="row">
