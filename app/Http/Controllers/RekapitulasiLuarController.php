@@ -18,8 +18,16 @@ class RekapitulasiLuarController extends Controller
             $data = RekapitulasiLuar::where('kelurahan_id', Auth::user()->kelurahan->id)->get();
         }else{
             $data = RekapitulasiLuar::get();
+            $kel = Kelurahan::get()->map(function($item){
+                $item->perempuan    = $item->rekapitulasiluar->sum('perempuan');
+                $item->laki  = $item->rekapitulasiluar->sum('laki');
+                $item->balita    = $item->rekapitulasiluar->sum('balita');
+                $item->lansia  = $item->rekapitulasiluar->sum('lansia');
+                $item->jumlah  = $item->rekapitulasiluar->sum('jumlah');
+                return $item;
+            });
         }
-        return view('admin.rekapitulasiluar.index',compact('data'));
+        return view('admin.rekapitulasiluar.index',compact('data','kel'));
     }
 
     public function add()

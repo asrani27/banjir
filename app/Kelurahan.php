@@ -27,6 +27,11 @@ class Kelurahan extends Model
         return $this->hasMany(Rekapitulasi::class);
     }
     
+    public function rekapitulasiluar()
+    {
+        return $this->hasMany(RekapitulasiLuar::class);
+    }
+    
     public function user()
     {
         return $this->belongsTo(User::class);

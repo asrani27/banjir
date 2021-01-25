@@ -82,6 +82,57 @@
     </div>
   </div>
   <!-- /.col-md-6 -->
+  
+  <div class="col-lg-12">
+    <div class="card card-primary card-outline">
+      <div class="card-header">
+        <h5 class="card-title m-0"> <i class="fas fa-server"></i> Data Pengungsi Dari Luar Berdasarkan Kelurahan </h5>
+      </div>
+        <div class="card-body">
+            <table id="example1" class="table table-bordered table-striped table-sm">
+            <thead>
+            <tr class="bg-gradient-primary">
+                <th class="text-center">No</th>
+                <th class="text-center">Kelurahan</th>
+                <th class="text-center">Perempuan</th>
+                <th class="text-center">Laki-laki</th>
+                <th class="text-center">Balita</th>
+                <th class="text-center">Lansia</th>
+                <th class="text-center">Jumlah</th>
+            </tr>
+            </thead>
+            <tbody>
+                @php
+                    $no =1;
+                @endphp
+                @foreach ($kel as $item)
+                    <tr style="font-size:11px; font-family:Arial, Helvetica, sans-serif">
+                        <td>{{$no++}}</td>
+                        <td>{{$item->nama}}</td>
+                        <td class="text-center">{{$item->perempuan}}</td>
+                        <td class="text-center">{{$item->laki}}</td>
+                        <td class="text-center">{{$item->balita}}</td>
+                        <td class="text-center">{{$item->lansia}}</td>
+                        <td class="text-center">{{$item->jumlah}}</td>
+                    </tr>
+                @endforeach
+            
+            </tbody>
+            <tfoot>
+              <tr style="font-size:11px; font-family:Arial, Helvetica, sans-serif">
+                <th></th>
+                <th>TOTAL</th>
+                <th class="text-center">{{$data->sum('perempuan')}}</th>
+                <th class="text-center">{{$data->sum('laki')}}</th>
+                <th class="text-center">{{$data->sum('balita')}}</th>
+                <th class="text-center">{{$data->sum('lansia')}}</th>
+                <th class="text-center">{{$data->sum('jumlah')}}</th>
+              </tr>
+            </tfoot>
+            </table>
+        </div>
+    </div>
+  </div>
 </div>
 @endsection
 
