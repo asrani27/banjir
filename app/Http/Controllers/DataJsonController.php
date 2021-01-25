@@ -98,7 +98,7 @@ class DataJsonController extends Controller
         $data = collect(json_decode(DataJson::find($id)->json_pengungsian));
         $tanggal = DataJson::find($id)->tanggal;
         $pdf = PDF::loadView('admin.pdf.pengungsian', compact('data','tanggal'));
-        return $pdf->download('dapur'.$now.'.pdf');
+        return $pdf->download('pengungsian'.$now.'.pdf');
     }
 
     public function json_pengungsian($id)
