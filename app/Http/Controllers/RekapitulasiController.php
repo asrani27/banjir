@@ -6,6 +6,7 @@ use App\Dapur;
 use App\Banjir;
 use App\Lokasi;
 use App\Kecamatan;
+use App\Kelurahan;
 use App\Pengungsian;
 use App\Rekapitulasi;
 use Illuminate\Http\Request;
@@ -22,8 +23,18 @@ class RekapitulasiController extends Controller
             $data = Rekapitulasi::where('kelurahan_id', Auth::user()->kelurahan->id)->get();
         }else{
             $data = Rekapitulasi::get();
+            $kel = Kelurahan::get()->map(function($item){
+                $item->terdampak_kk    = $item->rekapitulasi->sum('terdampak_kk');
+                $item->terdampak_jiwa  = $item->rekapitulasi->sum('terdampak_jiwa');
+                $item->mengungsi_kk    = $item->rekapitulasi->sum('mengungsi_kk');
+                $item->mengungsi_jiwa  = $item->rekapitulasi->sum('mengungsi_jiwa');
+                $item->balita  = $item->rekapitulasi->sum('balita');
+                $item->lansia  = $item->rekapitulasi->sum('lansia');
+                $item->ibu  = $item->rekapitulasi->sum('ibu');
+                return $item;
+            });
         }
-        return view('admin.rekapitulasi.index',compact('data'));
+        return view('admin.rekapitulasi.index',compact('data','kel'));
     }
 
     public function json()

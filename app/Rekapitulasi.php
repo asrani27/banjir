@@ -24,4 +24,5 @@ class Rekapitulasi extends Model
     {
         return $this->belongsTo(Kelurahan::class);
     }
+    
 }

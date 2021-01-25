@@ -63,13 +63,6 @@ crossorigin=""/>
                       <td class="text-center">{{$item->tinggi_air}}</td>
                       <td class="text-center">{{\Carbon\Carbon::parse($item->updated_at)->format('d/M/Y')}}</td>
                       <td class="text-center">{{\Carbon\Carbon::parse($item->updated_at)->format('H:i')}} WITA</td>
-                      {{-- <td class="text-center">
-                        @if ($item->file == null)
-                            -
-                        @else  
-                          <img src="/storage/{{$item->file}}" width="100">
-                        @endif
-                      </td> --}}
                   </tr>
               @endforeach
           
