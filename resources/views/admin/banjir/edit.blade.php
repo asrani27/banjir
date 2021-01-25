@@ -7,6 +7,9 @@ crossorigin=""/>
 <style>
     #mapid { height: 500px; }
 </style>
+<!-- Select2 -->
+<link rel="stylesheet" href="/assets/plugins/select2/css/select2.min.css">
+<link rel="stylesheet" href="/assets/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css">
 @endpush
 
 @section('content')
@@ -30,7 +33,7 @@ crossorigin=""/>
               <input type="hidden" class="form-control" name="kelurahan_id" value="{{Auth::user()->kelurahan->id}}">
                   
               @else
-              <select name="kelurahan_id" class="form-control">
+              <select name="kelurahan_id" class="form-control select2">
                   <option value="">-Pilih-</option>
                 @foreach (kelurahan() as $item)
                     <option value="{{$item->id}}" {{$data->kelurahan_id == $item->id ? 'selected':''}}>{{$item->nama}}</option>
@@ -92,6 +95,21 @@ crossorigin=""/>
 @endsection
 
 @push('js')
+
+<!-- Select2 -->
+<script src="/assets/plugins/select2/js/select2.full.min.js"></script>
+<script>
+  
+  $(function () {
+    //Initialize Select2 Elements
+    $('.select2').select2()
+
+    //Initialize Select2 Elements
+    $('.select2bs4').select2({
+      theme: 'bootstrap4'
+    })
+})
+</script>
 <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
 integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
 crossorigin=""></script>
@@ -104,25 +122,29 @@ crossorigin=""></script>
     var banjirIcon = L.icon({
        iconUrl: '/marker/marker-icon-blue.png',
     });
+    
+    var lastIcon = L.icon({
+       iconUrl: '/marker/marker-icon-red.png',
+    });
     lat = {!!$data->lat!!}
     long = {!!$data->long!!}
     console.log(lat, long);
-    L.marker([lat, long],{icon:banjirIcon}).addTo(map);
+    L.marker([lat, long],{icon:lastIcon}).addTo(map);
 
-    // var theMarker = {};
+    var theMarker = {};
 
-    // map.on('click', function(e) {
-    //     document.getElementById("lat").value = e.latlng.lat;
-    //     document.getElementById("long").value = e.latlng.lng;
+    map.on('click', function(e) {
+        document.getElementById("lat").value = e.latlng.lat;
+        document.getElementById("long").value = e.latlng.lng;
     
-    //     if (theMarker != undefined) {
-    //           map.removeLayer(theMarker);
-    //     };
+        if (theMarker != undefined) {
+              map.removeLayer(theMarker);
+        };
 
-    //     //Add a marker to show where you clicked.
-    //     theMarker = L.marker([e.latlng.lat,e.latlng.lng]).addTo(map);  
+        //Add a marker to show where you clicked.
+        theMarker = L.marker([e.latlng.lat,e.latlng.lng]).addTo(map);  
 
-    // });
+    });
 </script>
 
 <script>
