@@ -83,6 +83,24 @@ class DataJsonController extends Controller
         return response()->json(json_decode(DataJson::find($id)->json_dapur));
     }
     
+    public function json_dapur_print($id)
+    {
+        $now = Carbon::now()->format('dmYHi');
+        $data = collect(json_decode(DataJson::find($id)->json_dapur));
+        $tanggal = DataJson::find($id)->tanggal;
+        $pdf = PDF::loadView('admin.pdf.dapur', compact('data','tanggal'));
+        return $pdf->download('dapur'.$now.'.pdf');
+    }
+
+    public function json_pengungsian_print($id)
+    {
+        $now = Carbon::now()->format('dmYHi');
+        $data = collect(json_decode(DataJson::find($id)->json_pengungsian));
+        $tanggal = DataJson::find($id)->tanggal;
+        $pdf = PDF::loadView('admin.pdf.pengungsian', compact('data','tanggal'));
+        return $pdf->download('dapur'.$now.'.pdf');
+    }
+
     public function json_pengungsian($id)
     {
         return response()->json(json_decode(DataJson::find($id)->json_pengungsian));

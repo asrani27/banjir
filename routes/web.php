@@ -39,7 +39,10 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/admin/json/json_rekapluar/print/{id}', 'DataJsonController@json_rekapluar_print');
 
     Route::get('/admin/json/json_dapur/{id}', 'DataJsonController@json_dapur');
+    Route::get('/admin/json/json_dapur/print/{id}', 'DataJsonController@json_dapur_print');
+
     Route::get('/admin/json/json_pengungsian/{id}', 'DataJsonController@json_pengungsian');
+    Route::get('/admin/json/json_pengungsian/print/{id}', 'DataJsonController@json_pengungsian_print');
 
     Route::get('/home', 'HomeController@home');
     Route::get('/logout', 'LoginController@logout');
