@@ -33,7 +33,7 @@
 
 <div class="auto-style4">
 	<strong><span class="auto-style5">Data Rekapitulasi Dampak Bencana</span><br class="auto-style5" />
-	<span class="auto-style5">Tanggal : {{$tanggal}}, {{\Carbon\Carbon::parse($tanggal)->isoFormat('d MMMM Y')}}</span></strong> </div><br>
+	<span class="auto-style5">Tanggal : {{\Carbon\Carbon::parse($tanggal)->translatedFormat('d F Y')}}</span></strong> </div><br>
 <table cellpadding="2" cellspacing="0" class="auto-style2" style="width: 100%">
 	<tr>
 		<td class="auto-style1" rowspan="2"><strong>No</strong></td>

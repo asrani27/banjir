@@ -23,7 +23,7 @@
                     <th class="text-center">KK</th>
                     <th class="text-center">Jiwa</th>
                 </tr>
-            </thead>
+        </thead>
             <tbody>
                 @php
                     $no = 1;
