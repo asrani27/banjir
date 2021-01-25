@@ -58,7 +58,7 @@ class DataJsonController extends Controller
         $now = Carbon::now()->format('dmYHi');
         $data = collect(json_decode(DataJson::find($id)->json_rekap));
         $tanggal = DataJson::find($id)->tanggal;
-        dd($tanggal);
+        
         $pdf = PDF::loadView('admin.pdf.rekap', compact('data','tanggal'));
         return $pdf->download('rekapitulasi'.$now.'.pdf');
     }
