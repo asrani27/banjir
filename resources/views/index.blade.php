@@ -30,6 +30,7 @@
     crossorigin=""/>
     <style>
         #mapid { height: 450px; width:100% }
+        #mapidbanjir { height: 450px; width:100% }
     </style>
 	<!-- Favicon  -->
     <link rel="icon" href="/front/images/favicon.png">
@@ -418,8 +419,8 @@ crossorigin=""></script>
             }
    }
 </script>
-{{-- <script>
-    var map = L.map('mapid').setView([-3.320363756863717, 114.6000705394259], 14);
+<script>
+    var map = L.map('mapidbanjir').setView([-3.320363756863717, 114.6000705394259], 14);
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         }).addTo(map);
@@ -447,6 +448,6 @@ crossorigin=""></script>
         L.marker([banjir[i].lat, banjir[i].long],{icon:banjirIcon}).addTo(map).bindPopup(PopUp);
        }
    }
-</script> --}}
+</script>
 </body>
 </html>

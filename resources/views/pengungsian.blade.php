@@ -30,6 +30,7 @@
     crossorigin=""/>
     <style>
         #mapid { height: 450px; width:100% }
+        #mapidbanjir { height: 450px; width:100% }
     </style>
 	<!-- Favicon  -->
     <link rel="icon" href="/front/images/favicon.png">
@@ -426,6 +427,36 @@ crossorigin=""></script>
                 <img src="/storage/'+pengungsian[i].file+'" width=100>';
                 L.marker([pengungsian[i].lat, pengungsian[i].long],{icon:pengungsianIcon}).addTo(map).bindPopup(PopUp);
             }
+   }
+</script>
+<script>
+    var map = L.map('mapidbanjir').setView([-3.320363756863717, 114.6000705394259], 14);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+    banjir = {!!json_encode(petaBanjir())!!}
+   
+   var banjirIcon = L.icon({
+       iconUrl: '/front/images/banjir3.png',
+       iconSize:[40, 45],
+   });
+   
+   for (var i = 0; i < banjir.length; i++) {
+       if(banjir[i].file == null){
+            var PopUp = '<strong>KECAMATAN : '+banjir[i].nama_kecamatan+'</strong><br/>\
+                <strong>KELURAHAN : '+banjir[i].nama_kelurahan+'</strong><br/>\
+                <strong>LOKASI : '+banjir[i].lokasi+'</strong><br/>\
+                <strong>TINGGI AIR : '+banjir[i].tinggi_air+' cm</strong><br/>';
+        L.marker([banjir[i].lat, banjir[i].long],{icon:banjirIcon}).addTo(map).bindPopup(PopUp);
+       } else{
+            var PopUp = '<strong>KECAMATAN : '+banjir[i].nama_kecamatan+'</strong><br/>\
+                <strong>KELURAHAN : '+banjir[i].nama_kelurahan+'</strong><br/>\
+                <strong>LOKASI : '+banjir[i].lokasi+'</strong><br/>\
+                <strong>TINGGI AIR : '+banjir[i].tinggi_air+' cm</strong><br/>\
+                <img src="/storage/'+banjir[i].file+'" width=100>';
+        L.marker([banjir[i].lat, banjir[i].long],{icon:banjirIcon}).addTo(map).bindPopup(PopUp);
+       }
    }
 </script>
 </body>
