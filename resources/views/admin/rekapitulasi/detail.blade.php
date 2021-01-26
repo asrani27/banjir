@@ -23,7 +23,6 @@
                         <th rowspan=2 class="text-center" style="vertical-align:middle;">No</th>
                         <th rowspan=2 class="text-center" style="vertical-align:middle;">Nama Kecamatan</th>
                         <th rowspan=2 class="text-center" style="vertical-align:middle;">Kelurahan</th>
-                        <th rowspan=2 class="text-center" style="vertical-align:middle;">Lokasi</th>
                         <th colspan=2 class="text-center">Terdampak</th>
                         <th colspan=2 class="text-center">Mengungsi</th>
                         <th rowspan=2 class="text-center" style="vertical-align:middle;">Balita</th>
@@ -44,9 +43,8 @@
                     @foreach ($data as $item)
                     <tr>
                         <td class="text-center">{{$no++}}</td>
-                        <td class="text-center">{{$item->kecamatan->nama}}</td>
-                        <td class="text-center">{{$item->kelurahan->nama}}</td>
-                        <td class="text-center">{{$item->lokasi->nama}}</td>
+                        <td class="text-center">{{$item->kecamatan}}</td>
+                        <td class="text-center">{{$item->nama}}</td>
                         <td class="text-center">{{$item->terdampak_kk}}</td>
                         <td class="text-center">{{$item->terdampak_jiwa}}</td>
                         <td class="text-center">{{$item->mengungsi_kk}}</td>
@@ -58,7 +56,6 @@
                     @endforeach
                     <tfoot>
                         <tr>
-                            <th></th>
                             <th></th>
                             <th></th>
                             <th class="text-center">TOTAL</th>
