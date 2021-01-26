@@ -9,6 +9,7 @@ use App\Lokasi;
 use App\Kecamatan;
 use App\Kelurahan;
 use Carbon\Carbon;
+use App\Infografis;
 use App\Pengungsian;
 use App\Rekapitulasi;
 use Illuminate\Support\Facades\Auth;
@@ -142,6 +143,11 @@ function pengungsian()
 function galery()
 {
     return Galery::get();
+}
+
+function infografis()
+{
+    return Infografis::get();
 }
 
 function titik()

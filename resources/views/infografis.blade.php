@@ -1,5 +1,5 @@
 
-@foreach (galery() as $item)
+@foreach (infografis() as $item)
 
 <div class="swiper-slide">
 <div class="image-container">

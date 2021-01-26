@@ -131,7 +131,7 @@
                     <div class="slider-container">
                         <div class="swiper-container image-slider">
                             <div class="swiper-wrapper">
-                                @include('galery')
+                                @include('infografis')
                             </div> <!-- end of swiper-wrapper -->
                         </div> <!-- end of swiper container -->
                     </div> <!-- end of slider-container -->
