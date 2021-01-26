@@ -41,6 +41,10 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/admin/json/json_dapur/{id}', 'DataJsonController@json_dapur');
     Route::get('/admin/json/json_dapur/print/{id}', 'DataJsonController@json_dapur_print');
 
+
+    Route::get('/admin/json/json_banjir/{id}', 'DataJsonController@json_banjir');
+    Route::get('/admin/json/json_banjir/print/{id}', 'DataJsonController@json_banjir_print');
+
     Route::get('/admin/json/json_pengungsian/{id}', 'DataJsonController@json_pengungsian');
     Route::get('/admin/json/json_pengungsian/print/{id}', 'DataJsonController@json_pengungsian_print');
 

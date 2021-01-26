@@ -21,11 +21,13 @@ class DataJsonController extends Controller
     {
         $today = Carbon::today();
         $rekap = json_encode(Rekapitulasi()->toArray());
+        $banjir = json_encode(banjir()->toArray());
         $rekapluar = json_encode(RekapitulasiLuar()->toArray());
         $pengungsian = json_encode(pengungsian()->toArray());
         $dapur = json_encode(dapur()->toArray());
         
         $attr['tanggal'] = $today;
+        $attr['json_banjir'] = $banjir;
         $attr['json_rekap'] = $rekap;
         $attr['json_rekapluar'] = $rekapluar;
         $attr['json_pengungsian'] = $pengungsian;
@@ -90,6 +92,22 @@ class DataJsonController extends Controller
         $tanggal = DataJson::find($id)->tanggal;
         $pdf = PDF::loadView('admin.pdf.dapur', compact('data','tanggal'));
         return $pdf->download('dapur'.$now.'.pdf');
+    }
+
+    
+
+    public function json_banjir($id)
+    {
+        return response()->json(json_decode(DataJson::find($id)->json_banjir));
+    }
+    
+    public function json_banjir_print($id)
+    {
+        $now = Carbon::now()->format('dmYHi');
+        $data = collect(json_decode(DataJson::find($id)->json_banjir));
+        $tanggal = DataJson::find($id)->tanggal;
+        $pdf = PDF::loadView('admin.pdf.banjir', compact('data','tanggal'));
+        return $pdf->download('banjir'.$now.'.pdf');
     }
 
     public function json_pengungsian_print($id)

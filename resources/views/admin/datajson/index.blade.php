@@ -30,6 +30,7 @@
                 <th class="text-center">Tanggal</th>
                 <th class="text-center">Data Rekap Dalam Kota</th>
                 <th class="text-center">Data Rekap Luar Kota</th>
+                <th class="text-center">Data Titik Banjir</th>
                 <th class="text-center">Data Dapur Umum</th>
                 <th class="text-center">Pengungsian</th>
             </tr>
@@ -56,6 +57,14 @@
                             @else
                             <a href="/admin/json/json_rekapluar/{{$item->id}}" target="_blank"><i class="fas fa-eye"></i></a>
                             <a href="/admin/json/json_rekapluar/print/{{$item->id}}" class="btn btn-xs bg-gradient-info"><i class="fas fa-print"></i>&nbsp; print</a> 
+                            @endif
+                        </td>
+                        <td class="text-center">
+                            @if($item->json_banjir == null)
+                            -
+                            @else
+                            <a href="/admin/json/json_banjir/{{$item->id}}" target="_blank"><i class="fas fa-eye"></i></a>
+                            <a href="/admin/json/json_banjir/print/{{$item->id}}" class="btn btn-xs bg-gradient-info"><i class="fas fa-print"></i>&nbsp; print</a> 
                             @endif
                         </td>
                         <td class="text-center">
