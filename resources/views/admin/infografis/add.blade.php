@@ -5,7 +5,7 @@
 @endpush
 
 @section('content')
-<a href="/admin/infografis" class="btn btn-sm btn-secondary"><i class="fas fa-arrow-left"></i>&nbsp; Kembali</a> <br /><br />
+<a href="/admin/infografis" class="btn btn-sm btn-secondary"><i class="fas fa-arrow-left"></i>&nbsp;Kembali</a> <br /><br />
 
 <div class="row">
   <div class="col-lg-12">
