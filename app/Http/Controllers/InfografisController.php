@@ -11,12 +11,12 @@ class InfografisController extends Controller
 {  public function index()
     {
         $data = Infografis::get();
-        return view('admin.Infografis.index',compact('data'));
+        return view('admin.infografis.index',compact('data'));
     }
     
     public function add()
     {
-        return view('admin.Infografis.add');
+        return view('admin.infografis.add');
     }
     
     public function store(Request $req)
