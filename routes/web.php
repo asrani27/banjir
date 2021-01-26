@@ -83,6 +83,13 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('/admin/galery/edit/{id}', 'GaleryController@update');
     Route::get('/admin/galery/delete/{id}', 'GaleryController@delete');
 
+    Route::get('/admin/infografis', 'InfografisController@index');
+    Route::get('/admin/infografis/add', 'InfografisController@add');
+    Route::post('/admin/infografis/add', 'InfografisController@store');
+    Route::get('/admin/infografis/edit/{id}', 'InfografisController@edit');
+    Route::post('/admin/infografis/edit/{id}', 'InfografisController@update');
+    Route::get('/admin/infografis/delete/{id}', 'InfografisController@delete');
+
     Route::get('/admin/rekapitulasi', 'RekapitulasiController@index');
     Route::get('/admin/rekapitulasi/add', 'RekapitulasiController@add');
     Route::post('/admin/rekapitulasi/add', 'RekapitulasiController@store');
