@@ -18,7 +18,7 @@
             <tr>
                 <td class="text-center">{{$no++}}</td>
                 <td class="text-center">{{$item->nama}}</td>
-                {{-- <td class="text-center">{{$item->titik_banjir}}</td> --}}
+                <td class="text-center">{{$item->titik_banjir}}</td>
                 <td class="text-center">{{$item->titik_posko}}</td>
                 <td class="text-center">{{$item->titik_dapur}}</td>
                 <td class="text-center">
@@ -31,7 +31,7 @@
             <tr>
                 <th></th>
                 <th class="text-center">TOTAL</th>
-                {{-- <th class="text-center">{{titik()->sum('titik_banjir')}}</th> --}}
+                <th class="text-center">{{titik()->sum('titik_banjir')}}</th>
                 <th class="text-center">{{titik()->sum('titik_posko')}}</th>
                 <th class="text-center">{{titik()->sum('titik_dapur')}}</th>
                 <th class="text-center"></th>
