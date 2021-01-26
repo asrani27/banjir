@@ -242,17 +242,7 @@
     <div class="basic-2">
         <div class="container">
             <div class="row">
-                <div class="col-lg-6">
-                    <div class="image-container">
-                        {{-- <img class="img-fluid" src="/front/images/depan.png" alt="alternative"> --}}
-                        {{-- <img class="img-fluid" src="/front/images/peduli-bencana.jpg" alt="alternative"> --}}
-                    </div> <!-- end of image-container -->
-                </div> <!-- end of col -->
-                <div class="col-lg-6">
-
-                    @include('donasi')
-
-                </div> <!-- end of col -->
+                @include('donasi')
             </div> <!-- end of row -->
         </div> <!-- end of container -->
     </div> <!-- end of basic-2 -->
