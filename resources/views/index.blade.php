@@ -455,19 +455,23 @@ crossorigin=""></script>
    });
    
    for (var i = 0; i < banjir.length; i++) {
-       if(banjir[i].file == null){
-            var PopUp = '<strong>KECAMATAN : '+banjir[i].nama_kecamatan+'</strong><br/>\
-                <strong>KELURAHAN : '+banjir[i].nama_kelurahan+'</strong><br/>\
-                <strong>LOKASI : '+banjir[i].lokasi+'</strong><br/>\
-                <strong>TINGGI AIR : '+banjir[i].tinggi_air+' cm</strong><br/>';
-        L.marker([banjir[i].lat, banjir[i].long],{icon:banjirIcon}).addTo(map).bindPopup(PopUp);
-       } else{
-            var PopUp = '<strong>KECAMATAN : '+banjir[i].nama_kecamatan+'</strong><br/>\
-                <strong>KELURAHAN : '+banjir[i].nama_kelurahan+'</strong><br/>\
-                <strong>LOKASI : '+banjir[i].lokasi+'</strong><br/>\
-                <strong>TINGGI AIR : '+banjir[i].tinggi_air+' cm</strong><br/>\
-                <img src="/storage/'+banjir[i].file+'" width=100>';
-        L.marker([banjir[i].lat, banjir[i].long],{icon:banjirIcon}).addTo(map).bindPopup(PopUp);
+       if(banjir[i].lat == '-' || banjir[i].lat == null){
+
+       }else{
+            if(banjir[i].file == null){
+                var PopUp = '<strong>KECAMATAN : '+banjir[i].nama_kecamatan+'</strong><br/>\
+                    <strong>KELURAHAN : '+banjir[i].nama_kelurahan+'</strong><br/>\
+                        <strong>LOKASI : '+banjir[i].lokasi+'</strong><br/>\
+                        <strong>TINGGI AIR : '+banjir[i].tinggi_air+' cm</strong><br/>';
+                L.marker([banjir[i].lat, banjir[i].long],{icon:banjirIcon}).addTo(map).bindPopup(PopUp);
+            } else{
+                    var PopUp = '<strong>KECAMATAN : '+banjir[i].nama_kecamatan+'</strong><br/>\
+                        <strong>KELURAHAN : '+banjir[i].nama_kelurahan+'</strong><br/>\
+                        <strong>LOKASI : '+banjir[i].lokasi+'</strong><br/>\
+                        <strong>TINGGI AIR : '+banjir[i].tinggi_air+' cm</strong><br/>\
+                        <img src="/storage/'+banjir[i].file+'" width=100>';
+                L.marker([banjir[i].lat, banjir[i].long],{icon:banjirIcon}).addTo(map).bindPopup(PopUp);
+            }
        }
    }
 </script>
