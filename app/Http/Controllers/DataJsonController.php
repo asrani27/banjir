@@ -13,7 +13,7 @@ class DataJsonController extends Controller
 {
     public function index()
     {
-        $data = DataJson::get();
+        $data = DataJson::orderBy('tanggal','ASC')->get();
         return view('admin.datajson.index',compact('data'));
     }
 
