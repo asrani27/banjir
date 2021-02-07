@@ -33,6 +33,7 @@
                 <th class="text-center">Data Titik Banjir</th>
                 <th class="text-center">Data Dapur Umum</th>
                 <th class="text-center">Pengungsian</th>
+                <th class="text-center"></th>
             </tr>
             </thead>
             <tbody>
@@ -82,6 +83,9 @@
                             <a href="/admin/json/json_pengungsian/{{$item->id}}" target="_blank"><i class="fas fa-eye"></i></a>
                             <a href="/admin/json/json_pengungsian/print/{{$item->id}}" class="btn btn-xs bg-gradient-info"><i class="fas fa-print"></i>&nbsp; print</a> 
                             @endif
+                        </td>
+                        <td class="text-center">
+                          <a href="/admin/json/usedata/{{$item->id}}" class="btn btn-xs bg-gradient-purple">Use DB <i class="fas fa-database"></i></a>
                         </td>
                     </tr>
                 @endforeach

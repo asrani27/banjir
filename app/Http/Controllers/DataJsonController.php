@@ -3,10 +3,15 @@
 namespace App\Http\Controllers;
 
 use PDF;
+use App\Dapur;
+use App\Banjir;
 use App\DataJson;
 use App\Kecamatan;
 use App\Kelurahan;
 use Carbon\Carbon;
+use App\Pengungsian;
+use App\Rekapitulasi;
+use App\RekapitulasiLuar;
 use Illuminate\Http\Request;
 
 class DataJsonController extends Controller
@@ -15,6 +20,66 @@ class DataJsonController extends Controller
     {
         $data = DataJson::orderBy('tanggal','ASC')->get();
         return view('admin.datajson.index',compact('data'));
+    }
+
+    public function useData($id)
+    {
+        $data = DataJson::find($id);
+        
+        //Rekapitulasi
+        $rekap = collect(json_decode($data->json_rekap))->map(function($item){
+            return $item->rekapitulasi;
+        })->collapse();
+        Rekapitulasi::truncate();
+        foreach($rekap as $r)
+        {
+            Rekapitulasi::create((array)$r);
+        }
+
+        //Rekapitulasi Luar
+        $rekap_luar = collect(json_decode($data->json_rekapluar))->map(function($item){
+            return $item->rekapitulasiluar;
+        })->collapse();
+        
+        RekapitulasiLuar::truncate();
+        foreach($rekap_luar as $r)
+        {
+            RekapitulasiLuar::create((array)$r);
+        }
+
+        //Banjir
+        $banjir = collect(json_decode($data->json_banjir))->map(function($item){
+            return $item;
+        });
+        
+        Banjir::truncate();
+        foreach($banjir as $r)
+        {
+            Banjir::create((array)$r);
+        }
+        //Dapur
+        $dapur = collect(json_decode($data->json_dapur))->map(function($item){
+            return $item;
+        });
+        
+        Dapur::truncate();
+        foreach($dapur as $r)
+        {
+            Dapur::create((array)$r);
+        }
+         //Pengungsian
+         $pengungsian = collect(json_decode($data->json_pengungsian))->map(function($item){
+            return $item;
+        });
+        
+        Pengungsian::truncate();
+        foreach($pengungsian as $r)
+        {
+            Pengungsian::create((array)$r);
+        }
+        
+        toastr()->success('Data Berhasil Di Setting Ke Tanggal '. Carbon::parse($data->tanggal)->format('d M Y'));
+        return back();
     }
 
     public function store()

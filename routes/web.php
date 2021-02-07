@@ -32,6 +32,7 @@ Route::group(['middleware' => ['auth']], function () {
     
     Route::get('/admin/json', 'DataJsonController@index');
     Route::get('/admin/json/store', 'DataJsonController@store');
+    Route::get('/admin/json/usedata/{id}', 'DataJsonController@useData');
     Route::get('/admin/json/json_rekap/{id}', 'DataJsonController@json_rekap');
     Route::get('/admin/json/json_rekapluar/{id}', 'DataJsonController@json_rekapluar');
     
