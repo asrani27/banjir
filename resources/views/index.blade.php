@@ -526,7 +526,7 @@ crossorigin=""></script>
             },{
               label: 'PENGUNGSI',
               fill: false,
-              data: pengungsian,
+              data: pengungsi,
              
               borderColor: [
                   'rgb(251, 127, 80)'
@@ -535,7 +535,7 @@ crossorigin=""></script>
             },{
               label: 'PENGUNGSI DARI LUAR',
               fill: false,
-              data: pengungsian,
+              data: pengungsiluar,
              
               borderColor: [
                   'rgb(249, 19, 147)'
