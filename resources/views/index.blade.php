@@ -489,7 +489,6 @@ crossorigin=""></script>
     var banjir = {!!json_encode($data['banjir'])!!}
     var dapur = {!!json_encode($data['dapur'])!!}
     var pengungsian = {!!json_encode($data['pengungsian'])!!}
-    var pengungsi = {!!json_encode($data['pengungsi'])!!}
     var pengungsiluar = {!!json_encode($data['pengungsiluar'])!!}
     
     var myChart = new Chart(ctx, {
@@ -524,21 +523,46 @@ crossorigin=""></script>
               ],
               borderWidth: 2
             },{
-              label: 'TERDAMPAK (JIWA)',
-              fill: false,
-              data: pengungsi,
-             
-              borderColor: [
-                  'rgb(251, 127, 80)'
-              ],
-              borderWidth: 2
-            },{
               label: 'PENGUNGSI DARI LUAR',
               fill: false,
               data: pengungsiluar,
              
               borderColor: [
                   'rgb(249, 19, 147)'
+              ],
+              borderWidth: 2
+            },
+          
+          ]
+      },
+      options: {
+          scales: {
+              yAxes: [{
+                  ticks: {
+                      beginAtZero: true
+                  }
+              }]
+          }
+      }
+  });
+</script>
+
+<script>
+    var ctx = document.getElementById('myChart2').getContext('2d');
+    var pengungsi = {!!json_encode($data['pengungsi'])!!}
+    
+    var myChart = new Chart(ctx, {
+      type: 'line',
+      data: {
+          labels: dates,
+          datasets: [
+            {
+              label: 'TERDAMPAK (JIWA)',
+              fill: false,
+              data: pengungsi,
+             
+              borderColor: [
+                  'rgb(251, 127, 80)'
               ],
               borderWidth: 2
             },
