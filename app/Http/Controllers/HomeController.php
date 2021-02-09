@@ -25,12 +25,12 @@ class HomeController extends Controller
             return count(json_decode($item->json_pengungsian));
         });
         $data['pengungsi'] = $json->map(function($item){
-            return count(json_decode($item->json_rekap));
+            return collect(json_decode($item->json_rekap))->sum('terdampak_jiwa');
         });
         $data['pengungsiluar'] = $json->map(function($item){
-            return count(json_decode($item->json_rekapluar));
+            return collect(json_decode($item->json_rekapluar))->sum('jumlah');
         });
-        //dd($data);
+        
         return view('index',compact('data'));
     }
 
@@ -62,10 +62,10 @@ class HomeController extends Controller
             return count(json_decode($item->json_pengungsian));
         });
         $data['pengungsi'] = $json->map(function($item){
-            return count(json_decode($item->json_rekap));
+            return collect(json_decode($item->json_rekap))->sum('terdampak_jiwa');
         });
         $data['pengungsiluar'] = $json->map(function($item){
-            return count(json_decode($item->json_rekapluar));
+            return collect(json_decode($item->json_rekapluar))->sum('jumlah');
         });
         return view('dapur',compact('data'));
     }
@@ -84,10 +84,10 @@ class HomeController extends Controller
             return count(json_decode($item->json_pengungsian));
         });
         $data['pengungsi'] = $json->map(function($item){
-            return count(json_decode($item->json_rekap));
+            return collect(json_decode($item->json_rekap))->sum('terdampak_jiwa');
         });
         $data['pengungsiluar'] = $json->map(function($item){
-            return count(json_decode($item->json_rekapluar));
+            return collect(json_decode($item->json_rekapluar))->sum('jumlah');
         });
         return view('pengungsian',compact('data'));
     }

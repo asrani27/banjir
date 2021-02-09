@@ -524,7 +524,7 @@ crossorigin=""></script>
               ],
               borderWidth: 2
             },{
-              label: 'PENGUNGSI',
+              label: 'TERDAMPAK (JIWA)',
               fill: false,
               data: pengungsi,
              
