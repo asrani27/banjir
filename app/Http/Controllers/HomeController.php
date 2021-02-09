@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Dapur;
 use App\Banjir;
+use App\DataJson;
 use App\Kecamatan;
 use App\Pengungsian;
 use Illuminate\Http\Request;
@@ -12,7 +13,25 @@ class HomeController extends Controller
 {
     public function index()
     {
-        return view('index');
+        $json = DataJson::orderBy('tanggal','ASC')->get();
+        $data['tanggal'] = $json->pluck('tanggal');
+        $data['banjir'] = $json->map(function($item){
+            return count(json_decode($item->json_banjir));
+        });
+        $data['dapur'] = $json->map(function($item){
+            return count(json_decode($item->json_dapur));
+        });
+        $data['pengungsian'] = $json->map(function($item){
+            return count(json_decode($item->json_pengungsian));
+        });
+        $data['pengungsi'] = $json->map(function($item){
+            return count(json_decode($item->json_rekap));
+        });
+        $data['pengungsiluar'] = $json->map(function($item){
+            return count(json_decode($item->json_rekapluar));
+        });
+        //dd($data);
+        return view('index',compact('data'));
     }
 
     public function vtronbanjir()
@@ -31,12 +50,46 @@ class HomeController extends Controller
 
     public function dapurUmum()
     {
-        return view('dapur');
+        $json = DataJson::orderBy('tanggal','ASC')->get();
+        $data['tanggal'] = $json->pluck('tanggal');
+        $data['banjir'] = $json->map(function($item){
+            return count(json_decode($item->json_banjir));
+        });
+        $data['dapur'] = $json->map(function($item){
+            return count(json_decode($item->json_dapur));
+        });
+        $data['pengungsian'] = $json->map(function($item){
+            return count(json_decode($item->json_pengungsian));
+        });
+        $data['pengungsi'] = $json->map(function($item){
+            return count(json_decode($item->json_rekap));
+        });
+        $data['pengungsiluar'] = $json->map(function($item){
+            return count(json_decode($item->json_rekapluar));
+        });
+        return view('dapur',compact('data'));
     }
 
     public function pengungsian()
     {
-        return view('pengungsian');
+        $json = DataJson::orderBy('tanggal','ASC')->get();
+        $data['tanggal'] = $json->pluck('tanggal');
+        $data['banjir'] = $json->map(function($item){
+            return count(json_decode($item->json_banjir));
+        });
+        $data['dapur'] = $json->map(function($item){
+            return count(json_decode($item->json_dapur));
+        });
+        $data['pengungsian'] = $json->map(function($item){
+            return count(json_decode($item->json_pengungsian));
+        });
+        $data['pengungsi'] = $json->map(function($item){
+            return count(json_decode($item->json_rekap));
+        });
+        $data['pengungsiluar'] = $json->map(function($item){
+            return count(json_decode($item->json_rekapluar));
+        });
+        return view('pengungsian',compact('data'));
     }
 
     public function dapurAdmin()

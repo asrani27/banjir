@@ -120,6 +120,9 @@
     </div> <!-- end of cards-1 -->
     <!-- end of services -->
 
+    <div id="services" style="text-align: center">
+        @include('grafik')
+    </div> <!-- end of cards-1 -->
     <!-- Customers -->
     <div class="slider-1">
         <div class="container">
@@ -471,6 +474,82 @@ crossorigin=""></script>
             }
        }
    }
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"></script>
+
+<script>
+    var ctx = document.getElementById('myChart').getContext('2d');
+    var dates = {!!json_encode($data['tanggal'])!!}
+    var banjir = {!!json_encode($data['banjir'])!!}
+    var dapur = {!!json_encode($data['dapur'])!!}
+    var pengungsian = {!!json_encode($data['pengungsian'])!!}
+    var pengungsi = {!!json_encode($data['pengungsi'])!!}
+    var pengungsiluar = {!!json_encode($data['pengungsiluar'])!!}
+    
+    var myChart = new Chart(ctx, {
+      type: 'line',
+      data: {
+          labels: dates,
+          datasets: [
+            {
+              label: 'BANJIR',
+              fill: false,
+              data: banjir,
+              borderColor: [
+                  'rgba(26, 193, 185, 1)'
+              ],
+              borderWidth: 2
+            },{
+              label: 'DAPUR',
+              fill: false,
+              data: dapur,
+             
+              borderColor: [
+                  'rgba(0, 143, 24, 1)'
+              ],
+              borderWidth: 2
+            },{
+              label: 'POS PENGUNGSIAN',
+              fill: false,
+              data: pengungsian,
+             
+              borderColor: [
+                  'rgba(143, 0, 0, 1)'
+              ],
+              borderWidth: 2
+            },{
+              label: 'PENGUNGSI',
+              fill: false,
+              data: pengungsian,
+             
+              borderColor: [
+                  'rgb(251, 127, 80)'
+              ],
+              borderWidth: 2
+            },{
+              label: 'PENGUNGSI DARI LUAR',
+              fill: false,
+              data: pengungsian,
+             
+              borderColor: [
+                  'rgb(249, 19, 147)'
+              ],
+              borderWidth: 2
+            },
+          
+          ]
+      },
+      options: {
+          scales: {
+              yAxes: [{
+                  ticks: {
+                      beginAtZero: true
+                  }
+              }]
+          }
+      }
+  });
 </script>
 </body>
 </html>
