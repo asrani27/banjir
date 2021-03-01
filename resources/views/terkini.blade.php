@@ -28,7 +28,7 @@
                 <img class="card-image" src="/front/images/banjir3.png" alt="alternative">
                 <div class="card-body">
                     <h3 class="card-title">Area Terdampak</h3>
-                    <h5>37.48 %</h5>
+                    <h5>0 %</h5>
                 </div>
             </div>
             <!-- end of card -->
